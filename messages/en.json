@@ -1,0 +1,741 @@
+{
+  "language": {
+    "hy": "Armenian",
+    "en": "English",
+    "ru": "Russian"
+  },
+  "nav": {
+    "home": "Home",
+    "product": "Product",
+    "features": "Features",
+    "deployment": "Deployment",
+    "licensing": "Licensing",
+    "security": "Security",
+    "pricing": "Licensing",
+    "docs": "Docs",
+    "support": "Support",
+    "about": "About",
+    "faq": "FAQ",
+    "blog": "News",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "account": "Account",
+    "logout": "Logout",
+    "admin": "Admin",
+    "menu": "Menu"
+  },
+  "footer": {
+    "description": "DitakNet is a self-hosted monitoring server for individuals, home labs, small offices, CCTV, and local IT visibility. It runs on Docker, Linux, or TrueNAS SCALE on infrastructure you control.",
+    "links": "Product",
+    "legal": "Legal",
+    "contact": "Contact"
+  },
+  "common": {
+    "brandName": "DitakNet",
+    "themeToggle": "Toggle light / dark",
+    "back": "Back",
+    "open": "Open",
+    "empty": "No records yet.",
+    "yes": "Yes",
+    "no": "No",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "status": "Status",
+    "priority": "Priority",
+    "package": "Package"
+  },
+  "home": {
+    "metaTitle": "DitakNet | Self-hosted monitoring for homes and small networks",
+    "metaDescription": "DitakNet is a self-hosted monitoring server for individuals, home labs, small offices, CCTV, routers, and local devices. Runs on Docker or Linux on port 5833.",
+    "hero": {
+      "eyebrow": "Self-hosted monitoring for people and small networks",
+      "title": "See every device on your network — without cloud lock-in",
+      "subtitle": "DitakNet helps individuals and small teams monitor routers, cameras, PCs, Wi‑Fi, printers, and local services on infrastructure they control.",
+      "supporting": "Install once on Docker or a small Linux PC. Discovery finds devices, health checks watch them, and you keep the data at home — not in a public cloud.",
+      "primaryCta": "See annual packages",
+      "secondaryCta": "Ask for a license",
+      "requestLicense": "Request annual license",
+      "viewPricing": "View annual licensing",
+      "contactSupport": "Contact for setup help",
+      "imageAlt": "DitakNet monitoring dashboard preview"
+    },
+    "audience": {
+      "eyebrow": "Who it is for",
+      "title": "Built for individual buyers and small setups",
+      "description": "DitakNet is sold as annual licenses to people who want practical local monitoring — not a heavy enterprise platform.",
+      "items": {
+        "0": {
+          "title": "Home & home lab",
+          "description": "Watch your router, NAS, cameras, and smart devices from one local dashboard."
+        },
+        "1": {
+          "title": "Small office / shop",
+          "description": "Keep printers, Wi‑Fi, POS, and CCTV visible without hiring a full-time IT team."
+        },
+        "2": {
+          "title": "Installers & freelancers",
+          "description": "Deploy for clients on Docker or Linux, then hand over a clear monitoring view."
+        }
+      }
+    },
+    "metrics": {
+      "devices": "Devices",
+      "checks": "Checks",
+      "alerts": "Alerts"
+    },
+    "explain": {
+      "title": "Built for local-first monitoring",
+      "description": "DitakNet runs on infrastructure you control. It fits home labs, small offices, CCTV setups, and independent IT work — without moving monitoring data to a public cloud."
+    },
+    "problem": {
+      "eyebrow": "The problem",
+      "title": "You only notice network issues after something breaks",
+      "description": "Homes and small businesses run routers, cameras, PCs, printers, and storage every day — but still guess what is online until a call, a blank screen, or a failed backup.",
+      "items": {
+        "0": "No simple local list of devices and their status",
+        "1": "Manual checking instead of automatic health checks",
+        "2": "Cameras and Wi‑Fi fail quietly until someone complains",
+        "3": "No clear annual license for the tools you actually use",
+        "4": "Cloud tools need the internet even for local monitoring",
+        "5": "Hard to hand a clean monitoring view to a client after install"
+      }
+    },
+    "product": {
+      "eyebrow": "Product",
+      "title": "What DitakNet provides",
+      "description": "A self-hosted monitoring server focused on real local operations—not a public cloud SaaS.",
+      "items": {
+        "0": { "title": "Network discovery", "description": "Identify devices and services on approved private subnets." },
+        "1": { "title": "Device visibility", "description": "See hosts, status, and operational context from one dashboard." },
+        "2": { "title": "Service monitoring", "description": "Run ping, TCP, HTTP, and related checks on a schedule." },
+        "3": { "title": "Health endpoints", "description": "Expose system health and version status for operations review." },
+        "4": { "title": "Alerts and status", "description": "Surface warnings, failures, and operational changes." },
+        "5": { "title": "Backup and restore", "description": "Manage full backups, validation, and restore workflows." },
+        "6": { "title": "License management", "description": "Annual licensing controls available product areas and limits." },
+        "7": { "title": "Role-based permissions", "description": "Backend permission checks for admin, security, data, backups, and updates areas." },
+        "8": { "title": "Update status", "description": "Check application version and update source configuration safely." },
+        "9": { "title": "Local deployment", "description": "Designed for Docker, Linux servers, and TrueNAS SCALE targets." }
+      }
+    },
+    "deployment": {
+      "eyebrow": "Deployment",
+      "title": "Runs inside your infrastructure",
+      "description": "The customer keeps the monitoring system on infrastructure they control. DitakNet does not require a public cloud dependency for core local monitoring.",
+      "items": {
+        "0": "Docker deployment",
+        "1": "Linux server deployment",
+        "2": "TrueNAS SCALE deployment target",
+        "3": "Local network usage on private subnets",
+        "4": "Default application port 5833",
+        "5": "Data stored on the customer server by default"
+      },
+      "note": "Implementation and environment review are available before production rollout."
+    },
+    "securitySection": {
+      "eyebrow": "Security and control",
+      "title": "Local control with backend permission checks",
+      "description": "DitakNet is positioned as a self-hosted operations product. Security wording stays limited to implemented directions.",
+      "items": {
+        "0": "Local-first deployment on customer-controlled servers",
+        "1": "Role-based access areas for settings, backups, security, and updates",
+        "2": "Backend permission enforcement for sensitive actions",
+        "3": "License-controlled access to product areas",
+        "4": "Backup safety workflows with confirmation for restore actions",
+        "5": "No public cloud dependency required for core monitoring"
+      },
+      "caution": "DitakNet is not presented as a finished enterprise security certification platform. Deployment review and hardening remain the customer's operational responsibility."
+    },
+    "backupSection": {
+      "eyebrow": "Backup and restore",
+      "title": "Backup management with automatic weekly retention",
+      "description": "DitakNet includes backup and restore management for operators who need recoverability on their own server.",
+      "items": {
+        "0": "Full backup ZIP workflows with manifest validation",
+        "1": "Weekly automatic backup scheduling",
+        "2": "Automatic retention keeps the latest 3 automatic backups",
+        "3": "Manual backups are preserved and not removed by automatic retention",
+        "4": "Restore modes require explicit confirmation"
+      }
+    },
+    "implementation": {
+      "eyebrow": "How to buy",
+      "title": "Annual licenses for individuals and small deployments",
+      "description": "Choose a package that matches your device count, install locally, and activate after a short review. New installs can start with a trial before annual activation.",
+      "items": {
+        "0": "Pick Lite, Standard, Pro, or Enterprise by network size",
+        "1": "Install on Docker or Linux at home or in a small office",
+        "2": "Request activation with your hardware ID and package",
+        "3": "Product areas and limits follow the license on your server"
+      },
+      "note": "Sales are handled as annual licenses for people and small teams. Complex multi-site rollouts still go through a short implementation review."
+    },
+    "contactCta": {
+      "title": "Ready to buy or need setup help?",
+      "description": "Tell us your network size, cameras/devices, and whether you use Docker or a PC. We will reply with the right package and next steps.",
+      "button": "Contact DitakNet"
+    },
+    "features": {
+      "0": {
+        "title": "Network discovery",
+        "description": "Scan approved private subnets and identify active devices without public internet scanning."
+      },
+      "1": {
+        "title": "Service health checks",
+        "description": "Monitor ping, TCP, HTTP, and scheduled checks for routers, servers, cameras, and internal services."
+      },
+      "2": {
+        "title": "Monitoring dashboard",
+        "description": "Review device, service, and network status from one local operations view."
+      },
+      "3": {
+        "title": "Alerts and visibility",
+        "description": "See warnings, failures, and status changes through the product UI and configured notification paths."
+      },
+      "4": {
+        "title": "Docker and TrueNAS ready",
+        "description": "Deploy on Docker, Linux servers, or TrueNAS SCALE with default port 5833."
+      },
+      "5": {
+        "title": "Backup and licensing control",
+        "description": "Manage backups, annual license areas, and role-based permissions on the same self-hosted server."
+      },
+      "eyebrow": "Capabilities",
+      "title": "Core areas included in DitakNet",
+      "description": "Discovery, monitoring, backups, licensing, permissions, and deployment targets organized around local IT operations."
+    },
+    "dashboard": {
+      "title": "Monitoring snapshot",
+      "healthy": "Healthy",
+      "warnings": "Warnings",
+      "offline": "Offline",
+      "discovery": "Discovery on",
+      "topology": "Topology",
+      "alerts": "Alerts"
+    },
+    "ready": {
+      "title": "Docker and TrueNAS ready",
+      "description": "DitakNet is designed to run as a local service near your devices. Keep visibility inside the network, reduce remote dependency, and prepare for later license activation."
+    },
+    "discovery": {
+      "title": "Automatic discovery",
+      "description": "Start with one subnet, then expand to VLANs and client branches when your package allows it."
+    },
+    "telegram": {
+      "title": "Telegram alerts",
+      "description": "Send critical events to administrators, installers, or support operators with concise context."
+    },
+    "faqPreview": {
+      "title": "Questions before installation?",
+      "description": "Review the common answers about internet access, TrueNAS, activation, cameras, safe scanning, and free limits."
+    }
+  },
+  "features": {
+    "title": "DitakNet features",
+    "description": "Self-hosted monitoring capabilities for discovery, checks, alerts, backups, licensing, permissions, and local deployment.",
+    "items": {
+      "network": "Local network and service monitoring",
+      "discovery": "Private subnet and device discovery",
+      "camera": "Camera and NVR availability checks",
+      "server": "Server and host monitoring",
+      "checks": "Ping, TCP, and HTTP health checks",
+      "telegram": "Telegram notifications (optional)",
+      "reports": "Operational reports and status views",
+      "agent": "Agent-based checks (package-dependent)",
+      "topology": "Topology and relationship views",
+      "maintenance": "Maintenance task visibility",
+      "languages": "Armenian, English, and Russian UI",
+      "docker": "Docker, Linux, and TrueNAS SCALE deployment"
+    },
+    "itemDescriptions": {
+      "network": "Monitor approved local networks and services from one self-hosted server.",
+      "discovery": "Discover devices on private subnets you own or manage.",
+      "camera": "Check camera and recorder availability through network monitoring.",
+      "server": "Track server and host health with scheduled checks.",
+      "checks": "Use ping, TCP, and HTTP checks for operational visibility.",
+      "telegram": "Send alerts to Telegram when configured by the operator.",
+      "reports": "Review status, uptime, and operational summaries.",
+      "agent": "Available in higher annual license areas where enabled.",
+      "topology": "Visualize relationships between monitored assets.",
+      "maintenance": "Track maintenance-related operational items.",
+      "languages": "Operate the product in Armenian, English, or Russian.",
+      "docker": "Deploy on customer-controlled Docker, Linux, or TrueNAS SCALE infrastructure."
+    }
+  },
+  "pricing": {
+    "title": "Annual DitakNet licensing",
+    "description": "DitakNet is sold through annual licenses only. Licenses control which product areas and limits are available. Final limits are enforced by backend license logic—not only by the website.",
+    "commercialNote": "Commercial website tiers below are for planning. Activation uses the server's license package codes during implementation review.",
+    "licenseEnforcement": "Plan limits must be enforced by backend license logic, not only hidden in the frontend.",
+    "plans": {
+      "free": {
+        "label": "Free",
+        "name": "Free / Local Basic",
+        "price": "Free",
+        "description": "Included for testing and small local use.",
+        "features": {
+          "0": "Small local monitoring",
+          "1": "1 subnet or VLAN",
+          "2": "Basic discovery and checks",
+          "3": "Telegram alerts",
+          "4": "Basic reports",
+          "5": "Docker and TrueNAS support",
+          "6": "Yearly/free billing"
+        },
+        "cta": "Continue with Free"
+      },
+      "lite": {
+        "label": "Lite",
+        "name": "Lite",
+        "price": "$149/year",
+        "description": "For home labs and small local networks that need more than Free.",
+        "features": {
+          "0": "More devices than Free",
+          "1": "Multiple local networks",
+          "2": "Discovery and service checks",
+          "3": "Telegram alerts",
+          "4": "Basic reports",
+          "5": "Docker and TrueNAS support",
+          "6": "Yearly license renewal"
+        },
+        "cta": "Request Lite License"
+      },
+      "standard": {
+        "label": "Standard",
+        "name": "Standard",
+        "price": "Annual pricing on request",
+        "description": "For individuals and small setups that need monitoring, backups, and clearer control.",
+        "features": {
+          "0": "Broader monitoring scope than Lite",
+          "1": "Backup and restore management",
+          "2": "Operational settings and data areas",
+          "3": "Role-based permission areas",
+          "4": "Docker, Linux, or TrueNAS deployment",
+          "5": "Annual license renewal",
+          "6": "Implementation review recommended"
+        },
+        "cta": "Request implementation"
+      },
+      "pro": {
+        "label": "Pro",
+        "name": "Pro",
+        "price": "$399/year",
+        "description": "For larger home/office networks that need stronger admin control and broader visibility.",
+        "features": {
+          "0": "Higher device and service limits",
+          "1": "Agent monitoring",
+          "2": "CPU, RAM, and disk checks",
+          "3": "Topology",
+          "4": "Full reports",
+          "5": "Bulk operations",
+          "6": "Yearly license renewal"
+        },
+        "cta": "Request Pro License"
+      },
+      "corporate": {
+        "label": "Corporate",
+        "name": "Corporate",
+        "price": "$799/year",
+        "description": "For larger deployments that need employee presence, advanced reporting, and priority support.",
+        "features": {
+          "0": "Corporate monitoring limits",
+          "1": "Employee presence monitoring",
+          "2": "Advanced reports",
+          "3": "Advanced topology",
+          "4": "Audit logs",
+          "5": "Priority support",
+          "6": "Yearly license renewal"
+        },
+        "cta": "Request Corporate License"
+      },
+      "multiOffice": {
+        "label": "Multi-Office",
+        "name": "Multi-Office",
+        "price": "$1299/year",
+        "description": "For branch, multi-client, or multi-location operations that need one clear monitoring view.",
+        "features": {
+          "0": "Multi-office monitoring",
+          "1": "Branch-ready workflows",
+          "2": "Advanced reports",
+          "3": "Advanced topology",
+          "4": "Multi-client operations",
+          "5": "Priority support",
+          "6": "Yearly license renewal"
+        },
+        "cta": "Request Multi-Office License"
+      },
+      "enterprise": {
+        "label": "Enterprise",
+        "name": "Enterprise",
+        "price": "Custom yearly contract",
+        "description": "For larger or custom deployments with advanced implementation and support requirements.",
+        "features": {
+          "0": "Custom yearly contract",
+          "1": "Custom limits",
+          "2": "Deployment planning",
+          "3": "Advanced integrations",
+          "4": "Priority support path",
+          "5": "Commercial support terms",
+          "6": "Yearly contract renewal"
+        },
+        "cta": "Request Enterprise License"
+      }
+    },
+    "billing": "Per year only"
+  },
+  "about": {
+    "title": "About DitakNet",
+    "description": "DitakNet is a self-hosted monitoring server for local networks, servers, devices, backups, licensing, and IT infrastructure visibility.",
+    "what": "It is a self-hosted monitoring server installed on the customer's own Docker, Linux, or TrueNAS SCALE environment—default port 5833.",
+    "who": "It is for individuals, home labs, small offices, CCTV installers, freelancers, and TrueNAS/Docker operators who want local control over monitoring data.",
+    "why": "The product reduces blind spots in local infrastructure by combining discovery, monitoring, backups, licensing, and permission control on one server.",
+    "vision": "A reliable local-first monitoring product with honest licensing, practical deployment, and clear operational visibility."
+  },
+  "deploymentPage": {
+    "title": "Deployment",
+    "description": "DitakNet runs on customer-controlled infrastructure: Docker, Linux servers, TrueNAS SCALE, and private local networks.",
+    "body": "Core monitoring runs inside your network. Default application port is 5833. Internet may be used for optional notifications, updates, or license communication—but the product is not a public cloud SaaS."
+  },
+  "securityPage": {
+    "title": "Security and control",
+    "description": "Local-first deployment, backend permission checks, license-controlled access, and backup safety workflows.",
+    "body": "DitakNet uses role-based access areas and backend permission checks for sensitive settings. This website does not claim military-grade, bank-level, or certified compliance language that is not documented in the product."
+  },
+  "contact": {
+    "title": "Contact DitakNet",
+    "description": "Ask about annual licensing, setup help, or technical questions. Tell us your network size, devices/cameras, and whether you use Docker or a PC.",
+    "submit": "Send message",
+    "success": "Message received. We will reply about licensing or setup next steps.",
+    "implementationHint": "Include deployment environment (Docker, Linux, TrueNAS or a home PC), approximate device count, and preferred annual plan if known.",
+    "deploymentEnvironment": "Deployment environment",
+    "deploymentEnvironmentPlaceholder": "Select environment",
+    "deploymentEnvironments": {
+      "DOCKER": "Docker",
+      "LINUX": "Linux server",
+      "TRUENAS": "TrueNAS SCALE",
+      "OTHER": "Other / mixed"
+    },
+    "deviceServerCount": "Devices / servers (approx.)",
+    "deviceServerCountPlaceholder": "e.g. 25",
+    "requiredPlan": "Required annual plan",
+    "requiredPlanPlaceholder": "Not sure yet",
+    "requiredPlans": {
+      "LITE": "Lite",
+      "STANDARD": "Standard",
+      "PRO": "Pro",
+      "ENTERPRISE": "Enterprise"
+    }
+  },
+  "support": {
+    "title": "Support center",
+    "description": "Find installation help, submit a ticket, request a license, or read the documentation.",
+    "helpCenter": "Help center",
+    "newTicket": "New ticket",
+    "tickets": "My tickets",
+    "license": "License request",
+    "docs": "Documentation",
+    "troubleshooting": "Common troubleshooting",
+    "createTicket": "Create ticket",
+    "reply": "Reply",
+    "sendReply": "Send reply",
+    "ticketDetail": "Ticket details",
+    "needLogin": "Please log in to create and view support tickets."
+  },
+  "docs": {
+    "title": "Documentation",
+    "description": "Guides for installing, activating, and operating DitakNet.",
+    "items": {
+      "getting-started": "Getting started",
+      "docker-installation": "Docker installation",
+      "truenas-installation": "TrueNAS installation",
+      "first-run-setup": "First-run setup",
+      "network-discovery": "Network discovery",
+      "licensing": "Licensing",
+      "telegram-alerts": "Telegram alerts",
+      "faq": "FAQ",
+      "configuration": "Configuration"
+    },
+    "body": "This page is ready for detailed product documentation. Use it for step-by-step installation notes, screenshots, troubleshooting, and support references."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": {
+      "0": {
+        "q": "What is DitakNet?",
+        "a": "It is a local network monitoring platform for devices, services, alerts, and support workflows."
+      },
+      "1": {
+        "q": "Does it need internet?",
+        "a": "Core local monitoring should run inside the network. Internet may be needed for updates, notifications, or license communication."
+      },
+      "2": {
+        "q": "Can it run on TrueNAS?",
+        "a": "Yes, the product is prepared for Docker and TrueNAS-style deployment."
+      },
+      "3": {
+        "q": "What is free?",
+        "a": "The Free package includes basic limits for devices, one subnet or VLAN, checks, alerts, reports, and local deployment."
+      },
+      "4": {
+        "q": "What requires activation?",
+        "a": "Lite, Pro, Corporate, Multi-Office, and Enterprise packages require a yearly license request and activation process."
+      },
+      "5": {
+        "q": "Can it monitor cameras?",
+        "a": "Yes, it can monitor camera and NVR availability through network checks."
+      },
+      "6": {
+        "q": "Can it monitor servers?",
+        "a": "Yes, it supports server checks and agent monitoring in higher packages."
+      },
+      "7": {
+        "q": "Does it scan public internet?",
+        "a": "No. The intended discovery scope is approved local networks and VLANs."
+      },
+      "8": {
+        "q": "Is the scan safe?",
+        "a": "Discovery should be limited to networks you own or manage and configured with safe local scopes."
+      },
+      "9": {
+        "q": "How do I request a license?",
+        "a": "Use the license request form and include your installation ID and package needs."
+      }
+    }
+  },
+  "blog": {
+    "title": "News",
+    "description": "A ready structure for product updates, release notes, and implementation articles.",
+    "placeholderTitle": "DitakNet public site is ready",
+    "placeholderText": "Admin-managed blog posts can be added later using the BlogPost model."
+  },
+  "auth": {
+    "registerTitle": "Create account",
+    "registerDescription": "Register to request licenses, create support tickets, and track your DitakNet communication.",
+    "registerCta": "Create account",
+    "loginTitle": "Login",
+    "loginDescription": "Access your account, license requests, and support tickets.",
+    "loginCta": "Login",
+    "emailExists": "An account with this email already exists.",
+    "invalidLogin": "Email or password is incorrect.",
+    "loginRequired": "Login is required.",
+    "forbidden": "You do not have access to this resource."
+  },
+  "account": {
+    "title": "Account",
+    "description": "Manage your DitakNet profile, licenses, tickets, messages, and next steps.",
+    "nextActions": "Next actions",
+    "requestLicense": "Request license",
+    "install": "Download or install DitakNet",
+    "setupGuide": "Read setup guide",
+    "contactSupport": "Contact support",
+    "licenses": "License requests",
+    "tickets": "Support tickets",
+    "messages": "Contact messages",
+    "profile": "Profile"
+  },
+  "license": {
+    "title": "Request license activation",
+    "description": "Send your installation ID and annual package request. DitakNet licenses are sold yearly only; this website collects requests and does not expose signing keys.",
+    "submit": "Submit license request",
+    "activateInfoTitle": "Activation information",
+    "activateInfoDescription": "Your request is saved. Support will review it and contact you with the next activation steps.",
+    "myLicenses": "My license requests"
+  },
+  "community": {
+    "title": "Community discussions",
+    "description": "Ask public product questions that can later become documentation or FAQ answers.",
+    "ask": "Ask question"
+  },
+  "admin": {
+    "title": "Admin",
+    "dashboard": "Admin dashboard",
+    "description": "Manage users, license requests, contact messages, tickets, discussions, and public settings.",
+    "notes": "Admin notes",
+    "nav": {
+      "users": "Users",
+      "license-requests": "License requests",
+      "contact-messages": "Contact messages",
+      "tickets": "Tickets",
+      "discussions": "Discussions",
+      "settings": "Settings",
+      "sessions": "Sessions",
+      "pendingUsers": "Pending users",
+      "activeSubscribers": "Active subscribers"
+    },
+    "settingsText": "Basic settings are prepared through environment variables. Editable database-backed settings can be added later.",
+    "role": "Role",
+    "approval": "Approval",
+    "subscription": "Subscription",
+    "purchase": "Purchase",
+    "subscriptionExpiresAt": "Subscription expires",
+    "online": "Online",
+    "offline": "Offline",
+    "connection": "Connection",
+    "access": "Access",
+    "lastSeen": "Last seen",
+    "lastLogin": "Last login",
+    "noExpiry": "No expiry date",
+    "revoked": "Revoked",
+    "activeSession": "Active session"
+  },
+  "forms": {
+    "fields": {
+      "fullName": "Full name",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "companyName": "Company",
+      "phone": "Phone",
+      "telegram": "Telegram",
+      "country": "Country",
+      "preferredLanguage": "Preferred language",
+      "interestedPackage": "Interested package",
+      "useCase": "Use case",
+      "topic": "Topic",
+      "message": "Message",
+      "installationId": "Installation ID",
+      "ownerName": "Owner name",
+      "currentPackage": "Current package",
+      "requestedPackage": "Requested package",
+      "currentDevices": "Current devices",
+      "currentNetworks": "Current networks",
+      "reason": "Reason or notes",
+      "title": "Title",
+      "category": "Category",
+      "priority": "Priority",
+      "body": "Body",
+      "isPublic": "Visible publicly"
+    },
+    "hints": {
+      "password": "Use at least 8 characters."
+    },
+    "actions": {
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again.",
+      "invalidPayload": "Please check the form fields.",
+      "invalidField": "Please check this field."
+    },
+    "packages": {
+      "FREE": "Free / Local Basic - Free",
+      "LITE": "Lite - $149/year",
+      "PRO": "Pro - $399/year",
+      "CORPORATE": "Corporate - $799/year",
+      "MULTI_OFFICE": "Multi-Office - $1299/year",
+      "ENTERPRISE": "Enterprise - Custom yearly contract"
+    },
+    "useCases": {
+      "HOME_SMALL_OFFICE": "Home / Small Office",
+      "CCTV_CAMERA_SYSTEM": "CCTV / Camera System",
+      "SERVERS_AND_WEBSITES": "Servers and Websites",
+      "BUSINESS_NETWORK": "Business Network",
+      "PROFESSIONAL_IT_MONITORING": "Professional IT Monitoring"
+    },
+    "contactTopics": {
+      "SUPPORT": "Support",
+      "LICENSE": "License",
+      "INSTALLATION_HELP": "Installation help",
+      "PARTNERSHIP": "Partnership",
+      "OTHER": "Other"
+    },
+    "ticketCategories": {
+      "INSTALLATION": "Installation",
+      "DISCOVERY": "Discovery",
+      "LICENSE": "License",
+      "TRUENAS": "TrueNAS",
+      "DOCKER": "Docker",
+      "TELEGRAM": "Telegram",
+      "CAMERA_NVR": "Camera/NVR",
+      "SERVER_MONITORING": "Server monitoring",
+      "BUG": "Bug",
+      "OTHER": "Other"
+    },
+    "priorities": {
+      "NORMAL": "Normal",
+      "HIGH": "High"
+    }
+  },
+  "status": {
+    "license": {
+      "NEW": "New",
+      "IN_REVIEW": "In review",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "COMPLETED": "Completed"
+    },
+    "ticket": {
+      "OPEN": "Open",
+      "ANSWERED": "Answered",
+      "CLOSED": "Closed"
+    },
+    "discussion": {
+      "OPEN": "Open",
+      "ANSWERED": "Answered",
+      "CLOSED": "Closed"
+    },
+    "account": {
+      "PENDING": "Pending",
+      "APPROVED": "Approved",
+      "SUSPENDED": "Suspended"
+    },
+    "subscription": {
+      "NONE": "No subscription",
+      "TRIAL": "Trial",
+      "ACTIVE": "Active",
+      "EXPIRED": "Expired",
+      "CANCELED": "Canceled"
+    },
+    "purchase": {
+      "NOT_PURCHASED": "Not purchased",
+      "REQUESTED": "Requested",
+      "PURCHASED": "Purchased"
+    }
+  },
+  "legal": {
+    "index": {
+      "title": "Legal & compliance",
+      "description": "Privacy policy, software license, terms of sale, and related documents for DitakNet self-hosted software."
+    },
+    "draftNotice": "Draft document — not final legal advice. A qualified lawyer should review these documents before commercial use.",
+    "download": "Download",
+    "acceptRequired": "Acceptance required at purchase or activation",
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "What data DitakNet processes in self-hosted deployments and why."
+    },
+    "eula": {
+      "title": "Software License Agreement (EULA)",
+      "description": "License grant, restrictions, yearly term, and acceptable use."
+    },
+    "terms": {
+      "title": "Terms of Sale",
+      "description": "Yearly billing, renewal, refunds, invoices, and license delivery."
+    },
+    "dpa": {
+      "title": "Data Processing Addendum",
+      "description": "Controller/processor roles for corporate customers and support access."
+    },
+    "aup": {
+      "title": "Acceptable Use Policy",
+      "description": "Prohibited uses including unauthorized scanning and hidden surveillance."
+    },
+    "security": {
+      "title": "Security Policy",
+      "description": "Self-hosting security practices, access control, and vulnerability reporting."
+    },
+    "sla": {
+      "title": "Support & SLA Terms",
+      "description": "Support hours, response times, and what is included by plan."
+    },
+    "oss": {
+      "title": "Open Source Notices",
+      "description": "Third-party open source components used by DitakNet."
+    },
+    "employeeNotice": {
+      "title": "Employee Attendance Notice Template",
+      "description": "Template for corporate customers to inform employees about attendance monitoring."
+    }
+  }
+}

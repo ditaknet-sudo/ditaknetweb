@@ -1,0 +1,37 @@
+# ==========================================================================
+# DitakNet public website + customer portal — Docker Compose
+# --------------------------------------------------------------------------
+# Runs the Next.js portal in a production container on port 3000.
+# The DitakNet monitoring engine is a *separate* product that runs on
+# port 5833 — see the DitakNetMonitoring project for its own compose file.
+# ==========================================================================
+
+services:
+  ditaknet-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ditaknet-web:${IMAGE_TAG:-latest}
+    container_name: ditaknet-web
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    volumes:
+      # SQLite database and any generated assets live here across restarts.
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./backups:/app/backups
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - --quiet
+        - --tries=1
+        - --spider
+        - http://127.0.0.1:3000/
+      interval: 30s
+      timeout: 5s
+      start_period: 25s
+      retries: 3

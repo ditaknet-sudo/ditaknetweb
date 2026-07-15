@@ -1,0 +1,76 @@
+# --- Local secrets and environment files ---
+.env
+.env.*
+!.env.example
+
+# --- Runtime and local-only data ---
+data/
+logs/
+backups/
+tmp/
+temp/
+local/
+private/
+secrets/
+keys/
+payment_receipts/
+receipts/
+uploads/
+DOCUMENTS_OUTSIDE_SERVER/
+PrivateActivationCodes/
+WEBSTILE_DITAKNET_WEBSITE_UPDATE_REPORT.md
+debug-*.log
+
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.log
+*.pid
+*.bak
+*.backup
+
+# --- Cryptographic material (public license verify key is whitelisted) ---
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+!ditaknet/resources/license_public_key.pem
+
+# --- Archives / generated packages ---
+*.zip
+*.tar
+*.tar.gz
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+.venv/
+venv/
+
+# --- Node / Next.js ---
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+next-env.d.ts.bak
+
+# --- IDE / tooling ---
+.idea/
+.vscode/
+.cursor/
+.codex/
+.agents/
+Thumbs.db
+.DS_Store
