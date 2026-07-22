@@ -34,10 +34,12 @@ const ogLocales: Record<Locale, string> = {
 };
 
 export function getSiteUrl() {
+  // Must match the live preferred host (Vercel currently redirects apex → www).
+  // Wrong host here breaks canonicals, Open Graph, and sitemap indexing.
   const raw =
     process.env.NEXT_PUBLIC_SITE_URL ||
     process.env.NEXTAUTH_URL ||
-    (process.env.PUBLIC_DOMAIN ? `https://${process.env.PUBLIC_DOMAIN}` : "https://ditaknet.com");
+    (process.env.PUBLIC_DOMAIN ? `https://${process.env.PUBLIC_DOMAIN}` : "https://www.ditaknet.com");
   const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
   return withProtocol.replace(/\/+$/, "");
 }
