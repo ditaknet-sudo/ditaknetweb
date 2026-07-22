@@ -19,6 +19,7 @@ import { DashboardPreview } from "@/components/marketing/dashboard-preview";
 import { HeroShowcase } from "@/components/marketing/hero-showcase";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { PricingTable } from "@/components/pricing/pricing-table";
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getDictionary } from "@/lib/i18n";
@@ -48,30 +49,27 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <main>
-      <section className="hero-surface border-b border-[var(--line)] py-14 md:py-20">
-        <div className="container-page grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="fade-in-up">
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.08em] text-[var(--accent)]">{t("home.hero.eyebrow")}</p>
-            <h1 className="text-5xl font-black leading-tight tracking-tight text-[var(--foreground)] md:text-7xl">
-              {t("common.brandName")}
-            </h1>
-            <p className="mt-4 text-2xl font-bold leading-9 text-[var(--brand-dark)] md:text-3xl">{t("home.hero.title")}</p>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--muted)]">{t("home.hero.subtitle")}</p>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--muted)]">{t("home.hero.supporting")}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={`/${locale}/deployment`} variant="secondary" size="lg">
+      <section className="hero-magnet">
+        <div className="hero-magnet__glow" aria-hidden="true" />
+        <div className="hero-magnet__inner container-page">
+          <div className="hero-magnet__copy fade-in-up">
+            <BrandLogo brandName={t("common.brandName")} size="hero" animated showName={false} className="hero-magnet__mark" />
+            <h1 className="hero-magnet__brand">{t("common.brandName")}</h1>
+            <p className="hero-magnet__headline">{t("home.hero.title")}</p>
+            <p className="hero-magnet__support">{t("home.hero.subtitle")}</p>
+            <div className="hero-magnet__actions">
+              <ButtonLink href={`/${locale}/deployment`} variant="secondary" size="lg" className="hero-magnet__cta">
                 {t("home.hero.primaryCta")}
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
-              <ButtonLink href={`/${locale}/contact`} variant="primary" size="lg">
+              <ButtonLink href={`/${locale}/contact`} variant="outline" size="lg">
                 {t("home.hero.secondaryCta")}
               </ButtonLink>
             </div>
           </div>
-          <div className="dashboard-preview-animate">
-            <div className="hero-3d-shell">
-              <HeroShowcase title={t("home.dashboard.title")} subtitle={t("home.hero.imageAlt")} />
-            </div>
+
+          <div className="hero-magnet__visual dashboard-preview-animate" aria-hidden="false">
+            <HeroShowcase title={t("home.dashboard.title")} subtitle={t("home.hero.imageAlt")} />
           </div>
         </div>
       </section>

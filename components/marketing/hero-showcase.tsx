@@ -1,18 +1,11 @@
-import { Activity, Camera, HardDrive, Router, Server, Wifi } from "lucide-react";
+import { Activity } from "lucide-react";
 
 type HeroShowcaseProps = {
   title: string;
   subtitle: string;
 };
 
-const orbitNodes = [
-  { icon: Router, label: "Router", tone: "ok", delay: "0s" },
-  { icon: Camera, label: "NVR", tone: "warn", delay: "0.4s" },
-  { icon: Server, label: "Host", tone: "ok", delay: "0.8s" },
-  { icon: Wifi, label: "Wi‑Fi", tone: "ok", delay: "1.2s" },
-  { icon: HardDrive, label: "NAS", tone: "ok", delay: "1.6s" }
-] as const;
-
+/** Pure visual plane for the hero — no floating labels or metric chips. */
 export function HeroShowcase({ title, subtitle }: HeroShowcaseProps) {
   return (
     <div className="hero-3d" aria-label={`${title}. ${subtitle}`}>
@@ -49,38 +42,6 @@ export function HeroShowcase({ title, subtitle }: HeroShowcaseProps) {
             </div>
             <div className="hero-3d-server-face hero-3d-server-face--side" />
             <div className="hero-3d-server-face hero-3d-server-face--top" />
-          </div>
-
-          <ul className="hero-3d-nodes">
-            {orbitNodes.map((node, index) => (
-              <li
-                key={node.label}
-                className={`hero-3d-node hero-3d-node--${index + 1} hero-3d-node--${node.tone}`}
-                style={{ animationDelay: node.delay }}
-              >
-                <node.icon className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>{node.label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="hero-3d-copy">
-        <p className="hero-3d-eyebrow">{title}</p>
-        <p className="hero-3d-subtitle">{subtitle}</p>
-        <div className="hero-3d-metrics" aria-hidden="true">
-          <div>
-            <strong>128</strong>
-            <span>Online</span>
-          </div>
-          <div>
-            <strong>7</strong>
-            <span>Warnings</span>
-          </div>
-          <div>
-            <strong>1</strong>
-            <span>Offline</span>
           </div>
         </div>
       </div>

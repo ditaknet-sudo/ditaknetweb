@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { HtmlLang } from "@/components/layout/html-lang";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -54,6 +55,7 @@ export default async function LocaleLayout({
 
   return (
     <>
+      <HtmlLang locale={locale} />
       <JsonLd
         data={[
           buildOrganizationJsonLd(),

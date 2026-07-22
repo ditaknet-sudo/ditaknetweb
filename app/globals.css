@@ -104,8 +104,31 @@ body {
   min-height: 100vh;
   background: transparent;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), var(--font-armenian), "Segoe UI", sans-serif;
   position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+.hero-magnet__brand,
+.hero-magnet__headline,
+.brand-logo-text {
+  font-family: var(--font-display), var(--font-armenian), var(--font-body), sans-serif;
+}
+
+html[lang="hy"] body,
+html[lang="hy"] h1,
+html[lang="hy"] h2,
+html[lang="hy"] h3,
+html[lang="hy"] h4,
+html[lang="hy"] .hero-magnet__headline {
+  font-family: var(--font-armenian), var(--font-display), var(--font-body), sans-serif;
+}
+
+html[lang="hy"] .hero-magnet__brand {
+  font-family: var(--font-display), var(--font-armenian), sans-serif;
 }
 
 .site-shell {
@@ -472,6 +495,151 @@ textarea {
     linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--background) 35%, transparent) 100%);
   background-size: auto, auto, 32px 32px, 32px 32px, auto;
   backdrop-filter: blur(1px);
+}
+
+.hero-magnet {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100svh - 4rem);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  padding: 3.5rem 0 4rem;
+}
+
+.hero-magnet__glow {
+  position: absolute;
+  inset: auto -10% -20% 35%;
+  height: 70%;
+  background:
+    radial-gradient(ellipse at center, rgba(23, 166, 115, 0.22), transparent 62%),
+    radial-gradient(ellipse at 70% 40%, rgba(23, 105, 170, 0.2), transparent 58%);
+  filter: blur(8px);
+  animation: hero-magnet-glow 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-magnet__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  width: min(1180px, calc(100% - 32px));
+}
+
+@media (min-width: 980px) {
+  .hero-magnet__inner {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 1.5rem 2rem;
+  }
+}
+
+.hero-magnet__copy {
+  max-width: 34rem;
+}
+
+.hero-magnet__mark {
+  margin-bottom: 1.25rem;
+}
+
+.hero-magnet__brand {
+  margin: 0;
+  font-size: clamp(3.4rem, 8vw, 6.4rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  color: var(--foreground);
+  animation: hero-magnet-rise 0.9s ease both;
+}
+
+.hero-magnet__headline {
+  margin: 1.15rem 0 0;
+  max-width: 18ch;
+  font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--brand-dark);
+  animation: hero-magnet-rise 0.9s ease 0.08s both;
+}
+
+html[data-theme="dark"] .hero-magnet__headline {
+  color: var(--brand);
+}
+
+.hero-magnet__support {
+  margin: 1.1rem 0 0;
+  max-width: 34ch;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--muted);
+  animation: hero-magnet-rise 0.9s ease 0.16s both;
+}
+
+.hero-magnet__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.85rem;
+  animation: hero-magnet-rise 0.9s ease 0.24s both;
+}
+
+.hero-magnet__cta {
+  min-width: 11.5rem;
+}
+
+.hero-magnet__visual {
+  position: relative;
+  min-height: 340px;
+  margin-right: calc(50% - 50vw);
+  padding: 1.25rem 0 1.25rem 0.5rem;
+}
+
+@media (max-width: 979px) {
+  .hero-magnet__visual {
+    margin-right: 0;
+    min-height: 300px;
+    padding: 0;
+  }
+}
+
+.hero-magnet__visual .hero-3d {
+  min-height: 420px;
+}
+
+.hero-magnet__visual .hero-3d-stage {
+  min-height: 380px;
+}
+
+.hero-magnet__visual .hero-3d-scene {
+  height: 380px;
+  width: min(100%, 480px);
+}
+
+@keyframes hero-magnet-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-magnet-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(-18px, -12px, 0) scale(1.06);
+  }
 }
 
 .hero-3d-shell {
