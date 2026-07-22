@@ -76,7 +76,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="border-b border-[var(--line)] bg-[var(--panel)] py-10">
+      <section className="border-b border-[var(--line)] section-panel py-10">
         <div className="container-page">
           <DashboardPreview
             brandName={t("common.brandName")}
@@ -115,7 +115,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="border-t border-[var(--line)] bg-[var(--panel)] py-14">
+      <section className="border-t border-[var(--line)] section-panel py-14">
         <div className="container-page">
           <SectionHeading
             eyebrow={t("home.problem.eyebrow")}
@@ -133,7 +133,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="bg-[var(--panel-soft)] py-14">
+      <section className="section-panel-soft py-14">
         <div className="container-page">
           <SectionHeading
             eyebrow={t("home.product.eyebrow")}
@@ -174,7 +174,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="bg-[var(--panel)] py-14">
+      <section className="section-panel py-14">
         <div className="container-page">
           <SectionHeading
             eyebrow={t("home.features.eyebrow")}
@@ -261,7 +261,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="border-t border-[var(--line)] bg-[var(--panel)] py-12">
+      <section className="border-t border-[var(--line)] section-panel py-12">
         <div className="container-page flex flex-col justify-between gap-5 md:flex-row md:items-center">
           <div>
             <h2 className="text-3xl font-bold">{t("home.contactCta.title")}</h2>
@@ -273,7 +273,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="bg-[var(--panel-soft)] py-12">
+      <section className="section-panel-soft py-12">
         <div className="container-page flex flex-col justify-between gap-5 md:flex-row md:items-center">
           <div>
             <h2 className="text-2xl font-bold">{t("home.faqPreview.title")}</h2>

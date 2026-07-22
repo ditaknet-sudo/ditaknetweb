@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 import "@/app/globals.css";
 
+import { SiteBackground } from "@/components/layout/site-background";
 import { ThemeBootstrapScript } from "@/components/theme/theme-bootstrap-script";
 import { normalizeLocale } from "@/lib/i18n-core";
 
@@ -23,7 +24,10 @@ export default async function RootLayout({
         <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
         <link rel="alternate" type="text/plain" href="/ai.txt" title="ai.txt" />
       </head>
-      <body>{children}</body>
+      <body>
+        <SiteBackground />
+        <div className="site-shell">{children}</div>
+      </body>
     </html>
   );
 }

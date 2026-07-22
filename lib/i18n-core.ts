@@ -5,7 +5,7 @@ export type Messages = Record<string, unknown>;
 
 export const localeNames: Record<Locale, string> = {
   en: "EN",
-  hy: "Հայ",
+  hy: "HY",
   ru: "RU"
 };
 

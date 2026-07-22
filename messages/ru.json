@@ -7,7 +7,7 @@
   "nav": {
     "home": "Главная",
     "features": "Возможности",
-    "pricing": "Цены и услуги",
+    "pricing": "Цены",
     "docs": "Документы",
     "support": "Поддержка",
     "about": "О продукте",
@@ -20,17 +20,19 @@
     "logout": "Выход",
     "admin": "Админ",
     "menu": "Меню",
-    "product": "Product",
+    "product": "Продукт",
     "tools": "IT-инструменты",
-    "deployment": "Deployment",
-    "licensing": "Licensing",
-    "security": "Security"
+    "deployment": "Установка",
+    "licensing": "Лицензирование",
+    "security": "Безопасность"
   },
   "footer": {
-    "description": "DitakNet — self-hosted мониторинг для частных покупателей, дома, home lab, малого офиса и CCTV. Работает на Docker, Linux или TrueNAS SCALE на вашей инфраструктуре. Данные не продаются и не используются для рекламного профилирования.",
+    "description": "DitakNet — локальный мониторинг для частных пользователей, дома, небольших лабораторий, малого офиса и CCTV. Работает на Docker, Linux или TrueNAS SCALE на вашей инфраструктуре. Данные не продаются и не используются для рекламного профилирования.",
     "links": "Продукт",
     "legal": "Правовая информация",
-    "contact": "Контакты"
+    "contact": "Контакты",
+    "rights": "Все права защищены.",
+    "tagline": "Локальный мониторинг под вашим контролем."
   },
   "common": {
     "brandName": "DitakNet",
@@ -48,17 +50,17 @@
   },
   "home": {
     "metaTitle": "DitakNet | Локальный мониторинг для дома и небольших сетей",
-    "metaDescription": "DitakNet — self-hosted мониторинг для частных лиц, дома, малого офиса, CCTV и локальных устройств. Работает на Docker или Linux.",
+    "metaDescription": "DitakNet — локальный мониторинг для частных лиц, дома, малого офиса, CCTV и локальных устройств. Работает на Docker или Linux.",
     "hero": {
-      "eyebrow": "Self-hosted мониторинг для людей и небольших сетей",
+      "eyebrow": "Локальный мониторинг для людей и небольших сетей",
       "title": "Видьте каждое устройство в сети — без облачной привязки",
       "subtitle": "DitakNet помогает частным покупателям и небольшим командам мониторить роутеры, камеры, ПК, Wi‑Fi, принтеры и локальные сервисы на своей инфраструктуре.",
       "getStarted": "Начать",
       "requestLicense": "Заказать профессиональную установку",
-      "viewPricing": "Бесплатно vs профессиональная услуга",
+      "viewPricing": "Бесплатно и профессиональная услуга",
       "contactSupport": "Связаться с поддержкой",
       "imageAlt": "Превью панели DitakNet",
-      "supporting": "Установите один раз на Docker или небольшой Linux PC. Discovery находит устройства, проверки следят за ними, данные остаются у вас дома — не в публичном облаке.",
+      "supporting": "Установите один раз на Docker или небольшой Linux ПК. Обнаружение находит устройства, проверки следят за ними, данные остаются у вас дома — не в публичном облаке.",
       "primaryCta": "Установить через Docker",
       "secondaryCta": "Заказать профессиональную работу"
     },
@@ -68,7 +70,7 @@
       "description": "DitakNet можно установить самостоятельно и использовать бесплатно — для простого локального мониторинга.",
       "items": {
         "0": {
-          "title": "Дом и home lab",
+          "title": "Дом и небольшая лаборатория",
           "description": "Следите за роутером, NAS, камерами и умными устройствами из одной локальной панели."
         },
         "1": {
@@ -250,18 +252,18 @@
       "docker": "Поддержка Docker и TrueNAS"
     },
     "itemDescriptions": {
-      "network": "Monitor approved local networks and services from one self-hosted server.",
-      "discovery": "Discover devices on private subnets you own or manage.",
-      "camera": "Check camera and recorder availability through network monitoring.",
-      "server": "Track server and host health with scheduled checks.",
-      "checks": "Use ping, TCP, and HTTP checks for operational visibility.",
-      "telegram": "Send alerts to Telegram when configured by the operator.",
-      "reports": "Review status, uptime, and operational summaries.",
-      "agent": "Available in higher annual license areas where enabled.",
-      "topology": "Visualize relationships between monitored assets.",
-      "maintenance": "Track maintenance-related operational items.",
-      "languages": "Operate the product in Armenian, English, or Russian.",
-      "docker": "Deploy on customer-controlled Docker, Linux, or TrueNAS SCALE infrastructure."
+      "network": "Мониторьте разрешённые локальные сети и сервисы с одного локального сервера.",
+      "discovery": "Находите устройства в частных подсетях, которыми вы управляете.",
+      "camera": "Проверяйте доступность камер и регистраторов через сетевой мониторинг.",
+      "server": "Следите за состоянием серверов и хостов по расписанию.",
+      "checks": "Используйте ping, TCP и HTTP проверки для операционной видимости.",
+      "telegram": "Отправляйте оповещения в Telegram после настройки оператором.",
+      "reports": "Просматривайте статус, uptime и операционные сводки.",
+      "agent": "Доступно в более высоких годовых тарифах, когда включено.",
+      "topology": "Визуализируйте связи между контролируемыми активами.",
+      "maintenance": "Отслеживайте операционные задачи обслуживания.",
+      "languages": "Работайте с продуктом на армянском, английском или русском.",
+      "docker": "Размещайте на Docker, Linux или TrueNAS SCALE под контролем заказчика."
     }
   },
   "pricing": {
@@ -731,13 +733,13 @@
     }
   },
   "deploymentPage": {
-    "title": "Deployment",
-    "description": "DitakNet runs on customer-controlled infrastructure: Docker, Linux servers, TrueNAS SCALE, and private local networks.",
-    "body": "Core monitoring runs inside your network. Default application port is 5833. Internet may be used for optional notifications, updates, or license communication—but the product is not a public cloud SaaS."
+    "title": "Установка",
+    "description": "DitakNet работает на вашей инфраструктуре: Docker, Linux-серверы, TrueNAS SCALE и частные локальные сети.",
+    "body": "Основной мониторинг работает внутри вашей сети. Порт по умолчанию — 5833. Интернет может использоваться для уведомлений, обновлений или лицензии, но продукт не является публичным облачным SaaS."
   },
   "securityPage": {
-    "title": "Security and control",
-    "description": "Local-first deployment, backend permission checks, license-controlled access, and backup safety workflows.",
-    "body": "DitakNet uses role-based access areas and backend permission checks for sensitive settings. This website does not claim military-grade, bank-level, or certified compliance language that is not documented in the product."
+    "title": "Безопасность и контроль",
+    "description": "Локальная установка, проверка прав на backend, доступ по лицензии и безопасные сценарии резервного копирования.",
+    "body": "DitakNet использует ролевой доступ и проверку прав на backend для чувствительных настроек. Этот сайт не заявляет о военной, банковской или сертифицированной соответствии, если это не задокументировано в продукте."
   }
 }

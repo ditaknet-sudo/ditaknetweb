@@ -7,7 +7,7 @@
   "nav": {
     "home": "Գլխավոր",
     "features": "Հնարավորություններ",
-    "pricing": "Գին և ծառայություն",
+    "pricing": "Գներ",
     "docs": "Փաստաթղթեր",
     "support": "Աջակցություն",
     "about": "Մասին",
@@ -20,17 +20,19 @@
     "logout": "Դուրս գալ",
     "admin": "Ադմին",
     "menu": "Մենյու",
-    "product": "Product",
+    "product": "Ապրանք",
     "tools": "IT գործիքներ",
-    "deployment": "Deployment",
-    "licensing": "Licensing",
-    "security": "Security"
+    "deployment": "Տեղադրում",
+    "licensing": "Լիցենզավորում",
+    "security": "Անվտանգություն"
   },
   "footer": {
-    "description": "DitakNet / ԴիտակՆեթ-ը self-hosted մոնիթորինգ է անհատների, տան, home lab-ի, փոքր գրասենյակի և CCTV տեղադրումների համար։ Աշխատում է Docker, Linux կամ TrueNAS SCALE-ով՝ ձեր վերահսկվող սերվերում։ Տվյալները չեն վաճառվում և չեն օգտագործվում գովազդային profiling-ի համար։",
-    "links": "Արտադրանք",
+    "description": "DitakNet-ը տեղային մոնիթորինգի համակարգ է անհատների, տան, փոքր լաբորատորիաների, փոքր գրասենյակների և CCTV տեղադրումների համար։ Աշխատում է Docker-ով, Linux-ով կամ TrueNAS SCALE-ով՝ ձեր վերահսկվող սերվերում։ Տվյալները չեն վաճառվում և չեն օգտագործվում գովազդային պրոֆայլավորման համար։",
+    "links": "Ապրանք",
     "legal": "Իրավական",
-    "contact": "Կապ"
+    "contact": "Կապ",
+    "rights": "Բոլոր իրավունքները պաշտպանված են։",
+    "tagline": "Տեղային մոնիթորինգ՝ ձեր վերահսկողությամբ։"
   },
   "common": {
     "brandName": "DitakNet",
@@ -48,17 +50,17 @@
   },
   "home": {
     "metaTitle": "DitakNet | Տեղային մոնիթորինգ տան և փոքր ցանցերի համար",
-    "metaDescription": "DitakNet-ը self-hosted մոնիթորինգ է անհատների, տան, փոքր գրասենյակի, CCTV-ի և տեղային սարքերի համար։ Աշխատում է Docker կամ Linux-ով։",
+    "metaDescription": "DitakNet-ը տեղային մոնիթորինգ է անհատների, տան, փոքր գրասենյակի, CCTV-ի և տեղային սարքերի համար։ Աշխատում է Docker կամ Linux-ով։",
     "hero": {
-      "eyebrow": "Self-hosted մոնիթորինգ անհատների և փոքր ցանցերի համար",
-      "title": "Տեսեք ցանցի բոլոր սարքերը՝ առանց cloud կախվածության",
-      "subtitle": "DitakNet-ը օգնում է անհատներին և փոքր թիմերին մոնիթոր անել router, camera, PC, Wi‑Fi, printer և տեղային service-ները իրենց սեփական սերվերում։",
+      "eyebrow": "Տեղային մոնիթորինգ անհատների և փոքր ցանցերի համար",
+      "title": "Տեսեք ցանցի բոլոր սարքերը՝ առանց ամպային կախվածության",
+      "subtitle": "DitakNet-ը օգնում է անհատներին և փոքր թիմերին հետևել երթուղիչներին, տեսախցիկներին, համակարգիչներին, Wi‑Fi-ին, տպիչներին և տեղային ծառայություններին իրենց սեփական սերվերում։",
       "getStarted": "Սկսել",
       "requestLicense": "Պատվիրել մասնագիտական տեղադրում",
-      "viewPricing": "Անվճար vs մասնագիտական ծառայություն",
+      "viewPricing": "Անվճար և մասնագիտական ծառայություն",
       "contactSupport": "Կապ աջակցման հետ",
       "imageAlt": "DitakNet մոնիթորինգի նախադիտում",
-      "supporting": "Տեղադրեք մեկ անգամ Docker-ով կամ փոքր Linux PC-ով։ Discovery-ն գտնում է սարքերը, checks-ը հետևում են դրանց, տվյալները մնում են տանը։",
+      "supporting": "Տեղադրեք մեկ անգամ Docker-ով կամ փոքր Linux համակարգչով։ Հայտնաբերումը գտնում է սարքերը, ստուգումները հետևում են դրանց, տվյալները մնում են տանը։",
       "primaryCta": "Տեղադրել Docker-ով",
       "secondaryCta": "Պատվիրել մասնագիտական աշխատանք"
     },
@@ -68,15 +70,15 @@
       "description": "DitakNet-ը կարող եք ինքնուրույն տեղադրել և օգտագործել անվճար՝ պարզ տեղային մոնիթորինգի համար։",
       "items": {
         "0": {
-          "title": "Տուն և home lab",
-          "description": "Հետևեք router-ին, NAS-ին, camera-ներին և smart սարքերին մեկ տեղային dashboard-ից։"
+          "title": "Տուն և փոքր լաբորատորիա",
+          "description": "Հետևեք երթուղիչին, NAS-ին, տեսախցիկներին և խելացի սարքերին մեկ տեղային վահանակից։"
         },
         "1": {
           "title": "Փոքր գրասենյակ / խանութ",
-          "description": "Տեսանելի պահեք printer, Wi‑Fi, POS և CCTV՝ առանց մշտական IT թիմի։"
+          "description": "Տեսանելի պահեք տպիչները, Wi‑Fi-ը, POS-ը և CCTV-ն՝ առանց մշտական IT թիմի։"
         },
         "2": {
-          "title": "Installer և freelancer",
+          "title": "Տեղադրողներ և ֆրիլանսերներ",
           "description": "Տեղադրեք հաճախորդի մոտ Docker/Linux-ով և թողեք պարզ մոնիթորինգի տեսք։"
         }
       }
@@ -84,40 +86,40 @@
     "metrics": {
       "devices": "Սարքեր",
       "checks": "Ստուգումներ",
-      "alerts": "Alert-ներ"
+      "alerts": "Ծանուցումներ"
     },
     "explain": {
-      "title": "Ստեղծված է local-first monitoring-ի համար",
+      "title": "Ստեղծված է տեղային մոնիթորինգի համար",
       "description": "DitakNet-ը աշխատում է ձեր վերահսկվող ենթակառուցվածքում։ Հարմար է տան, փոքր գրասենյակի, CCTV-ի և անկախ IT աշխատանքի համար։"
     },
     "features": {
       "0": {
-        "title": "Ավտոմատ discovery",
-        "description": "Սքանավորեք թույլատրված local subnet-ները և արագ գտեք ակտիվ IP սարքերն ու services-ը։"
+        "title": "Ավտոմատ հայտնաբերում",
+        "description": "Սքանավորեք թույլատրված տեղային ենթացանցերը և արագ գտեք ակտիվ IP սարքերն ու ծառայությունները։"
       },
       "1": {
-        "title": "Camera և NVR checks",
-        "description": "Հետևեք CCTV համակարգերի, recorder-ների և ցանցային ճանապարհների հասանելիությանը։"
+        "title": "Տեսախցիկների և NVR ստուգումներ",
+        "description": "Հետևեք CCTV համակարգերի, ձայնագրիչների և ցանցային ճանապարհների հասանելիությանը։"
       },
       "2": {
-        "title": "Server և website monitoring",
-        "description": "Ping, TCP, HTTP և agent checks-ը օգնում են շուտ հայտնաբերել խափանումները։"
+        "title": "Սերվերների և կայքերի մոնիթորինգ",
+        "description": "Ping, TCP, HTTP և գործակալային ստուգումները օգնում են շուտ հայտնաբերել խափանումները։"
       },
       "3": {
-        "title": "Telegram alerts",
-        "description": "Ուղարկեք գործողության համար հստակ notifications այն support channel-ին, որն արդեն օգտագործում եք։"
+        "title": "Telegram ծանուցումներ",
+        "description": "Ուղարկեք հստակ ծանուցումներ այն աջակցման ալիքին, որն արդեն օգտագործում եք։"
       },
       "4": {
-        "title": "Docker և TrueNAS ready",
-        "description": "Տեղադրեք local՝ container workflow-ներով և storage-friendly deployment-ով։"
+        "title": "Պատրաստ է Docker և TrueNAS-ի համար",
+        "description": "Տեղադրեք տեղային՝ կոնտեյներային հոսքերով և պահեստավորման համար հարմար տեղադրմամբ։"
       },
       "5": {
-        "title": "Reports և topology",
-        "description": "Դիտեք uptime-ը, service state-երը և սարքերի կապերը մեկ տեղում։"
+        "title": "Հաշվետվություններ և տոպոլոգիա",
+        "description": "Դիտեք uptime-ը, ծառայությունների վիճակները և սարքերի կապերը մեկ տեղում։"
       },
       "eyebrow": "Կարևոր կետեր",
-      "title": "Առաջին օգտակար monitoring տեսքի համար անհրաժեշտ ամբողջ միջուկը",
-      "description": "Discovery, checks, alerts, reports և support workflows՝ կազմակերպված իրական տեղային աշխատանքի շուրջ։"
+      "title": "Առաջին օգտակար մոնիթորինգի տեսքի համար անհրաժեշտ ամբողջ միջուկը",
+      "description": "Հայտնաբերում, ստուգումներ, ծանուցումներ, հաշվետվություններ և աջակցման հոսքեր՝ կազմակերպված իրական տեղային աշխատանքի շուրջ։"
     },
     "dashboard": {
       "title": "Monitoring snapshot",
@@ -234,34 +236,34 @@
   },
   "features": {
     "title": "DitakNet հնարավորություններ",
-    "description": "Monitoring հարթակ՝ կենտրոնացած իրական local network աշխատանքի վրա՝ discovery, checks, alerts, reports, topology և support։",
+    "description": "Մոնիթորինգի հարթակ՝ կենտրոնացած իրական տեղային ցանցի աշխատանքի վրա՝ հայտնաբերում, ստուգումներ, ծանուցումներ, հաշվետվություններ, տոպոլոգիա և աջակցություն։",
     "items": {
-      "network": "Ցանցի monitoring",
-      "discovery": "Ավտոմատ IP և device discovery",
-      "camera": "Camera և NVR monitoring",
-      "server": "Server monitoring",
-      "checks": "Ping, TCP և HTTP checks",
-      "telegram": "Telegram notifications",
-      "reports": "Reports",
-      "agent": "Agent monitoring",
-      "topology": "Topology",
-      "maintenance": "Maintenance tasks",
-      "languages": "Բազմալեզու UI",
-      "docker": "Docker և TrueNAS support"
+      "network": "Ցանցի մոնիթորինգ",
+      "discovery": "Ավտոմատ IP և սարքերի հայտնաբերում",
+      "camera": "Տեսախցիկների և NVR մոնիթորինգ",
+      "server": "Սերվերների մոնիթորինգ",
+      "checks": "Ping, TCP և HTTP ստուգումներ",
+      "telegram": "Telegram ծանուցումներ",
+      "reports": "Հաշվետվություններ",
+      "agent": "Գործակալային մոնիթորինգ",
+      "topology": "Տոպոլոգիա",
+      "maintenance": "Սպասարկման առաջադրանքներ",
+      "languages": "Բազմալեզու միջերես",
+      "docker": "Docker և TrueNAS աջակցություն"
     },
     "itemDescriptions": {
-      "network": "Monitor approved local networks and services from one self-hosted server.",
-      "discovery": "Discover devices on private subnets you own or manage.",
-      "camera": "Check camera and recorder availability through network monitoring.",
-      "server": "Track server and host health with scheduled checks.",
-      "checks": "Use ping, TCP, and HTTP checks for operational visibility.",
-      "telegram": "Send alerts to Telegram when configured by the operator.",
-      "reports": "Review status, uptime, and operational summaries.",
-      "agent": "Available in higher annual license areas where enabled.",
-      "topology": "Visualize relationships between monitored assets.",
-      "maintenance": "Track maintenance-related operational items.",
-      "languages": "Operate the product in Armenian, English, or Russian.",
-      "docker": "Deploy on customer-controlled Docker, Linux, or TrueNAS SCALE infrastructure."
+      "network": "Մեկ տեղային սերվերից մոնիթոր արեք թույլատրված տեղային ցանցերն ու ծառայությունները։",
+      "discovery": "Գտեք սարքեր այն մասնավոր ենթացանցերում, որոնք դուք եք կառավարում։",
+      "camera": "Ցանցային ստուգումներով հետևեք տեսախցիկների և ձայնագրիչների հասանելիությանը։",
+      "server": "Ժամանակացույցով ստուգումներով հետևեք սերվերների և host-երի վիճակին։",
+      "checks": "Օգտագործեք ping, TCP և HTTP ստուգումներ՝ օպերացիոն տեսանելիության համար։",
+      "telegram": "Օպերատորի կարգավորումից հետո ուղարկեք ծանուցումներ Telegram։",
+      "reports": "Դիտեք կարգավիճակը, uptime-ը և օպերացիոն ամփոփումները։",
+      "agent": "Հասանելի է ավելի բարձր տարեկան փաթեթներում, երբ միացված է։",
+      "topology": "Տեսանելի դարձրեք մոնիթորվող ակտիվների կապերը։",
+      "maintenance": "Հետևեք սպասարկման հետ կապված օպերացիոն կետերին։",
+      "languages": "Աշխատեք արտադրանքով հայերեն, անգլերեն կամ ռուսերեն։",
+      "docker": "Տեղադրեք հաճախորդի վերահսկվող Docker, Linux կամ TrueNAS SCALE միջավայրում։"
     }
   },
   "pricing": {
@@ -387,18 +389,18 @@
   },
   "about": {
     "title": "DitakNet-ի մասին",
-    "description": "DitakNet-ը self-hosted մոնիթորինգ է անհատների, տան, փոքր գրասենյակի և տեղային IT visibility-ի համար։",
-    "what": "Սա տեղային մոնիթորինգ սերվեր է՝ router, camera, NVR, server, printer, VLAN և service-ների համար։ Տեղադրվում է Docker, Linux կամ TrueNAS SCALE-ով՝ լռելյայն port 5833։",
-    "who": "Նախատեսված է անհատների, home lab-ի, փոքր գրասենյակի, CCTV installer-ների, freelancer-ների և TrueNAS/Docker օպերատորների համար։",
-    "why": "Արտադրանքը նվազեցնում է կույր կետերը՝ discovery, monitoring, backup և license վերահսկումը պահելով մեկ տեղային սերվերում։",
-    "vision": "Հուսալի local-first մոնիթորինգ՝ ազնիվ licensing-ով, գործնական տեղադրմամբ և պարզ օպերացիոն տեսանելիությամբ։"
+    "description": "DitakNet-ը տեղային մոնիթորինգ է անհատների, տան, փոքր գրասենյակի և տեղային IT տեսանելիության համար։",
+    "what": "Սա տեղային մոնիթորինգ սերվեր է՝ երթուղիչների, տեսախցիկների, NVR-ների, սերվերների, տպիչների, VLAN-ների և ծառայությունների համար։ Տեղադրվում է Docker, Linux կամ TrueNAS SCALE-ով՝ լռելյայն port 5833։",
+    "who": "Նախատեսված է անհատների, փոքր լաբորատորիաների, փոքր գրասենյակների, CCTV տեղադրողների, ֆրիլանսերների և TrueNAS/Docker օպերատորների համար։",
+    "why": "Արտադրանքը նվազեցնում է կույր կետերը՝ հայտնաբերումը, մոնիթորինգը, պահուստավորումը և լիցենզիայի վերահսկումը պահելով մեկ տեղային սերվերում։",
+    "vision": "Հուսալի տեղային մոնիթորինգ՝ ազնիվ լիցենզավորմամբ, գործնական տեղադրմամբ և պարզ օպերացիոն տեսանելիությամբ։"
   },
   "contact": {
     "title": "Կապ DitakNet-ի հետ",
-    "description": "Հարցրեք տարեկան license-ի, տեղադրման օգնության կամ տեխնիկական հարցերի մասին։ Գրեք ցանցի չափը, սարքեր/camera-ներ և Docker կամ PC եք օգտագործում։",
+    "description": "Հարցրեք տարեկան լիցենզիայի, տեղադրման օգնության կամ տեխնիկական հարցերի մասին։ Գրեք ցանցի չափը, սարքերի/տեսախցիկների քանակը և Docker կամ համակարգիչ եք օգտագործում։",
     "submit": "Ուղարկել",
-    "success": "Հաղորդագրությունը ստացվեց։ Կպատասխանենք license կամ տեղադրման հաջորդ քայլերով։",
-    "implementationHint": "Նշեք միջավայրը (Docker, Linux, TrueNAS կամ տան PC), մոտավոր սարքերի քանակը և նախընտրելի տարեկան փաթեթը՝ եթե գիտեք։",
+    "success": "Հաղորդագրությունը ստացվեց։ Կպատասխանենք լիցենզիայի կամ տեղադրման հաջորդ քայլերով։",
+    "implementationHint": "Նշեք միջավայրը (Docker, Linux, TrueNAS կամ տան համակարգիչ), մոտավոր սարքերի քանակը և նախընտրելի տարեկան փաթեթը՝ եթե գիտեք։",
     "deploymentEnvironment": "Տեղադրման միջավայր",
     "deploymentEnvironmentPlaceholder": "Ընտրեք միջավայր",
     "deploymentEnvironments": {
@@ -420,77 +422,77 @@
   },
   "support": {
     "title": "Աջակցման կենտրոն",
-    "description": "Գտեք installation help, ստեղծեք ticket, request արեք license կամ կարդացեք docs-ը։",
-    "helpCenter": "Help center",
-    "newTicket": "Նոր ticket",
-    "tickets": "Իմ tickets",
-    "license": "License request",
+    "description": "Գտեք տեղադրման օգնություն, ստեղծեք հայտ, խնդրեք լիցենզիա կամ կարդացեք փաստաթղթերը։",
+    "helpCenter": "Օգնության կենտրոն",
+    "newTicket": "Նոր հայտ",
+    "tickets": "Իմ հայտերը",
+    "license": "Լիցենզիայի հայտ",
     "docs": "Փաստաթղթեր",
-    "troubleshooting": "Ընդհանուր troubleshooting",
-    "createTicket": "Ստեղծել ticket",
+    "troubleshooting": "Ընդհանուր անսարքությունների վերացում",
+    "createTicket": "Ստեղծել հայտ",
     "reply": "Պատասխան",
     "sendReply": "Ուղարկել պատասխան",
-    "ticketDetail": "Ticket details",
-    "needLogin": "Մուտք գործեք support tickets ստեղծելու և դիտելու համար։"
+    "ticketDetail": "Հայտի մանրամասներ",
+    "needLogin": "Մուտք գործեք աջակցման հայտեր ստեղծելու և դիտելու համար։"
   },
   "docs": {
     "title": "Փաստաթղթեր",
-    "description": "Guides՝ DitakNet տեղադրելու, ակտիվացնելու և օգտագործելու համար։",
+    "description": "Ուղեցույցներ՝ DitakNet տեղադրելու, ակտիվացնելու և օգտագործելու համար։",
     "items": {
-      "getting-started": "Getting started",
-      "docker-installation": "Docker installation",
-      "truenas-installation": "TrueNAS installation",
-      "first-run-setup": "First-run setup",
-      "network-discovery": "Network discovery",
-      "licensing": "Licensing",
-      "telegram-alerts": "Telegram alerts",
-      "faq": "FAQ",
+      "getting-started": "Սկսել աշխատանքը",
+      "docker-installation": "Docker տեղադրում",
+      "truenas-installation": "TrueNAS տեղադրում",
+      "first-run-setup": "Առաջին գործարկման կարգավորում",
+      "network-discovery": "Ցանցի հայտնաբերում",
+      "licensing": "Լիցենզավորում",
+      "telegram-alerts": "Telegram ծանուցումներ",
+      "faq": "ՀՏՀ",
       "configuration": "Կոնֆիգուրացիա"
     },
-    "body": "Այս էջը պատրաստ է մանրամասն product documentation-ի համար՝ քայլ առ քայլ installation notes, screenshots, troubleshooting և support references։"
+    "body": "Այս էջը պատրաստ է մանրամասն արտադրանքի փաստաթղթերի համար՝ քայլ առ քայլ տեղադրման նշումներ, սքրինշոթեր, անսարքությունների վերացում և աջակցման հղումներ։"
   },
   "faq": {
     "title": "Հաճախ տրվող հարցեր",
     "items": {
       "0": {
         "q": "Ի՞նչ է DitakNet-ը",
-        "a": "Տեղային network monitoring հարթակ է devices-ի, services-ի, alerts-ի և support workflows-ի համար։"
+        "a": "Տեղային ցանցի մոնիթորինգի հարթակ է սարքերի, ծառայությունների, ծանուցումների և աջակցման հոսքերի համար։"
       },
       "1": {
         "q": "Պե՞տք է internet",
-        "a": "Core monitoring-ը պետք է աշխատի network-ի ներսում։ Internet-ը կարող է պետք լինել updates-ի, notifications-ի կամ license communication-ի համար։"
+        "a": "Հիմնական մոնիթորինգը պետք է աշխատի ցանցի ներսում։ Internet-ը կարող է պետք լինել թարմացումների, ծանուցումների կամ լիցենզիայի համար։"
       },
       "2": {
         "q": "Կարո՞ղ է աշխատել TrueNAS-ի վրա",
-        "a": "Այո, product-ը պատրաստվում է Docker և TrueNAS-style deployment-ի համար։"
+        "a": "Այո, արտադրանքը պատրաստվում է Docker և TrueNAS ոճի տեղադրման համար։"
       },
       "3": {
-        "q": "Ի՞նչն է free",
-        "a": "Free package-ը ներառում է basic limits՝ devices, մեկ subnet/VLAN, checks, alerts, reports և local deployment։"
+        "q": "Ի՞նչն է անվճար",
+        "a": "Անվճար փաթեթը ներառում է հիմնական սահմաններ՝ սարքեր, մեկ ենթացանց/VLAN, ստուգումներ, ծանուցումներ, հաշվետվություններ և տեղային տեղադրում։"
       },
       "4": {
-        "q": "Ի՞նչն է պահանջում activation",
-        "a": "Lite, Pro, Corporate, Multi-Office and Enterprise packages require տարեկան license request and activation process."
+        "q": "Ի՞նչն է պահանջում ակտիվացում",
+        "a": "Lite, Pro, Corporate, Multi-Office և Enterprise փաթեթները պահանջում են տարեկան լիցենզիայի հայտ և ակտիվացման գործընթաց։"
       },
       "5": {
-        "q": "Կարո՞ղ է monitor անել cameras",
-        "a": "Այո, կարող է network checks-ով հետևել camera և NVR availability-ին։"
+        "q": "Կարո՞ղ է հետևել տեսախցիկներին",
+        "a": "Այո, կարող է ցանցային ստուգումներով հետևել տեսախցիկների և NVR-ների հասանելիությանը։"
       },
       "6": {
-        "q": "Կարո՞ղ է monitor անել servers",
-        "a": "Այո, աջակցում է server checks և agent monitoring բարձր փաթեթներում։"
+        "q": "Կարո՞ղ է հետևել սերվերներին",
+        "a": "Այո, աջակցում է սերվերային ստուգումներ և գործակալային մոնիթորինգ բարձր փաթեթներում։"
       },
       "7": {
-        "q": "Սքանավորում է public internet-ը",
-        "a": "Ոչ։ Նախատեսված discovery scope-ը approved local networks և VLANs են։"
+        "q": "Սքանավորո՞ւմ է public internet-ը",
+        "a": "Ոչ։ Նախատեսված հայտնաբերման շրջանակը թույլատրված տեղային ցանցերն ու VLAN-ներն են։"
       },
       "8": {
-        "q": "Սքանավորումն անվտանգ է",
-        "a": "Discovery-ն պետք է սահմանափակվի այն ցանցերով, որոնք դուք կառավարում եք, և կազմաձևվի safe local scopes-ով։"
+        "q": "Սքանավորումն անվտանգ է՞",
+        "a": "Հայտնաբերումը պետք է սահմանափակվի այն ցանցերով, որոնք դուք կառավարում եք, և կարգավորվի անվտանգ տեղային շրջանակներով։"
       },
       "9": {
-        "q": "Ինչպե՞ս request անել license",
-        "a": "Օգտագործեք license request form-ը և նշեք installation ID-ն ու package need-ը։"
+        "q": "Ինչպե՞ս խնդրել լիցենզիա",
+        "a": "Օգտագործեք լիցենզիայի հայտի ձևը և նշեք տեղադրման ID-ն ու անհրաժեշտ փաթեթը։"
       }
     }
   },
@@ -687,57 +689,57 @@
   },
   "legal": {
     "index": {
-      "title": "Իրավական և compliance",
-      "description": "Privacy Policy, software license, Terms of Sale և DitakNet self-hosted ծրագրի այլ փաստաթղթեր։"
+      "title": "Իրավական փաստաթղթեր",
+      "description": "Գաղտնիության քաղաքականություն, ծրագրային լիցենզիա, վաճառքի պայմաններ և DitakNet-ի այլ փաստաթղթեր։"
     },
     "draftNotice": "Սևագիր փաստաթուղթ — վերջնական իրավական խորհուրդ չէ։ Վաճառքից առաջ փաստաթղթերը պետք է ստուգի իրավաբանը։",
     "download": "Ներբեռնել",
-    "acceptRequired": "Պարտադիր է ընդունել գնման կամ activation-ի ժամանակ",
+    "acceptRequired": "Պարտադիր է ընդունել գնման կամ ակտիվացման ժամանակ",
     "privacy": {
-      "title": "Privacy Policy",
-      "description": "Ինչ տվյալներ է մշակում DitakNet-ը self-hosted տեղադրման դեպքում և ինչ նպատակով։"
+      "title": "Գաղտնիության քաղաքականություն",
+      "description": "Ինչ տվյալներ է մշակում DitakNet-ը տեղային տեղադրման դեպքում և ինչ նպատակով։"
     },
     "eula": {
-      "title": "Software License Agreement (EULA)",
-      "description": "License grant, սահմանափակումներ, տարեկան term և acceptable use։"
+      "title": "Ծրագրային լիցենզիայի պայմանագիր (EULA)",
+      "description": "Լիցենզիայի տրամադրում, սահմանափակումներ, տարեկան ժամկետ և թույլատրելի օգտագործում։"
     },
     "terms": {
-      "title": "Terms of Sale",
-      "description": "Տարեկան billing, renewal, refunds, invoices և license delivery։"
+      "title": "Վաճառքի պայմաններ",
+      "description": "Տարեկան վճարում, երկարաձգում, վերադարձներ, հաշիվներ և լիցենզիայի տրամադրում։"
     },
     "dpa": {
-      "title": "Data Processing Addendum",
-      "description": "Controller/processor դերեր corporate հաճախորդների և support access-ի համար։"
+      "title": "Տվյալների մշակման հավելված (DPA)",
+      "description": "Վերահսկողի և մշակողի դերեր կորպորատիվ հաճախորդների և աջակցման հասանելիության համար։"
     },
     "aup": {
-      "title": "Acceptable Use Policy",
-      "description": "Արգելված օգտագործումներ, ներառյալ unauthorized scanning և hidden surveillance։"
+      "title": "Թույլատրելի օգտագործման քաղաքականություն",
+      "description": "Արգելված օգտագործումներ, ներառյալ չթույլատրված սքանավորում և թաքնված հսկողություն։"
     },
     "security": {
-      "title": "Security Policy",
-      "description": "Self-hosting security, access control և vulnerability reporting։"
+      "title": "Անվտանգության քաղաքականություն",
+      "description": "Տեղային տեղադրման անվտանգություն, մուտքի վերահսկում և խոցելիությունների հաղորդում։"
     },
     "sla": {
-      "title": "Support & SLA Terms",
-      "description": "Support hours, response times և plan-ով ներառված ծառայություններ։"
+      "title": "Աջակցման և SLA պայմաններ",
+      "description": "Աջակցման ժամեր, արձագանքման ժամկետներ և փաթեթներում ներառված ծառայություններ։"
     },
     "oss": {
-      "title": "Open Source Notices",
-      "description": "Երրորդ կողմի open source components, որոնք օգտագործում է DitakNet-ը։"
+      "title": "Բաց կոդի ծանուցումներ",
+      "description": "Երրորդ կողմի բաց կոդի բաղադրիչներ, որոնք օգտագործում է DitakNet-ը։"
     },
     "employeeNotice": {
-      "title": "Employee Attendance Notice Template",
-      "description": "Corporate հաճախորդների համար template՝ աշխատակիցներին attendance monitoring-ի մասին տեղեկացնելու համար։"
+      "title": "Աշխատակիցների ներկայության ծանուցման ձևանմուշ",
+      "description": "Կորպորատիվ հաճախորդների համար ձևանմուշ՝ աշխատակիցներին ներկայության մոնիթորինգի մասին տեղեկացնելու համար։"
     }
   },
   "deploymentPage": {
-    "title": "Deployment",
-    "description": "DitakNet runs on customer-controlled infrastructure: Docker, Linux servers, TrueNAS SCALE, and private local networks.",
-    "body": "Core monitoring runs inside your network. Default application port is 5833. Internet may be used for optional notifications, updates, or license communication—but the product is not a public cloud SaaS."
+    "title": "Տեղադրում",
+    "description": "DitakNet-ը աշխատում է ձեր վերահսկվող ենթակառուցվածքում՝ Docker, Linux սերվեր, TrueNAS SCALE և մասնավոր տեղային ցանցեր։",
+    "body": "Հիմնական մոնիթորինգը աշխատում է ձեր ցանցի ներսում։ Լռելյայն port-ը 5833 է։ Internet-ը կարող է օգտագործվել ծանուցումների, թարմացումների կամ լիցենզիայի համար, բայց արտադրանքը public cloud SaaS չէ։"
   },
   "securityPage": {
-    "title": "Security and control",
-    "description": "Local-first deployment, backend permission checks, license-controlled access, and backup safety workflows.",
-    "body": "DitakNet uses role-based access areas and backend permission checks for sensitive settings. This website does not claim military-grade, bank-level, or certified compliance language that is not documented in the product."
+    "title": "Անվտանգություն և վերահսկում",
+    "description": "Տեղային տեղադրում, backend թույլտվությունների ստուգում, լիցենզիայով կառավարվող հասանելիություն և backup-ի անվտանգ հոսքեր։",
+    "body": "DitakNet-ը օգտագործում է դերային հասանելիություն և backend թույլտվությունների ստուգում զգայուն կարգավորումների համար։ Այս կայքը չի պնդում ռազմական, բանկային կամ սերտիֆիկացված համապատասխանության մասին, եթե դա փաստաթղթավորված չէ արտադրանքում։"
   }
 }

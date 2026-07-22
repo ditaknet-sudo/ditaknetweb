@@ -30,7 +30,9 @@
     "description": "DitakNet is a self-hosted monitoring server for individuals, home labs, small offices, CCTV, and local IT visibility. It runs on Docker, Linux, or TrueNAS SCALE on infrastructure you control.",
     "links": "Product",
     "legal": "Legal",
-    "contact": "Contact"
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "tagline": "Local-first monitoring you control."
   },
   "common": {
     "brandName": "DitakNet",

@@ -19,7 +19,7 @@ export async function SiteHeader({ locale, messages }: { locale: Locale; message
   const t = createTranslator(messages);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--panel)_95%,transparent)] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--panel)_78%,transparent)] backdrop-blur-xl">
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <BrandLogo brandName="DitakNet" href={`/${locale}`} size="sm" />
 
