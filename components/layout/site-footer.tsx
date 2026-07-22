@@ -16,7 +16,6 @@ const footerLinks = [
 ] as const;
 
 const legalLinks = [
-  { key: "legal.index.title", href: "legal" },
   { key: "legal.privacy.title", href: "legal/privacy-policy" },
   { key: "legal.eula.title", href: "legal/eula" },
   { key: "legal.terms.title", href: "legal/terms-of-sale" }
@@ -33,87 +32,60 @@ export function SiteFooter({ locale, messages }: { locale: Locale; messages: Mes
   const showEmail = !isPlaceholderEmail(site.supportEmail);
 
   return (
-    <footer className="relative z-[1] border-t border-[var(--line)] bg-[color-mix(in_srgb,var(--panel)_82%,transparent)] backdrop-blur-md">
-      <div className="container-page py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))] lg:gap-12">
-          <div className="sm:col-span-2 lg:col-span-1">
+    <footer className="site-footer">
+      <div className="container-page site-footer__inner">
+        <div className="site-footer__top">
+          <div className="site-footer__brand">
             <BrandLogo brandName={t("common.brandName")} href={`/${locale}`} size="sm" />
-            <p className="mt-4 max-w-md text-sm leading-7 text-[var(--muted)]">{t("footer.description")}</p>
+            <p className="site-footer__tagline">{t("footer.tagline")}</p>
           </div>
 
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-[var(--muted)]">{t("footer.links")}</p>
-            <ul className="flex flex-col gap-2.5">
-              {footerLinks.map((link) => (
-                <li key={link.key}>
-                  <Link
-                    href={`/${locale}/${link.href}`}
-                    className="text-sm font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--brand)]"
-                  >
-                    {t(`nav.${link.key}`)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-[var(--muted)]">{t("footer.legal")}</p>
-            <ul className="flex flex-col gap-2.5">
-              {legalLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={`/${locale}/${link.href}`}
-                    className="text-sm font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--brand)]"
-                  >
-                    {t(link.key)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-[var(--muted)]">{t("footer.contact")}</p>
-            <div className="space-y-3 text-sm text-[var(--muted)]">
-              {showEmail ? (
-                <a
-                  href={`mailto:${site.supportEmail}`}
-                  className="flex items-center gap-2 font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--brand)]"
-                >
-                  <Mail className="h-4 w-4 shrink-0 text-[var(--brand)]" />
-                  <span className="break-all">{site.supportEmail}</span>
-                </a>
-              ) : (
-                <Link
-                  href={`/${locale}/contact`}
-                  className="flex items-center gap-2 font-semibold text-[var(--foreground)] transition-colors hover:text-[var(--brand)]"
-                >
-                  <Mail className="h-4 w-4 shrink-0 text-[var(--brand)]" />
-                  {t("nav.contact")}
-                </Link>
-              )}
-              {site.supportPhone ? (
-                <p className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 shrink-0 text-[var(--brand)]" />
-                  {site.supportPhone}
-                </p>
-              ) : null}
-              {site.supportTelegram ? (
-                <p className="flex items-center gap-2">
-                  <MessageCircle className="h-4 w-4 shrink-0 text-[var(--brand)]" />
-                  {site.supportTelegram}
-                </p>
-              ) : null}
-            </div>
+          <div className="site-footer__contact">
+            {showEmail ? (
+              <a href={`mailto:${site.supportEmail}`} className="site-footer__contact-link">
+                <Mail className="h-3.5 w-3.5" />
+                {site.supportEmail}
+              </a>
+            ) : (
+              <Link href={`/${locale}/contact`} className="site-footer__contact-link">
+                <Mail className="h-3.5 w-3.5" />
+                {t("nav.contact")}
+              </Link>
+            )}
+            {site.supportPhone ? (
+              <span className="site-footer__contact-link">
+                <Phone className="h-3.5 w-3.5" />
+                {site.supportPhone}
+              </span>
+            ) : null}
+            {site.supportTelegram ? (
+              <span className="site-footer__contact-link">
+                <MessageCircle className="h-3.5 w-3.5" />
+                {site.supportTelegram}
+              </span>
+            ) : null}
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-[var(--line)] pt-6 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} {t("common.brandName")}. {t("footer.rights")}
+        <nav className="site-footer__nav" aria-label={t("footer.links")}>
+          {footerLinks.map((link) => (
+            <Link key={link.key} href={`/${locale}/${link.href}`} className="site-footer__link">
+              {t(`nav.${link.key}`)}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="site-footer__bottom">
+          <p className="site-footer__copy">
+            © {year} {t("common.brandName")}
           </p>
-          <p className="text-xs sm:text-sm">{t("footer.tagline")}</p>
+          <nav className="site-footer__legal" aria-label={t("footer.legal")}>
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={`/${locale}/${link.href}`} className="site-footer__legal-link">
+                {t(link.key)}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

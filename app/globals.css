@@ -1140,6 +1140,129 @@ html[data-theme="dark"] .hero-3d-shell {
   margin: 0 auto;
 }
 
+.site-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.15rem 0 1.25rem;
+}
+
+.site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  min-width: 0;
+}
+
+.site-footer__tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.site-footer__contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.9rem;
+}
+
+.site-footer__contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 650;
+  transition: color 0.15s ease;
+}
+
+.site-footer__contact-link:hover {
+  color: var(--brand);
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.15rem;
+  padding-top: 0.15rem;
+}
+
+.site-footer__link {
+  padding: 0.28rem 0.55rem;
+  border-radius: 0.45rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 650;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.site-footer__link:hover {
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 8%, transparent);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+}
+
+.site-footer__copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.85rem;
+}
+
+.site-footer__legal-link {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.site-footer__legal-link:hover {
+  color: var(--brand);
+}
+
+@media (max-width: 640px) {
+  .site-footer__inner {
+    padding: 1rem 0 1.1rem;
+    gap: 0.75rem;
+  }
+
+  .site-footer__tagline {
+    width: 100%;
+  }
+}
+
 .brand-logo,
 .brand-logo-link {
   align-items: center;
