@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 import { LicenseRequestForm } from "@/components/forms/license-request-form";
 import { Card } from "@/components/ui/card";
 import { getSession } from "@/lib/auth";
+import { isLicensingUiEnabled } from "@/lib/features";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
 import { localizedPageMetadata } from "@/lib/seo";
@@ -15,14 +17,20 @@ export function generateMetadata({ params }: { params: Promise<{ locale: string 
     path: "/license/request",
     titleKey: "license.title",
     descriptionKey: "license.description",
-    fallbackTitle: "Request DitakNet license activation",
-    fallbackDescription: "Send an installation ID and package request for DitakNet license activation."
+    fallbackTitle: "Request DitakNet professional setup",
+    fallbackDescription: "Contact DitakNet for professional installation or custom development.",
+    noIndex: true
   });
 }
 
 export default async function LicenseRequestPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;
   const locale = normalizeLocale(rawLocale) as Locale;
+
+  if (!isLicensingUiEnabled) {
+    redirect(`/${locale}/contact`);
+  }
+
   const messages = await getDictionary(locale);
   const t = createTranslator(messages);
   const session = await getSession();

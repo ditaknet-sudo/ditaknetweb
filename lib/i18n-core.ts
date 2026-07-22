@@ -1,19 +1,16 @@
-export const locales = ["hy", "en", "ru"] as const;
+export const locales = ["en", "hy", "ru"] as const;
 export type Locale = (typeof locales)[number];
 
 export type Messages = Record<string, unknown>;
 
 export const localeNames: Record<Locale, string> = {
-  hy: "Հայ",
   en: "EN",
+  hy: "Հայ",
   ru: "RU"
 };
 
-export const defaultLocale: Locale =
-  process.env.NEXT_PUBLIC_DEFAULT_LOCALE === "en" ||
-  process.env.NEXT_PUBLIC_DEFAULT_LOCALE === "ru"
-    ? process.env.NEXT_PUBLIC_DEFAULT_LOCALE
-    : "hy";
+/** Public site always opens in English first. */
+export const defaultLocale: Locale = "en";
 
 export function isLocale(value: string | undefined): value is Locale {
   return locales.includes(value as Locale);

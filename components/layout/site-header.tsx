@@ -1,30 +1,27 @@
 import Link from "next/link";
-import { LogIn, LogOut, Menu, UserPlus } from "lucide-react";
 
 import { BrandLogo } from "@/components/brand/brand-logo";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
-import { ButtonLink } from "@/components/ui/button";
-import { getSession } from "@/lib/auth";
-import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
 
 const publicNav = [
   { key: "product", href: "product" },
+  { key: "tools", href: "tools" },
   { key: "features", href: "features" },
   { key: "deployment", href: "deployment" },
-  { key: "licensing", href: "pricing" },
+  { key: "pricing", href: "pricing" },
   { key: "security", href: "security" },
   { key: "contact", href: "contact" }
 ] as const;
 
 export async function SiteHeader({ locale, messages }: { locale: Locale; messages: Messages }) {
   const t = createTranslator(messages);
-  const session = await getSession();
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--panel)_95%,transparent)] backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <BrandLogo brandName={t("common.brandName")} href={`/${locale}`} size="sm" />
+        <BrandLogo brandName="DitakNet" href={`/${locale}`} size="sm" />
 
         <nav className="hidden items-center gap-1 lg:flex">
           {publicNav.map((item) => (
@@ -41,35 +38,6 @@ export async function SiteHeader({ locale, messages }: { locale: Locale; message
         <div className="flex items-center gap-2">
           <ThemeToggle label={t("common.themeToggle")} />
           <LanguageSwitcher currentLocale={locale} />
-          {session ? (
-            <>
-              {session.user.role === "ADMIN" ? (
-                <ButtonLink href={`/${locale}/admin`} variant="ghost" size="sm" className="hidden md:inline-flex">
-                  {t("nav.admin")}
-                </ButtonLink>
-              ) : null}
-              <ButtonLink href={`/${locale}/account`} variant="outline" size="sm" className="hidden md:inline-flex">
-                {t("nav.account")}
-              </ButtonLink>
-              <ButtonLink href={`/${locale}/logout`} variant="ghost" size="sm" aria-label={t("nav.logout")}>
-                <LogOut className="h-4 w-4" />
-              </ButtonLink>
-            </>
-          ) : (
-            <>
-              <ButtonLink href={`/${locale}/login`} variant="ghost" size="sm" className="hidden md:inline-flex">
-                <LogIn className="h-4 w-4" />
-                {t("nav.login")}
-              </ButtonLink>
-              <ButtonLink href={`/${locale}/register`} variant="secondary" size="sm" className="hidden md:inline-flex">
-                <UserPlus className="h-4 w-4" />
-                {t("nav.register")}
-              </ButtonLink>
-            </>
-          )}
-          <ButtonLink href={`/${locale}/contact`} variant="ghost" size="sm" className="lg:hidden" aria-label={t("nav.menu")}>
-            <Menu className="h-4 w-4" />
-          </ButtonLink>
         </div>
       </div>
     </header>

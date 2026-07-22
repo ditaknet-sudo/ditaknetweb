@@ -5,15 +5,16 @@ import { BookOpen, HelpCircle, KeyRound, LifeBuoy, MessageSquarePlus, Wrench } f
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getSession } from "@/lib/auth";
+import { isAuthUiEnabled } from "@/lib/features";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
 import { localizedPageMetadata } from "@/lib/seo";
 
 const supportLinks = [
   ["docs", "docs", BookOpen],
-  ["newTicket", "support/tickets/new", MessageSquarePlus],
-  ["tickets", "support/tickets", LifeBuoy],
-  ["license", "license/request", KeyRound],
+  ["newTicket", "contact", MessageSquarePlus],
+  ["tickets", "contact", LifeBuoy],
+  ["license", "deployment", KeyRound],
   ["troubleshooting", "faq", Wrench],
   ["helpCenter", "contact", HelpCircle]
 ] as const;
@@ -35,7 +36,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
   const locale = normalizeLocale(rawLocale) as Locale;
   const messages = await getDictionary(locale);
   const t = createTranslator(messages);
-  const session = await getSession();
+  const session = isAuthUiEnabled ? await getSession() : null;
 
   return (
     <main className="container-page py-12">
@@ -49,12 +50,14 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
             {t("support.newTicket")}
           </ButtonLink>
         ) : (
-          <ButtonLink href={`/${locale}/login?next=/${locale}/support/tickets/new`} variant="secondary">
-            {t("nav.login")}
+          <ButtonLink href={`/${locale}/contact`} variant="secondary">
+            {t("nav.contact")}
           </ButtonLink>
         )}
       </div>
-      {!session ? <p className="mt-4 rounded-md bg-[var(--panel-soft)] p-4 text-sm font-semibold text-[var(--warning)]">{t("support.needLogin")}</p> : null}
+      {isAuthUiEnabled && !session ? (
+        <p className="mt-4 rounded-md bg-[var(--panel-soft)] p-4 text-sm font-semibold text-[var(--warning)]">{t("support.needLogin")}</p>
+      ) : null}
       <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {supportLinks.map(([key, href, Icon]) => (
           <Link key={key} href={`/${locale}/${href}`}>

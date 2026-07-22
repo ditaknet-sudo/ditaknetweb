@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { ItToolsSuite } from "@/components/marketing/it-tools-suite";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { Card } from "@/components/ui/card";
 import { getDictionary } from "@/lib/i18n";
@@ -12,7 +13,7 @@ export function generateMetadata({ params }: { params: Promise<{ locale: string 
     titleKey: "home.product.title",
     descriptionKey: "home.product.description",
     fallbackTitle: "DitakNet product",
-    fallbackDescription: "Self-hosted monitoring server for local networks, servers, devices, backups, and licensing."
+    fallbackDescription: "Self-hosted monitoring server and practical IT tools for local networks, devices, and private data."
   });
 }
 
@@ -34,6 +35,9 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
         ))}
       </div>
       <p className="mt-8 max-w-3xl text-sm leading-6 text-[var(--muted)]">{t("home.explain.description")}</p>
+      <div className="mt-16 border-t border-[var(--line)] pt-12">
+        <ItToolsSuite locale={locale} />
+      </div>
     </main>
   );
 }

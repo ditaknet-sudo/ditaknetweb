@@ -12,7 +12,7 @@ export function generateMetadata({ params }: { params: Promise<{ locale: string 
     titleKey: "pricing.title",
     descriptionKey: "pricing.description",
     fallbackTitle: "DitakNet pricing",
-    fallbackDescription: "Annual DitakNet license packages for local network monitoring."
+    fallbackDescription: "Free Docker self-install, or pay for professional installation and development."
   });
 }
 

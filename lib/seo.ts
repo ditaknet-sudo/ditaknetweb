@@ -6,6 +6,7 @@ import { defaultLocale, Locale, locales, Messages, getNestedMessage, normalizeLo
 export const publicSeoPaths = [
   "/",
   "/product",
+  "/tools",
   "/features",
   "/deployment",
   "/pricing",
@@ -17,7 +18,6 @@ export const publicSeoPaths = [
   "/blog",
   "/contact",
   "/discussions",
-  "/license/request",
   "/legal",
   "/legal/privacy-policy",
   "/legal/eula",
@@ -91,6 +91,24 @@ export function buildLocalizedMetadata({
     metadataBase: new URL(getSiteUrl()),
     title,
     description,
+    applicationName: "DitakNet",
+    category: "technology",
+    keywords: [
+      "DitakNet",
+      "ԴիտակՆեթ",
+      "monitoring server",
+      "self-hosted monitoring",
+      "local network monitoring",
+      "network visibility",
+      "device discovery",
+      "CCTV monitoring",
+      "Docker monitoring",
+      "TrueNAS",
+      "IT monitoring Armenia"
+    ],
+    authors: [{ name: "DitakNet", url: getSiteUrl() }],
+    creator: "DitakNet",
+    publisher: "DitakNet",
     alternates: {
       canonical: canonicalUrl,
       languages: alternateLanguages(path)
@@ -108,12 +126,12 @@ export function buildLocalizedMetadata({
           url: imageUrl,
           width: 512,
           height: 512,
-          alt: "DitakNet"
+          alt: "DitakNet monitoring server"
         }
       ]
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
       images: [imageUrl]
@@ -121,12 +139,27 @@ export function buildLocalizedMetadata({
     robots: noIndex
       ? {
           index: false,
-          follow: false
+          follow: false,
+          nocache: true
         }
       : {
           index: true,
-          follow: true
-        }
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1
+          }
+        },
+    other: {
+      "ai-description":
+        "DitakNet is a self-hosted monitoring server for local networks, devices, CCTV, Docker, and IT infrastructure.",
+      "product:category": "MonitoringApplication",
+      "ai:llms": absoluteUrl("/llms.txt"),
+      "ai:policy": absoluteUrl("/ai.txt")
+    }
   };
 }
 

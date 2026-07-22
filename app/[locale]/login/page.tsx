@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { LoginForm } from "@/components/forms/login-form";
 import { Card } from "@/components/ui/card";
 import { getSession } from "@/lib/auth";
+import { isAuthUiEnabled } from "@/lib/features";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
 
@@ -19,6 +21,11 @@ export const metadata: Metadata = {
 export default async function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;
   const locale = normalizeLocale(rawLocale) as Locale;
+
+  if (!isAuthUiEnabled) {
+    redirect(`/${locale}`);
+  }
+
   const messages = await getDictionary(locale);
   const t = createTranslator(messages);
   const session = await getSession();

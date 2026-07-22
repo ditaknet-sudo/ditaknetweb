@@ -11,6 +11,10 @@ export function proxy(request: NextRequest) {
     pathname.startsWith("/api") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/images") ||
+    pathname === "/llms.txt" ||
+    pathname === "/ai.txt" ||
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml" ||
     PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();

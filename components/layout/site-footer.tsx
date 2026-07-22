@@ -6,9 +6,10 @@ import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
 
 const footerLinks = [
   { key: "product", href: "product" },
+  { key: "tools", href: "tools" },
   { key: "features", href: "features" },
   { key: "deployment", href: "deployment" },
-  { key: "licensing", href: "pricing" },
+  { key: "pricing", href: "pricing" },
   { key: "security", href: "security" },
   { key: "contact", href: "contact" }
 ] as const;

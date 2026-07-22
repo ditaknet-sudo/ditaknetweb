@@ -7,7 +7,7 @@
   "nav": {
     "home": "Գլխավոր",
     "features": "Հնարավորություններ",
-    "pricing": "Գներ",
+    "pricing": "Գին և ծառայություն",
     "docs": "Փաստաթղթեր",
     "support": "Աջակցություն",
     "about": "Մասին",
@@ -21,6 +21,7 @@
     "admin": "Ադմին",
     "menu": "Մենյու",
     "product": "Product",
+    "tools": "IT գործիքներ",
     "deployment": "Deployment",
     "licensing": "Licensing",
     "security": "Security"
@@ -32,7 +33,7 @@
     "contact": "Կապ"
   },
   "common": {
-    "brandName": "ԴիտակՆեթ",
+    "brandName": "DitakNet",
     "themeToggle": "Լույս / մութ փոխարկում",
     "back": "Վերադառնալ",
     "open": "Բացել",
@@ -53,18 +54,18 @@
       "title": "Տեսեք ցանցի բոլոր սարքերը՝ առանց cloud կախվածության",
       "subtitle": "DitakNet-ը օգնում է անհատներին և փոքր թիմերին մոնիթոր անել router, camera, PC, Wi‑Fi, printer և տեղային service-ները իրենց սեփական սերվերում։",
       "getStarted": "Սկսել",
-      "requestLicense": "Ուղարկել license request",
-      "viewPricing": "Տեսնել գները",
+      "requestLicense": "Պատվիրել մասնագիտական տեղադրում",
+      "viewPricing": "Անվճար vs մասնագիտական ծառայություն",
       "contactSupport": "Կապ աջակցման հետ",
       "imageAlt": "DitakNet մոնիթորինգի նախադիտում",
       "supporting": "Տեղադրեք մեկ անգամ Docker-ով կամ փոքր Linux PC-ով։ Discovery-ն գտնում է սարքերը, checks-ը հետևում են դրանց, տվյալները մնում են տանը։",
-      "primaryCta": "Տեսնել տարեկան փաթեթները",
-      "secondaryCta": "Խնդրել license"
+      "primaryCta": "Տեղադրել Docker-ով",
+      "secondaryCta": "Պատվիրել մասնագիտական աշխատանք"
     },
     "audience": {
       "eyebrow": "Ում համար է",
       "title": "Ստեղծված է անհատ գնորդների և փոքր տեղադրումների համար",
-      "description": "DitakNet-ը վաճառվում է տարեկան license-ով մարդկանց, ովքեր ուզում են պարզ տեղային մոնիթորինգ՝ առանց ծանր enterprise հարթակի։",
+      "description": "DitakNet-ը կարող եք ինքնուրույն տեղադրել և օգտագործել անվճար՝ պարզ տեղային մոնիթորինգի համար։",
       "items": {
         "0": {
           "title": "Տուն և home lab",
@@ -264,8 +265,10 @@
     }
   },
   "pricing": {
-    "title": "DitakNet տարեկան լիցենզիաներ",
-    "description": "DitakNet-ը վաճառվում է միայն տարեկան license-ով՝ անհատների և փոքր տեղադրումների համար։ License-ը որոշում է հասանելի բաժիններն ու սահմանները։ Վերջնական սահմանները կիրառում է սերվերի backend logic-ը։",
+    "title": "Անվճար տեղադրում։ Վճար՝ միայն մասնագիտական աշխատանքի համար։",
+    "description": "DitakNet-ը կարող եք ինքնուրույն տեղադրել Docker-ով և օգտագործել անվճար։ Վճարում եք միայն այն ժամանակ, երբ ուզում եք, որ մենք տեղադրենք, կարգավորենք կամ ծրագրավորենք։",
+    "commercialNote": "Ինքնուրույն տեղադրման և սովորական օգտագործման համար տարեկան լիցենզիա պետք չէ։",
+    "licenseEnforcement": "Վճարում եք մեր մասնագիտական աշխատանքի համար՝ ոչ թե պարտադիր ծրագրային լիցենզիայի։",
     "plans": {
       "free": {
         "label": "Free",
@@ -380,9 +383,7 @@
         "cta": "Խնդրել Standard"
       }
     },
-    "billing": "Միայն տարեկան",
-    "commercialNote": "Կայքի փաթեթները պլանավորման համար են։ Ակտիվացումը օգտագործում է սերվերի license package code-երը։",
-    "licenseEnforcement": "Փաթեթի սահմանները կիրառում է backend license logic-ը, ոչ միայն frontend-ը։"
+    "billing": "Ըստ աշխատանքի"
   },
   "about": {
     "title": "DitakNet-ի մասին",

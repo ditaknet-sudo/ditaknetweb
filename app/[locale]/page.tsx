@@ -48,16 +48,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <main>
-      <section className="surface-grid border-b border-[var(--line)] bg-[var(--hero-surface)] py-14 md:py-20">
-        <div className="container-page grid items-center gap-10 lg:grid-cols-[1fr_0.95fr]">
+      <section className="hero-surface border-b border-[var(--line)] py-14 md:py-20">
+        <div className="container-page grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="fade-in-up">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.08em] text-[var(--accent)]">{t("home.hero.eyebrow")}</p>
-            <h1 className="text-5xl font-black leading-tight text-[var(--foreground)] md:text-7xl">{t("common.brandName")}</h1>
+            <h1 className="text-5xl font-black leading-tight tracking-tight text-[var(--foreground)] md:text-7xl">
+              {t("common.brandName")}
+            </h1>
             <p className="mt-4 text-2xl font-bold leading-9 text-[var(--brand-dark)] md:text-3xl">{t("home.hero.title")}</p>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--muted)]">{t("home.hero.subtitle")}</p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--muted)]">{t("home.hero.supporting")}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={`/${locale}/pricing`} variant="secondary" size="lg">
+              <ButtonLink href={`/${locale}/deployment`} variant="secondary" size="lg">
                 {t("home.hero.primaryCta")}
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
@@ -66,21 +68,28 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </ButtonLink>
             </div>
           </div>
-          <div className="dashboard-preview-animate space-y-5">
-            <HeroShowcase title={t("home.dashboard.title")} subtitle={t("home.hero.imageAlt")} />
-            <DashboardPreview
-              brandName={t("common.brandName")}
-              labels={{
-                title: t("home.dashboard.title"),
-                healthy: t("home.dashboard.healthy"),
-                warnings: t("home.dashboard.warnings"),
-                offline: t("home.dashboard.offline"),
-                discovery: t("home.dashboard.discovery"),
-                topology: t("home.dashboard.topology"),
-                alerts: t("home.dashboard.alerts")
-              }}
-            />
+          <div className="dashboard-preview-animate">
+            <div className="hero-3d-shell">
+              <HeroShowcase title={t("home.dashboard.title")} subtitle={t("home.hero.imageAlt")} />
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[var(--line)] bg-[var(--panel)] py-10">
+        <div className="container-page">
+          <DashboardPreview
+            brandName={t("common.brandName")}
+            labels={{
+              title: t("home.dashboard.title"),
+              healthy: t("home.dashboard.healthy"),
+              warnings: t("home.dashboard.warnings"),
+              offline: t("home.dashboard.offline"),
+              discovery: t("home.dashboard.discovery"),
+              topology: t("home.dashboard.topology"),
+              alerts: t("home.dashboard.alerts")
+            }}
+          />
         </div>
       </section>
 

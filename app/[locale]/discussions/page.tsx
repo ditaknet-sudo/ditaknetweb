@@ -8,6 +8,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getSession } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { isAuthUiEnabled } from "@/lib/features";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
 import { localizedPageMetadata } from "@/lib/seo";
@@ -30,7 +31,7 @@ export default async function DiscussionsPage({ params }: { params: Promise<{ lo
   const locale = normalizeLocale(rawLocale) as Locale;
   const messages = await getDictionary(locale);
   const t = createTranslator(messages);
-  const session = await getSession();
+  const session = isAuthUiEnabled ? await getSession() : null;
 
   const discussions = await db.discussion.findMany({
     where: session ? { OR: [{ isPublic: true }, { userId: session.user.id }] } : { isPublic: true },
@@ -60,8 +61,11 @@ export default async function DiscussionsPage({ params }: { params: Promise<{ lo
           ) : (
             <div className="space-y-4">
               <p className="text-sm leading-6 text-[var(--muted)]">{t("auth.loginRequired")}</p>
-              <ButtonLink href={`/${locale}/login?next=/${locale}/discussions`} variant="secondary">
-                {t("nav.login")}
+              <ButtonLink
+                href={isAuthUiEnabled ? `/${locale}/login?next=/${locale}/discussions` : `/${locale}/contact`}
+                variant="secondary"
+              >
+                {isAuthUiEnabled ? t("nav.login") : t("nav.contact")}
               </ButtonLink>
             </div>
           )}

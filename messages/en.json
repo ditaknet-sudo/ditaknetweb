@@ -7,11 +7,12 @@
   "nav": {
     "home": "Home",
     "product": "Product",
+    "tools": "IT Tools",
     "features": "Features",
     "deployment": "Deployment",
     "licensing": "Licensing",
     "security": "Security",
-    "pricing": "Licensing",
+    "pricing": "Pricing",
     "docs": "Docs",
     "support": "Support",
     "about": "About",
@@ -53,17 +54,17 @@
       "title": "See every device on your network — without cloud lock-in",
       "subtitle": "DitakNet helps individuals and small teams monitor routers, cameras, PCs, Wi‑Fi, printers, and local services on infrastructure they control.",
       "supporting": "Install once on Docker or a small Linux PC. Discovery finds devices, health checks watch them, and you keep the data at home — not in a public cloud.",
-      "primaryCta": "See annual packages",
-      "secondaryCta": "Ask for a license",
-      "requestLicense": "Request annual license",
-      "viewPricing": "View annual licensing",
+      "primaryCta": "Install with Docker",
+      "secondaryCta": "Request professional setup",
+      "requestLicense": "Request professional setup",
+      "viewPricing": "See free vs professional service",
       "contactSupport": "Contact for setup help",
       "imageAlt": "DitakNet monitoring dashboard preview"
     },
     "audience": {
       "eyebrow": "Who it is for",
       "title": "Built for individual buyers and small setups",
-      "description": "DitakNet is sold as annual licenses to people who want practical local monitoring — not a heavy enterprise platform.",
+      "description": "DitakNet is free to self-install for people who want practical local monitoring — not a heavy enterprise platform.",
       "items": {
         "0": {
           "title": "Home & home lab",
@@ -263,10 +264,10 @@
     }
   },
   "pricing": {
-    "title": "Annual DitakNet licensing",
-    "description": "DitakNet is sold through annual licenses only. Licenses control which product areas and limits are available. Final limits are enforced by backend license logic—not only by the website.",
-    "commercialNote": "Commercial website tiers below are for planning. Activation uses the server's license package codes during implementation review.",
-    "licenseEnforcement": "Plan limits must be enforced by backend license logic, not only hidden in the frontend.",
+    "title": "Free to install. Pay only for professional work.",
+    "description": "Install DitakNet yourself with Docker for free. Contact us only when you want professional installation, configuration, or custom development.",
+    "commercialNote": "No annual software license is required for self-installation and normal use.",
+    "licenseEnforcement": "You pay for our professional service time—not for a mandatory product license.",
     "plans": {
       "free": {
         "label": "Free",

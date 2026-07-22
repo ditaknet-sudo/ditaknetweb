@@ -3,9 +3,16 @@ import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { JsonLd } from "@/components/seo/json-ld";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, locales, normalizeLocale } from "@/lib/i18n-core";
 import { buildLocalizedMetadata, messageText } from "@/lib/seo";
+import {
+  buildAiProductJsonLd,
+  buildOrganizationJsonLd,
+  buildSoftwareApplicationJsonLd,
+  buildWebSiteJsonLd
+} from "@/lib/seo-structured-data";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -47,6 +54,14 @@ export default async function LocaleLayout({
 
   return (
     <>
+      <JsonLd
+        data={[
+          buildOrganizationJsonLd(),
+          buildSoftwareApplicationJsonLd(locale),
+          buildWebSiteJsonLd(locale),
+          buildAiProductJsonLd(locale)
+        ]}
+      />
       <SiteHeader locale={locale} messages={messages} />
       {children}
       <SiteFooter locale={locale} messages={messages} />

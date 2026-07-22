@@ -26,8 +26,8 @@ export default async function ActivateInfoPage({ params }: { params: Promise<{ l
         <h1 className="mt-5 text-3xl font-bold">{t("license.activateInfoTitle")}</h1>
         <p className="mt-3 leading-7 text-[var(--muted)]">{t("license.activateInfoDescription")}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <ButtonLink href={`/${locale}/register`} variant="secondary">
-            {t("nav.register")}
+          <ButtonLink href={`/${locale}/contact`} variant="secondary">
+            {t("nav.contact")}
           </ButtonLink>
           <ButtonLink href={`/${locale}/support`} variant="outline">
             {t("nav.support")}

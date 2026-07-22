@@ -20,6 +20,8 @@ export default async function RootLayout({
       <head>
         <ThemeBootstrapScript />
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+        <link rel="alternate" type="text/plain" href="/ai.txt" title="ai.txt" />
       </head>
       <body>{children}</body>
     </html>

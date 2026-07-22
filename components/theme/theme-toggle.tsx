@@ -1,150 +1,69 @@
 "use client";
 
-import { Clock, Monitor, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
-type ThemeMode = "light" | "dark" | "system" | "auto";
-
-type ThemePrefs = {
-  mode: ThemeMode;
-  dayStarts: string;
-  nightStarts: string;
-};
+type ThemeMode = "light" | "dark";
 
 const STORAGE_KEY = "ditaknet.theme.v1";
-const DEFAULTS: ThemePrefs = {
-  mode: "system",
-  dayStarts: "07:00",
-  nightStarts: "19:00"
-};
 
-function parseHHMM(value: string, fallback: string) {
-  const match = /^(\d{1,2}):(\d{2})(?::\d{2})?$/.exec(String(value || "").trim());
-  if (!match) return fallback;
-  const h = Number(match[1]);
-  const m = Number(match[2]);
-  if (h < 0 || h > 23 || m < 0 || m > 59) return fallback;
-  return `${h < 10 ? "0" : ""}${h}:${m < 10 ? "0" : ""}${m}`;
-}
-
-function resolveAuto(dayStarts: string, nightStarts: string) {
-  const now = new Date();
-  const mins = now.getHours() * 60 + now.getMinutes();
-  const day = parseHHMM(dayStarts, DEFAULTS.dayStarts).split(":").map(Number);
-  const night = parseHHMM(nightStarts, DEFAULTS.nightStarts).split(":").map(Number);
-  const dayMin = day[0] * 60 + day[1];
-  const nightMin = night[0] * 60 + night[1];
-  if (dayMin === nightMin) return "light";
-  if (dayMin < nightMin) return mins >= dayMin && mins < nightMin ? "light" : "dark";
-  return mins >= dayMin || mins < nightMin ? "light" : "dark";
-}
-
-function loadPrefs(): ThemePrefs {
+function loadMode(): ThemeMode {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { ...DEFAULTS };
-    const parsed = JSON.parse(raw) as Partial<ThemePrefs>;
-    const mode = String(parsed.mode || "system").toLowerCase() as ThemeMode;
-    return {
-      mode: ["light", "dark", "system", "auto"].includes(mode) ? mode : "system",
-      dayStarts: parseHHMM(String(parsed.dayStarts || ""), DEFAULTS.dayStarts),
-      nightStarts: parseHHMM(String(parsed.nightStarts || ""), DEFAULTS.nightStarts)
-    };
+    if (!raw) return "light";
+    const parsed = JSON.parse(raw) as { mode?: string };
+    const mode = String(parsed.mode || "light").toLowerCase();
+    if (mode === "dark") return "dark";
+    if (mode === "light") return "light";
+    // Legacy system/auto prefs collapse to a simple light/dark choice.
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
   } catch {
-    return { ...DEFAULTS };
+    return "light";
   }
 }
 
-function resolveActive(prefs: ThemePrefs): "light" | "dark" {
-  if (prefs.mode === "light" || prefs.mode === "dark") return prefs.mode;
-  if (prefs.mode === "auto") return resolveAuto(prefs.dayStarts, prefs.nightStarts);
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
-function applyTheme(active: "light" | "dark") {
+function applyTheme(mode: ThemeMode) {
   const root = document.documentElement;
-  root.setAttribute("data-theme", active);
-  root.setAttribute("data-bs-theme", active);
-  root.style.colorScheme = active;
+  root.setAttribute("data-theme", mode);
+  root.setAttribute("data-bs-theme", mode);
+  root.style.colorScheme = mode;
 }
 
 export function ThemeToggle({ label }: { label: string }) {
-  const [active, setActive] = useState<"light" | "dark">("light");
-  const [mode, setMode] = useState<ThemeMode>("system");
+  const [mode, setMode] = useState<ThemeMode>("light");
 
   useEffect(() => {
-    const prefs = loadPrefs();
-    const next = resolveActive(prefs);
+    const next = loadMode();
     applyTheme(next);
-    // Defer so we do not sync-set state in the effect body (lint / cascading render).
-    const syncIcon = window.setTimeout(() => {
-      setMode(prefs.mode);
-      setActive(next);
-    }, 0);
-
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const onMedia = () => {
-      const current = loadPrefs();
-      if (current.mode === "system") {
-        const resolved = resolveActive(current);
-        applyTheme(resolved);
-        setActive(resolved);
-      }
-    };
-    media.addEventListener("change", onMedia);
-
-    const interval = window.setInterval(() => {
-      const current = loadPrefs();
-      if (current.mode === "auto") {
-        const resolved = resolveActive(current);
-        applyTheme(resolved);
-        setActive(resolved);
-      }
-    }, 60000);
-
-    return () => {
-      window.clearTimeout(syncIcon);
-      media.removeEventListener("change", onMedia);
-      window.clearInterval(interval);
-    };
+    const sync = window.setTimeout(() => setMode(next), 0);
+    return () => window.clearTimeout(sync);
   }, []);
 
-  function setThemeMode(nextMode: ThemeMode) {
-    const prefs: ThemePrefs = {
-      ...loadPrefs(),
-      mode: nextMode
-    };
+  function toggle() {
+    const next: ThemeMode = mode === "light" ? "dark" : "light";
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ mode: next }));
     } catch {
       // Theme still applies for this page even if persistence is unavailable.
     }
-    const nextActive = resolveActive(prefs);
-    applyTheme(nextActive);
-    setMode(nextMode);
-    setActive(nextActive);
+    applyTheme(next);
+    setMode(next);
   }
 
-  const Icon = mode === "system" ? Monitor : mode === "auto" ? Clock : active === "dark" ? Sun : Moon;
+  const Icon = mode === "dark" ? Sun : Moon;
 
   return (
-    <label
-      className="inline-flex h-9 items-center gap-1 rounded-md border border-[var(--line)] bg-[var(--panel)] px-2 text-[var(--foreground)] shadow-sm hover:bg-[var(--panel-2)]"
+    <button
+      type="button"
+      onClick={toggle}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[var(--line)] bg-[var(--panel)] text-[var(--foreground)] shadow-sm hover:bg-[var(--panel-2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+      aria-label={label}
       title={label}
     >
       <Icon className="h-4 w-4" aria-hidden="true" />
-      <span className="sr-only">{label}</span>
-      <select
-        value={mode}
-        onChange={(event) => setThemeMode(event.target.value as ThemeMode)}
-        className="h-7 cursor-pointer rounded border-0 bg-transparent text-xs font-bold uppercase text-[var(--foreground)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
-        aria-label={label}
-      >
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="system">System</option>
-        <option value="auto">Auto</option>
-      </select>
-    </label>
+    </button>
   );
 }
