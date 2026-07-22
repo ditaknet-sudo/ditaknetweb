@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { MobileNav } from "@/components/layout/mobile-nav";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
 
@@ -19,9 +20,12 @@ export async function SiteHeader({ locale, messages }: { locale: Locale; message
   const t = createTranslator(messages);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--panel)_78%,transparent)] backdrop-blur-xl">
-      <div className="container-page flex h-16 items-center justify-between gap-4">
-        <BrandLogo brandName="DitakNet" href={`/${locale}`} size="sm" />
+    <header className="site-header sticky top-0 z-50 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--panel)_78%,transparent)] backdrop-blur-xl">
+      <div className="container-page flex h-14 items-center justify-between gap-2 sm:h-16 sm:gap-4">
+        <div className="flex min-w-0 items-center gap-2">
+          <MobileNav locale={locale} messages={messages} />
+          <BrandLogo brandName="DitakNet" href={`/${locale}`} size="sm" className="site-header__brand" />
+        </div>
 
         <nav className="hidden items-center gap-1 lg:flex">
           {publicNav.map((item) => (
@@ -35,7 +39,7 @@ export async function SiteHeader({ locale, messages }: { locale: Locale; message
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <ThemeToggle label={t("common.themeToggle")} />
           <LanguageSwitcher currentLocale={locale} />
         </div>
