@@ -52,7 +52,7 @@
     "metaTitle": "DitakNet | Self-hosted monitoring for homes and small networks",
     "metaDescription": "DitakNet is a self-hosted monitoring server for individuals, home labs, small offices, CCTV, routers, and local devices. Runs on Docker or Linux on port 5833.",
     "hero": {
-      "eyebrow": "Self-hosted monitoring for people and small networks",
+      "eyebrow": "Local monitoring · your server",
       "title": "Your whole network, visible — without the cloud.",
       "subtitle": "Watch routers, cameras, PCs, and local services on a server you control. Free to install with Docker.",
       "supporting": "Install once on Docker or a small Linux PC. Discovery finds devices, health checks watch them, and you keep the data at home — not in a public cloud.",

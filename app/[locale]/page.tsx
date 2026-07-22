@@ -50,11 +50,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <main>
       <section className="hero-magnet">
-        <div className="hero-magnet__glow" aria-hidden="true" />
+        <div className="hero-magnet__aura" aria-hidden="true" />
+        <div className="hero-magnet__sweep" aria-hidden="true" />
         <div className="hero-magnet__inner container-page">
-          <div className="hero-magnet__copy fade-in-up">
+          <div className="hero-magnet__copy">
+            <div className="hero-magnet__badge">{t("home.hero.eyebrow")}</div>
             <BrandLogo brandName={t("common.brandName")} size="hero" animated showName={false} className="hero-magnet__mark" />
-            <h1 className="hero-magnet__brand">{t("common.brandName")}</h1>
+            <h1 className="hero-magnet__brand">
+              <span>{t("common.brandName")}</span>
+            </h1>
             <p className="hero-magnet__headline">{t("home.hero.title")}</p>
             <p className="hero-magnet__support">{t("home.hero.subtitle")}</p>
             <div className="hero-magnet__actions">
@@ -62,14 +66,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {t("home.hero.primaryCta")}
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
-              <ButtonLink href={`/${locale}/contact`} variant="outline" size="lg">
+              <ButtonLink href={`/${locale}/contact`} variant="outline" size="lg" className="hero-magnet__cta-secondary">
                 {t("home.hero.secondaryCta")}
               </ButtonLink>
             </div>
           </div>
 
-          <div className="hero-magnet__visual dashboard-preview-animate" aria-hidden="false">
-            <HeroShowcase title={t("home.dashboard.title")} subtitle={t("home.hero.imageAlt")} />
+          <div className="hero-magnet__visual">
+            <HeroShowcase
+              title={t("home.dashboard.title")}
+              onlineLabel={t("home.dashboard.healthy")}
+              warningLabel={t("home.dashboard.warnings")}
+              offlineLabel={t("home.dashboard.offline")}
+            />
           </div>
         </div>
       </section>
