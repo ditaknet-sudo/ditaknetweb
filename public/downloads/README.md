@@ -1,10 +1,15 @@
-# Place customer-facing installers/packages here, then set matching
-# NEXT_PUBLIC_DOWNLOAD_*_URL values, for example:
-#   NEXT_PUBLIC_DOWNLOAD_LAN_SCAN_URL=/downloads/lan-scan.zip
+# Temporary placeholder packages (replace later with real installers).
 #
-# Suggested filenames:
-#   monitoring.zip
-#   lan-scan.zip
-#   vlan-scan.zip
-#   cloud.zip
-#   service-watch.zip
+# Current fake download links used by the site:
+#   /downloads/monitoring.zip
+#   /downloads/lan-scan.zip
+#   /downloads/vlan-scan.zip
+#   /downloads/cloud.zip
+#   /downloads/service-watch.zip
+#
+# When real files are ready, either replace these ZIPs or set:
+#   NEXT_PUBLIC_DOWNLOAD_MONITORING_URL=...
+#   NEXT_PUBLIC_DOWNLOAD_LAN_SCAN_URL=...
+#   NEXT_PUBLIC_DOWNLOAD_VLAN_SCAN_URL=...
+#   NEXT_PUBLIC_DOWNLOAD_CLOUD_URL=...
+#   NEXT_PUBLIC_DOWNLOAD_SERVICE_WATCH_URL=...
