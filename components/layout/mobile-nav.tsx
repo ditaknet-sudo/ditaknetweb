@@ -10,6 +10,7 @@ const publicNav = [
   { key: "product", href: "product" },
   { key: "tools", href: "tools" },
   { key: "features", href: "features" },
+  { key: "download", href: "download" },
   { key: "deployment", href: "deployment" },
   { key: "pricing", href: "pricing" },
   { key: "security", href: "security" },

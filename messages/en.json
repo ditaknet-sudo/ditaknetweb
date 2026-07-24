@@ -9,6 +9,7 @@
     "product": "Product",
     "tools": "IT Tools",
     "features": "Features",
+    "download": "Download",
     "deployment": "Deployment",
     "licensing": "Licensing",
     "security": "Security",
@@ -56,7 +57,7 @@
       "title": "Your whole network, visible — without the cloud.",
       "subtitle": "Watch routers, cameras, PCs, and local services on a server you control. Free to install with Docker.",
       "supporting": "Install once on Docker or a small Linux PC. Discovery finds devices, health checks watch them, and you keep the data at home — not in a public cloud.",
-      "primaryCta": "Start free with Docker",
+      "primaryCta": "Download tools",
       "secondaryCta": "Get professional setup",
       "requestLicense": "Request professional setup",
       "viewPricing": "See free vs professional service",
@@ -398,6 +399,48 @@
     "title": "Deployment",
     "description": "DitakNet runs on customer-controlled infrastructure: Docker, Linux servers, TrueNAS SCALE, and private local networks.",
     "body": "Core monitoring runs inside your network. Default application port is 5833. Internet may be used for optional notifications, updates, or license communication—but the product is not a public cloud SaaS."
+  },
+  "downloadPage": {
+    "metaTitle": "Download DitakNet tools",
+    "metaDescription": "Download DitakNet monitoring and IT tools built to make customer network work easier.",
+    "eyebrow": "Programs for your work",
+    "title": "Download DitakNet tools",
+    "description": "We prepare practical programs so customers can discover networks, monitor services, and work faster on their own infrastructure.",
+    "downloadCta": "Download",
+    "requestCta": "Request download",
+    "docsCta": "Docs",
+    "comingSoonNote": "File link is not published yet. Send a request and we will share the current package.",
+    "helpTitle": "Need help installing?",
+    "helpBody": "If you want us to install or configure DitakNet for a customer site, contact us. Self-install remains free.",
+    "helpCta": "Contact for setup",
+    "platforms": {
+      "windows": "Windows",
+      "linux": "Linux",
+      "docker": "Docker",
+      "truenas": "TrueNAS"
+    },
+    "items": {
+      "monitoring": {
+        "name": "DitakNet Monitoring",
+        "description": "Core local monitoring server for devices, checks, alerts, and visibility on infrastructure you control."
+      },
+      "lan-scan": {
+        "name": "LAN Scan",
+        "description": "Discover devices on the local network: IP/MAC, vendors, open services, and changes between scans."
+      },
+      "vlan-scan": {
+        "name": "VLAN Scan",
+        "description": "Map VLAN segments and subnets to understand isolation, gateways, and reachable infrastructure."
+      },
+      "cloud": {
+        "name": "DitakNet Cloud",
+        "description": "Private self-hosted storage for people records, files, notes, and team documents."
+      },
+      "service-watch": {
+        "name": "Service Watch",
+        "description": "Monitor websites, APIs, ports, and internal services with scheduled checks."
+      }
+    }
   },
   "securityPage": {
     "title": "Security and control",

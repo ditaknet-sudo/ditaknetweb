@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "lucide-react";
 
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
@@ -26,7 +27,12 @@ export default async function DeploymentPage({ params }: { params: Promise<{ loc
   return (
     <main className="container-page py-12">
       <SectionHeading title={t("deploymentPage.title")} description={t("deploymentPage.description")} />
-      <p className="mb-8 max-w-3xl text-sm leading-6 text-[var(--muted)]">{t("deploymentPage.body")}</p>
+      <p className="mb-6 max-w-3xl text-sm leading-6 text-[var(--muted)]">{t("deploymentPage.body")}</p>
+      <div className="mb-8">
+        <ButtonLink href={`/${locale}/download`} variant="secondary" size="lg">
+          {t("nav.download")}
+        </ButtonLink>
+      </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {[0, 1, 2, 3, 4, 5].map((index) => (
           <Card key={index} className="p-5">

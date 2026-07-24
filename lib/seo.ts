@@ -8,6 +8,7 @@ export const publicSeoPaths = [
   "/product",
   "/tools",
   "/features",
+  "/download",
   "/deployment",
   "/pricing",
   "/security",

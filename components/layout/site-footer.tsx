@@ -8,6 +8,7 @@ import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
 const footerLinks = [
   { key: "product", href: "product" },
   { key: "tools", href: "tools" },
+  { key: "download", href: "download" },
   { key: "features", href: "features" },
   { key: "deployment", href: "deployment" },
   { key: "pricing", href: "pricing" },

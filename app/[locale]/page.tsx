@@ -62,7 +62,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="hero-magnet__headline">{t("home.hero.title")}</p>
             <p className="hero-magnet__support">{t("home.hero.subtitle")}</p>
             <div className="hero-magnet__actions">
-              <ButtonLink href={`/${locale}/deployment`} variant="secondary" size="lg" className="hero-magnet__cta">
+              <ButtonLink href={`/${locale}/download`} variant="secondary" size="lg" className="hero-magnet__cta">
                 {t("home.hero.primaryCta")}
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
