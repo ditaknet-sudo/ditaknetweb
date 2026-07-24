@@ -1,21 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { allNav } from "@/components/layout/nav-items";
 import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
-
-const publicNav = [
-  { key: "product", href: "product" },
-  { key: "tools", href: "tools" },
-  { key: "features", href: "features" },
-  { key: "download", href: "download" },
-  { key: "deployment", href: "deployment" },
-  { key: "pricing", href: "pricing" },
-  { key: "security", href: "security" },
-  { key: "contact", href: "contact" }
-] as const;
 
 export function MobileNav({ locale, messages }: { locale: Locale; messages: Messages }) {
   const t = createTranslator(messages);
@@ -29,7 +19,7 @@ export function MobileNav({ locale, messages }: { locale: Locale; messages: Mess
   }, [open]);
 
   return (
-    <div className="mobile-nav lg:hidden">
+    <div className="mobile-nav xl:hidden">
       <button
         type="button"
         className="mobile-nav__toggle"
@@ -41,9 +31,7 @@ export function MobileNav({ locale, messages }: { locale: Locale; messages: Mess
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
-      {open ? (
-        <div className="mobile-nav__backdrop" onClick={() => setOpen(false)} aria-hidden="true" />
-      ) : null}
+      {open ? <div className="mobile-nav__backdrop" onClick={() => setOpen(false)} aria-hidden="true" /> : null}
 
       <nav
         id="mobile-nav-panel"
@@ -52,13 +40,14 @@ export function MobileNav({ locale, messages }: { locale: Locale; messages: Mess
       >
         <p className="mobile-nav__title">{t("nav.menu")}</p>
         <ul className="mobile-nav__list">
-          {publicNav.map((item) => (
+          {allNav.map((item) => (
             <li key={item.key}>
               <Link
                 href={`/${locale}/${item.href}`}
-                className="mobile-nav__link"
+                className={`mobile-nav__link ${item.key === "download" ? "mobile-nav__link--accent" : ""}`}
                 onClick={() => setOpen(false)}
               >
+                {item.key === "download" ? <Download className="h-4 w-4" /> : null}
                 {t(`nav.${item.key}`)}
               </Link>
             </li>
