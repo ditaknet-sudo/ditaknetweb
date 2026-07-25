@@ -3,7 +3,7 @@ import { Manrope, Noto_Sans_Armenian, Space_Grotesk } from "next/font/google";
 
 import "@/app/globals.css";
 
-import { SiteBackground } from "@/components/layout/site-background";
+import { WaterBackground } from "@/components/layout/water-background";
 import { ThemeBootstrapScript } from "@/components/theme/theme-bootstrap-script";
 import { normalizeLocale } from "@/lib/i18n-core";
 
@@ -49,7 +49,7 @@ export default async function RootLayout({
         <link rel="alternate" type="text/plain" href="/ai.txt" title="ai.txt" />
       </head>
       <body>
-        <SiteBackground />
+        <WaterBackground />
         <div className="site-shell">{children}</div>
       </body>
     </html>

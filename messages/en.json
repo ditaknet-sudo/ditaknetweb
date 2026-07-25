@@ -7,6 +7,7 @@
   "nav": {
     "home": "Home",
     "product": "Product",
+    "monitoring": "Monitoring",
     "tools": "IT Tools",
     "features": "Features",
     "download": "Download",
@@ -49,6 +50,91 @@
     "status": "Status",
     "priority": "Priority",
     "package": "Package"
+  },
+  "monitoring": {
+    "metaTitle": "DitakNet Monitoring Server | See your entire local network",
+    "metaDescription": "Discover devices, monitor services, receive clear alerts, and keep infrastructure data on your own Docker, Linux, or TrueNAS server.",
+    "hero": {
+      "eyebrow": "Self-hosted monitoring server",
+      "title": "Know what is happening across your network.",
+      "description": "DitakNet brings devices, services, CCTV, storage, and alerts into one local control center. Detect failures sooner without sending operational data to a public cloud.",
+      "primaryCta": "Download DitakNet",
+      "secondaryCta": "Plan a deployment",
+      "proof": {
+        "0": "Local-first by design",
+        "1": "Docker and Linux ready",
+        "2": "Your data stays yours"
+      }
+    },
+    "metrics": {
+      "0": { "value": "24/7", "label": "Continuous health checks" },
+      "1": { "value": "1", "label": "Unified control center" },
+      "2": { "value": "0", "label": "Required public clouds" },
+      "3": { "value": "3", "label": "Deployment options" }
+    },
+    "modules": {
+      "eyebrow": "Core product areas",
+      "title": "Every important signal in one system",
+      "description": "A practical monitoring workflow from first discovery to incident response and recovery.",
+      "items": {
+        "0": { "title": "Network discovery", "description": "Scan approved private subnets, identify active hosts, and build a reliable inventory without manual data entry." },
+        "1": { "title": "Topology and device context", "description": "Understand how routers, cameras, NAS systems, servers, and services relate to each other." },
+        "2": { "title": "Service health checks", "description": "Run scheduled ping, TCP, HTTP, and agent checks to expose downtime and degraded performance." },
+        "3": { "title": "Actionable alerts", "description": "Turn changes into concise notifications so the right person can react before users report a problem." },
+        "4": { "title": "Backup and recovery", "description": "Protect configuration and operational history with validation, backup, and controlled restore workflows." },
+        "5": { "title": "Access and security", "description": "Keep monitoring private with role-based permissions and a deployment that remains under your control." }
+      }
+    },
+    "workflow": {
+      "eyebrow": "How it works",
+      "title": "From an unknown network to a clear answer",
+      "description": "DitakNet turns raw network signals into a simple operational picture.",
+      "items": {
+        "0": { "title": "Discover", "description": "Find devices and available services across approved network ranges." },
+        "1": { "title": "Classify", "description": "Organize equipment by role, location, owner, and importance." },
+        "2": { "title": "Monitor", "description": "Apply health checks and collect status continuously on your server." },
+        "3": { "title": "Respond", "description": "Receive useful alerts, investigate context, and restore service faster." }
+      }
+    },
+    "dashboard": {
+      "eyebrow": "Operational clarity",
+      "title": "A dashboard built for quick decisions",
+      "description": "See healthy, warning, and offline resources without digging through noisy logs.",
+      "points": {
+        "0": "Status and uptime at a glance",
+        "1": "Device context next to every alert",
+        "2": "A consistent view for owners and technicians"
+      }
+    },
+    "why": {
+      "eyebrow": "Why DitakNet",
+      "title": "Monitoring that fits your infrastructure—not the other way around",
+      "description": "Built for homes, small offices, installers, and private networks that need visibility without unnecessary cloud dependency.",
+      "items": {
+        "0": { "title": "Data under your control", "description": "Operational records remain on the infrastructure you choose and administer." },
+        "1": { "title": "One clear view", "description": "Replace scattered checks and guesswork with a consistent source of truth." },
+        "2": { "title": "Focused and lightweight", "description": "Get the essential monitoring capabilities without enterprise platform complexity." },
+        "3": { "title": "Flexible deployment", "description": "Run locally with Docker, Linux, or TrueNAS SCALE close to the devices being monitored." },
+        "4": { "title": "Made for real local networks", "description": "Monitor routers, CCTV, storage, websites, and services from the same system." },
+        "5": { "title": "Useful during outages", "description": "Local visibility remains available even when an external internet connection is unstable." }
+      }
+    },
+    "deploy": {
+      "eyebrow": "Deploy your way",
+      "title": "Place monitoring close to your network",
+      "description": "Choose the environment you already operate and keep the setup understandable.",
+      "items": {
+        "0": "A portable container workflow for quick installation, updates, and migration.",
+        "1": "Install on a dedicated or existing Linux host for direct local control.",
+        "2": "Run beside storage and home-lab services on compatible TrueNAS SCALE systems."
+      }
+    },
+    "cta": {
+      "eyebrow": "Start with visibility",
+      "title": "Make your network understandable today.",
+      "description": "Download the monitoring package or contact us for a planned professional installation.",
+      "button": "View downloads"
+    }
   },
   "home": {
     "metaTitle": "DitakNet | Self-hosted monitoring for homes and small networks",

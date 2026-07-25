@@ -6,6 +6,7 @@ import { getSiteConfig } from "@/lib/site";
 import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
 
 const footerLinks = [
+  { key: "monitoring", href: "monitoring" },
   { key: "product", href: "product" },
   { key: "tools", href: "tools" },
   { key: "download", href: "download" },

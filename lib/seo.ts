@@ -6,6 +6,7 @@ import { defaultLocale, Locale, locales, Messages, getNestedMessage, normalizeLo
 export const publicSeoPaths = [
   "/",
   "/product",
+  "/monitoring",
   "/tools",
   "/features",
   "/download",

@@ -137,6 +137,56 @@ html[lang="hy"] .hero-magnet__brand {
   min-height: 100vh;
 }
 
+.water-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--background);
+}
+
+.water-background__fallback,
+.water-background__canvas,
+.water-background__glass {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.water-background__fallback {
+  background:
+    radial-gradient(70% 55% at 12% 4%, rgba(23, 166, 115, 0.24), transparent 70%),
+    radial-gradient(75% 60% at 88% 12%, rgba(23, 105, 170, 0.25), transparent 72%),
+    linear-gradient(180deg, #eef8fa 0%, var(--background) 100%);
+}
+
+html[data-theme="dark"] .water-background__fallback {
+  background:
+    radial-gradient(70% 55% at 12% 4%, rgba(61, 214, 140, 0.18), transparent 70%),
+    radial-gradient(75% 60% at 88% 12%, rgba(77, 163, 255, 0.22), transparent 72%),
+    linear-gradient(180deg, #071018 0%, var(--background) 100%);
+}
+
+.water-background__canvas {
+  display: block;
+  opacity: 0.98;
+}
+
+.water-background__glass {
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.12), transparent 32%, rgba(255, 255, 255, 0.05) 62%, transparent),
+    radial-gradient(circle at 50% 42%, transparent 40%, rgba(9, 37, 53, 0.1) 100%);
+  backdrop-filter: blur(0.3px);
+}
+
+html[data-theme="dark"] .water-background__glass {
+  background:
+    linear-gradient(115deg, rgba(126, 218, 255, 0.04), transparent 32%, rgba(55, 225, 161, 0.03) 62%, transparent),
+    radial-gradient(circle at 50% 42%, transparent 34%, rgba(0, 0, 0, 0.32) 100%);
+}
+
 .site-bg {
   position: fixed;
   inset: 0;
@@ -2022,4 +2072,609 @@ html[data-theme="dark"] .hero-3d-shell {
 
 .focus-ring:focus-visible {
   outline-color: var(--accent);
+}
+
+/* Monitoring product story */
+.monitoring-page {
+  overflow: hidden;
+}
+
+.monitoring-hero {
+  position: relative;
+  min-height: 680px;
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.monitoring-hero__glow {
+  position: absolute;
+  top: 8%;
+  right: 2%;
+  width: min(48vw, 700px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--brand) 24%, transparent), transparent 68%);
+  filter: blur(14px);
+  animation: monitoring-glow 8s ease-in-out infinite;
+}
+
+.monitoring-hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.monitoring-hero__copy h1 {
+  max-width: 760px;
+  margin: 1.25rem 0 1.4rem;
+  font-size: clamp(2.9rem, 5.7vw, 5.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.monitoring-hero__copy > p {
+  max-width: 660px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.8;
+}
+
+.monitoring-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--brand);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.monitoring-kicker span {
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.monitoring-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.monitoring-hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.4rem;
+  margin-top: 1.75rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.monitoring-hero__proof span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.monitoring-hero__proof svg {
+  color: var(--success);
+}
+
+.monitoring-orbit {
+  position: relative;
+  width: min(100%, 560px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--panel) 88%, transparent) 0 22%, transparent 23%);
+  filter: drop-shadow(0 30px 55px rgba(9, 54, 75, 0.18));
+}
+
+.monitoring-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: inherit;
+  background: repeating-radial-gradient(circle, transparent 0 38px, color-mix(in srgb, var(--brand) 14%, transparent) 39px 40px);
+}
+
+.monitoring-orbit__ring {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--brand) 36%, transparent);
+  border-radius: 50%;
+}
+
+.monitoring-orbit__ring--outer {
+  inset: 5%;
+  border-style: dashed;
+  animation: monitoring-spin 34s linear infinite;
+}
+
+.monitoring-orbit__ring--inner {
+  inset: 25%;
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  animation: monitoring-spin 20s linear infinite reverse;
+}
+
+.monitoring-orbit__sweep {
+  position: absolute;
+  inset: 6%;
+  overflow: hidden;
+  border-radius: 50%;
+  animation: monitoring-spin 7s linear infinite;
+}
+
+.monitoring-orbit__sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0 50% 50% 0;
+  border-right: 1px solid var(--brand);
+  background: conic-gradient(from 86deg, transparent, color-mix(in srgb, var(--brand) 20%, transparent));
+  transform-origin: bottom right;
+}
+
+.monitoring-orbit__core {
+  position: absolute;
+  z-index: 3;
+  inset: 35%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  border: 1px solid color-mix(in srgb, var(--brand) 45%, var(--line));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  box-shadow: 0 0 0 12px color-mix(in srgb, var(--brand) 5%, transparent), 0 18px 50px rgba(5, 45, 63, 0.2);
+  backdrop-filter: blur(18px);
+}
+
+.monitoring-orbit__core svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--brand);
+}
+
+.monitoring-orbit__core strong {
+  margin-top: 0.45rem;
+  font: 800 0.85rem var(--font-display);
+}
+
+.monitoring-orbit__core small {
+  color: var(--muted);
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+}
+
+.monitoring-orbit__node {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: 1px solid color-mix(in srgb, var(--brand) 42%, var(--line));
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  color: var(--brand);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  animation: monitoring-node 4s ease-in-out infinite;
+}
+
+.monitoring-orbit__node svg {
+  width: 1.25rem;
+}
+
+.monitoring-orbit__node--1 { top: 5%; left: 45%; }
+.monitoring-orbit__node--2 { top: 42%; right: 3%; animation-delay: -1s; }
+.monitoring-orbit__node--3 { bottom: 7%; left: 48%; animation-delay: -2s; }
+.monitoring-orbit__node--4 { top: 44%; left: 2%; animation-delay: -3s; }
+
+.monitoring-orbit__status {
+  position: absolute;
+  right: 3%;
+  bottom: 15%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
+  box-shadow: var(--shadow);
+  font-size: 0.72rem;
+  font-weight: 800;
+  backdrop-filter: blur(16px);
+}
+
+.monitoring-orbit__status span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--success) 18%, transparent);
+  animation: monitoring-status 2s ease-in-out infinite;
+}
+
+.monitoring-metrics {
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 70%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.monitoring-metrics__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.monitoring-metrics__grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.5rem clamp(1rem, 3vw, 2.5rem);
+  border-left: 1px solid var(--line);
+}
+
+.monitoring-metrics__grid div:last-child {
+  border-right: 1px solid var(--line);
+}
+
+.monitoring-metrics__grid strong {
+  color: var(--brand);
+  font: 800 clamp(1.5rem, 3vw, 2.2rem) var(--font-display);
+}
+
+.monitoring-metrics__grid span {
+  color: var(--muted);
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+.monitoring-section {
+  padding-block: clamp(4.5rem, 8vw, 7rem);
+}
+
+.monitoring-section--panel {
+  border-block: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 72%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.monitoring-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.monitoring-card {
+  position: relative;
+  min-height: 270px;
+  padding: 1.6rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  background: color-mix(in srgb, var(--card-bg) 88%, transparent);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  transition: transform 250ms ease, border-color 250ms ease;
+}
+
+.monitoring-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--brand) 55%, var(--line));
+}
+
+.monitoring-card::after {
+  content: "";
+  position: absolute;
+  right: -35%;
+  bottom: -55%;
+  width: 85%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--brand) 13%, transparent), transparent 68%);
+}
+
+.monitoring-card__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  color: var(--brand);
+}
+
+.monitoring-card__icon svg {
+  width: 1.35rem;
+}
+
+.monitoring-card__number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: color-mix(in srgb, var(--muted) 45%, transparent);
+  font: 700 0.7rem var(--font-display);
+  letter-spacing: 0.14em;
+}
+
+.monitoring-card h2,
+.monitoring-flow h2,
+.monitoring-reasons h2 {
+  margin-top: 1.3rem;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.monitoring-card p,
+.monitoring-flow p,
+.monitoring-reasons p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+.monitoring-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.monitoring-flow__step {
+  position: relative;
+  padding: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--brand) 50%, var(--line));
+}
+
+.monitoring-flow__step::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 1.5rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--brand) 15%, transparent);
+}
+
+.monitoring-flow__step > span {
+  color: var(--brand);
+  font: 800 2.2rem var(--font-display);
+  opacity: 0.35;
+}
+
+.monitoring-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(520px, 1.25fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.monitoring-dashboard ul {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.monitoring-dashboard li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.monitoring-dashboard li svg {
+  width: 1rem;
+  color: var(--success);
+}
+
+.monitoring-section--dark {
+  position: relative;
+  color: var(--invert-text);
+  background:
+    radial-gradient(circle at 85% 15%, rgba(38, 138, 170, 0.23), transparent 35%),
+    radial-gradient(circle at 10% 90%, rgba(23, 166, 115, 0.14), transparent 38%),
+    var(--invert-bg);
+}
+
+.monitoring-section--dark .section-heading p,
+.monitoring-section--dark .monitoring-reasons p {
+  color: var(--invert-muted);
+}
+
+.monitoring-reasons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.monitoring-reasons article {
+  display: flex;
+  gap: 1rem;
+  padding: 1.4rem;
+  border: 1px solid var(--invert-line);
+  border-radius: 1rem;
+  background: var(--invert-panel);
+}
+
+.monitoring-reasons article > svg {
+  flex: 0 0 auto;
+  width: 1.4rem;
+  color: #55dba2;
+}
+
+.monitoring-reasons h2 {
+  margin-top: 0;
+}
+
+.monitoring-deploy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.monitoring-deploy article {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 190px;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--card-bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.monitoring-deploy svg {
+  color: var(--brand);
+}
+
+.monitoring-deploy p {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.monitoring-cta {
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.monitoring-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid color-mix(in srgb, var(--brand) 45%, var(--line));
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, var(--brand) 17%, var(--panel)), color-mix(in srgb, var(--accent) 12%, var(--panel)));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.monitoring-cta__inner span {
+  color: var(--brand);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.monitoring-cta__inner h2 {
+  margin-top: 0.5rem;
+  font-size: clamp(1.7rem, 4vw, 3rem);
+  letter-spacing: -0.035em;
+}
+
+.monitoring-cta__inner p {
+  max-width: 650px;
+  margin-top: 0.7rem;
+  color: var(--muted);
+}
+
+@keyframes monitoring-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes monitoring-glow {
+  0%, 100% { transform: scale(0.9) translate3d(0, 0, 0); opacity: 0.65; }
+  50% { transform: scale(1.12) translate3d(-3%, 4%, 0); opacity: 1; }
+}
+
+@keyframes monitoring-node {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes monitoring-status {
+  50% { opacity: 0.45; transform: scale(0.75); }
+}
+
+@media (max-width: 979px) {
+  .monitoring-hero {
+    min-height: auto;
+  }
+
+  .monitoring-hero__grid,
+  .monitoring-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .monitoring-hero__grid {
+    padding-top: 4rem;
+  }
+
+  .monitoring-orbit {
+    width: min(86vw, 520px);
+  }
+
+  .monitoring-card-grid,
+  .monitoring-deploy {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .monitoring-flow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .monitoring-hero__copy h1 {
+    font-size: clamp(2.65rem, 14vw, 4.2rem);
+  }
+
+  .monitoring-hero__proof {
+    display: grid;
+  }
+
+  .monitoring-metrics__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .monitoring-metrics__grid div:nth-child(3),
+  .monitoring-metrics__grid div:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+
+  .monitoring-card-grid,
+  .monitoring-reasons,
+  .monitoring-deploy,
+  .monitoring-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .monitoring-orbit__node {
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 0.8rem;
+  }
+
+  .monitoring-orbit__status {
+    right: 0;
+  }
+
+  .monitoring-cta__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monitoring-orbit__ring,
+  .monitoring-orbit__sweep,
+  .monitoring-orbit__node,
+  .monitoring-orbit__status span,
+  .monitoring-hero__glow {
+    animation-duration: 40s;
+  }
 }
