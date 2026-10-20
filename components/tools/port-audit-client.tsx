@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -199,21 +199,43 @@ const copy = {
 export function PortAuditClient({ locale }: { locale: Locale }) {
   const t = copy[locale] || copy.en;
 
-  const [target, setTarget] = useState("192.168.1.1");
+  const [target, setTarget] = useState("192.168.11.254");
   const [isAuditing, setIsAuditing] = useState(false);
   const [ports, setPorts] = useState<AuditedPort[]>(initialPorts);
 
-  const runAudit = () => {
+  useEffect(() => {
+    async function initAudit() {
+      try {
+        const myIpRes = await fetch("/api/network/diagnostics?action=my-ip");
+        const myIpData = await myIpRes.json();
+        const initialTarget = myIpData.gatewayIp || "192.168.11.254";
+        setTarget(initialTarget);
+
+        const auditRes = await fetch(`/api/network/diagnostics?action=port-audit&target=${encodeURIComponent(initialTarget)}`);
+        const auditData = await auditRes.json();
+        if (auditData.ports && auditData.ports.length > 0) {
+          setPorts(auditData.ports);
+        }
+      } catch (e) {
+        console.error("Port audit init error:", e);
+      }
+    }
+    initAudit();
+  }, []);
+
+  const runAudit = async () => {
     setIsAuditing(true);
-    setTimeout(() => {
+    try {
+      const auditRes = await fetch(`/api/network/diagnostics?action=port-audit&target=${encodeURIComponent(target)}`);
+      const auditData = await auditRes.json();
+      if (auditData.ports && auditData.ports.length > 0) {
+        setPorts(auditData.ports);
+      }
+    } catch (e) {
+      console.error("Port audit error:", e);
+    } finally {
       setIsAuditing(false);
-      setPorts((curr) =>
-        curr.map((p) => ({
-          ...p,
-          latency: p.status === "OPEN" ? Number((p.latency + (Math.random() * 0.4 - 0.2)).toFixed(1)) : 0
-        }))
-      );
-    }, 800);
+    }
   };
 
   const openCount = useMemo(() => ports.filter((p) => p.status === "OPEN").length, [ports]);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import {
   Camera,
@@ -208,23 +208,78 @@ const copy = {
 export function CctvProbeClient({ locale }: { locale: Locale }) {
   const t = copy[locale] || copy.en;
 
-  const [subnet, setSubnet] = useState("192.168.1.0/24");
+  const [subnet, setSubnet] = useState("192.168.11.0/24");
   const [isScanning, setIsScanning] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [cameras, setCameras] = useState<DetectedCamera[]>(initialCameras);
+  const [cameras, setCameras] = useState<DetectedCamera[]>([]);
 
-  const runScan = () => {
+  useEffect(() => {
+    async function initCctv() {
+      try {
+        const myIpRes = await fetch("/api/network/diagnostics?action=my-ip");
+        const myIpData = await myIpRes.json();
+        if (myIpData.subnet) setSubnet(myIpData.subnet);
+
+        const scanRes = await fetch("/api/network/diagnostics?action=scan");
+        const scanData = await scanRes.json();
+        if (scanData.devices && scanData.devices.length > 0) {
+          const cctvOnly = scanData.devices.filter((d: any) => d.deviceType === "camera" || d.openPorts?.includes(554));
+          if (cctvOnly.length > 0) {
+            const mapped: DetectedCamera[] = cctvOnly.map((c: any, idx: number) => ({
+              id: `cctv-${idx}`,
+              ip: c.ip,
+              name: c.hostname || `Camera ${c.ip}`,
+              brand: c.vendor.includes("Hikvision") ? "Hikvision" : c.vendor.includes("Uniview") ? "Uniview" : "Dahua Technology",
+              mac: c.mac,
+              resolution: "4K UHD (3840x2160)",
+              fps: 25,
+              bitrate: "4096 kbps (H.265)",
+              latency: c.latencyMs || 1.2,
+              openPorts: c.openPorts || [80, 554],
+              rtspUrl: `rtsp://admin:pass@${c.ip}:554/cam/realmonitor?channel=1&subtype=0`,
+              snapshotAvailable: true,
+              onvifProfile: "Profile S / T"
+            }));
+            setCameras(mapped);
+          }
+        }
+      } catch (e) {
+        console.error("CCTV init error:", e);
+      }
+    }
+    initCctv();
+  }, []);
+
+  const runScan = async () => {
     setIsScanning(true);
-    setTimeout(() => {
+    try {
+      const scanRes = await fetch("/api/network/diagnostics?action=scan");
+      const scanData = await scanRes.json();
+      if (scanData.devices && scanData.devices.length > 0) {
+        const cctvOnly = scanData.devices.filter((d: any) => d.deviceType === "camera" || d.openPorts?.includes(554));
+        const mapped: DetectedCamera[] = cctvOnly.map((c: any, idx: number) => ({
+          id: `cctv-${idx}`,
+          ip: c.ip,
+          name: c.hostname || `Camera ${c.ip}`,
+          brand: c.vendor.includes("Hikvision") ? "Hikvision" : c.vendor.includes("Uniview") ? "Uniview" : "Dahua Technology",
+          mac: c.mac,
+          resolution: "4K UHD (3840x2160)",
+          fps: 25,
+          bitrate: "4096 kbps (H.265)",
+          latency: c.latencyMs || 1.2,
+          openPorts: c.openPorts || [80, 554],
+          rtspUrl: `rtsp://admin:pass@${c.ip}:554/cam/realmonitor?channel=1&subtype=0`,
+          snapshotAvailable: true,
+          onvifProfile: "Profile S / T"
+        }));
+        setCameras(mapped);
+      }
+    } catch (e) {
+      console.error("CCTV scan error:", e);
+    } finally {
       setIsScanning(false);
-      setCameras((curr) =>
-        curr.map((c) => ({
-          ...c,
-          latency: Number((c.latency + (Math.random() * 0.4 - 0.2)).toFixed(1))
-        }))
-      );
-    }, 850);
+    }
   };
 
   const handleCopy = (id: string, text: string) => {
@@ -435,7 +490,16 @@ export function CctvProbeClient({ locale }: { locale: Locale }) {
               </tr>
             </thead>
             <tbody className="divide-y divide-border/60">
-              {filteredCameras.map((cam) => (
+              {filteredCameras.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="py-12 text-center text-muted-foreground">
+                    <Camera className="mx-auto h-8 w-8 text-muted-foreground/40 mb-2" />
+                    <div className="font-semibold text-sm">Այս ենթացանցում ({subnet}) CCTV տեսախցիկներ չեն հայտնաբերվել</div>
+                    <div className="text-xs text-muted-foreground mt-1">Միացրեք Ձեր NVR-ը կամ IP տեսախցիկները (Port 554 RTSP) և կատարեք սկանավորում։</div>
+                  </td>
+                </tr>
+              ) : (
+                filteredCameras.map((cam) => (
                 <tr key={cam.id} className="transition-colors hover:bg-muted/30">
                   <td className="px-4 py-3.5">
                     <div className="flex items-center gap-2.5">
@@ -488,7 +552,7 @@ export function CctvProbeClient({ locale }: { locale: Locale }) {
                     </div>
                   </td>
                 </tr>
-              ))}
+              )))}
             </tbody>
           </table>
         </div>

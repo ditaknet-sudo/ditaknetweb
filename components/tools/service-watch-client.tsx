@@ -42,75 +42,53 @@ type MonitoredTarget = {
 const initialTargets: MonitoredTarget[] = [
   {
     id: "s1",
-    name: "DitakNet Main Portal",
-    target: "https://ditaknet.com",
-    type: "HTTPS",
+    name: "DitakNet Web Server (Local)",
+    target: "127.0.0.1",
+    type: "HTTP",
+    port: 3000,
+    status: "operational",
+    latency: 0.1,
+    uptime24h: 100.0,
+    lastChecked: "Just now"
+  },
+  {
+    id: "s2",
+    name: "Default Gateway Router",
+    target: "192.168.11.254",
+    type: "ICMP",
+    port: 80,
+    status: "operational",
+    latency: 1.1,
+    uptime24h: 100.0,
+    lastChecked: "Just now"
+  },
+  {
+    id: "s3",
+    name: "Cloudflare Fast DNS",
+    target: "1.1.1.1",
+    type: "ICMP",
+    status: "operational",
+    latency: 14,
+    uptime24h: 100.0,
+    lastChecked: "Just now"
+  },
+  {
+    id: "s4",
+    name: "Google Public DNS",
+    target: "8.8.8.8",
+    type: "ICMP",
     status: "operational",
     latency: 18,
     uptime24h: 100.0,
     lastChecked: "Just now"
   },
   {
-    id: "s2",
-    name: "Hotel Management Cloud (hotel.ditaknet.com)",
-    target: "https://hotel.ditaknet.com",
+    id: "s5",
+    name: "DitakNet Cloud Portal",
+    target: "https://ditaknet.com",
     type: "HTTPS",
     status: "operational",
-    latency: 22,
-    uptime24h: 100.0,
-    lastChecked: "Just now"
-  },
-  {
-    id: "s3",
-    name: "Core Gateway Router (MikroTik)",
-    target: "192.168.1.1",
-    type: "TCP",
-    port: 8291,
-    status: "operational",
-    latency: 1.2,
-    uptime24h: 99.98,
-    lastChecked: "Just now"
-  },
-  {
-    id: "s4",
-    name: "DitakNet Node 01 (Monitoring Agent)",
-    target: "192.168.1.10",
-    type: "TCP",
-    port: 5833,
-    status: "operational",
-    latency: 0.9,
-    uptime24h: 100.0,
-    lastChecked: "Just now"
-  },
-  {
-    id: "s5",
-    name: "CCTV NVR 32-Channel Stream",
-    target: "192.168.1.50",
-    type: "TCP",
-    port: 554,
-    status: "operational",
-    latency: 2.4,
-    uptime24h: 99.95,
-    lastChecked: "Just now"
-  },
-  {
-    id: "s6",
-    name: "Cloud Storage NAS (Synology)",
-    target: "192.168.1.15",
-    type: "TCP",
-    port: 5001,
-    status: "operational",
-    latency: 1.8,
-    uptime24h: 100.0,
-    lastChecked: "Just now"
-  },
-  {
-    id: "s7",
-    name: "Public DNS Primary (Cloudflare)",
-    target: "1.1.1.1",
-    type: "ICMP",
-    status: "operational",
-    latency: 14,
+    latency: 24,
     uptime24h: 100.0,
     lastChecked: "Just now"
   }
@@ -225,24 +203,35 @@ export function ServiceWatchClient({ locale }: { locale: Locale }) {
   const [newType, setNewType] = useState<"HTTPS" | "HTTP" | "TCP" | "ICMP">("HTTPS");
   const [newPort, setNewPort] = useState("");
 
-  const checkAll = () => {
+  const checkAll = async () => {
     setIsCheckingAll(true);
     setTargets((prev) => prev.map((item) => ({ ...item, status: "checking" })));
 
-    setTimeout(() => {
-      setTargets((prev) =>
-        prev.map((item) => {
-          const jitter = Number((item.latency + (Math.random() * 4 - 2)).toFixed(1));
+    const updated = await Promise.all(
+      targets.map(async (item) => {
+        try {
+          const targetHost = item.target.replace(/^https?:\/\//, "").split("/")[0].split(":")[0];
+          const res = await fetch(`/api/network/diagnostics?action=ping&target=${encodeURIComponent(targetHost)}`);
+          const data = await res.json();
           return {
             ...item,
-            latency: Math.max(0.5, jitter),
-            status: "operational",
+            latency: data.alive ? Number(data.latencyMs) || 1 : 0,
+            status: data.alive ? ("operational" as const) : ("down" as const),
             lastChecked: "Just now"
           };
-        })
-      );
-      setIsCheckingAll(false);
-    }, 900);
+        } catch {
+          return {
+            ...item,
+            latency: 0,
+            status: "down" as const,
+            lastChecked: "Just now"
+          };
+        }
+      })
+    );
+
+    setTargets(updated);
+    setIsCheckingAll(false);
   };
 
   const handleAddTarget = (e: React.FormEvent) => {

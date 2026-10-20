@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import {
   Activity,
@@ -264,38 +264,100 @@ const copy = {
 export function NetworkExplorerClient({ locale }: { locale: Locale }) {
   const t = copy[locale] || copy.en;
 
-  const [subnet, setSubnet] = useState("192.168.1.0/24");
+  const [subnet, setSubnet] = useState("192.168.11.0/24");
   const [probeMode, setProbeMode] = useState<"quick" | "deep">("quick");
   const [isScanning, setIsScanning] = useState(false);
   const [scanProgress, setScanProgress] = useState(100);
   const [activeTab, setActiveTab] = useState<DeviceCategory>("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [hosts, setHosts] = useState<DiscoveredHost[]>(initialHosts);
+  const [hosts, setHosts] = useState<DiscoveredHost[]>([]);
 
-  const runScan = () => {
-    setIsScanning(true);
-    setScanProgress(5);
-
-    const interval = setInterval(() => {
-      setScanProgress((prev) => {
-        if (prev >= 95) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setIsScanning(false);
-            setScanProgress(100);
-            // Add or refresh hosts with jitter
-            setHosts((curr) =>
-              curr.map((h) => ({
-                ...h,
-                latency: Number((h.latency + (Math.random() * 0.4 - 0.2)).toFixed(1))
-              }))
-            );
-          }, 400);
-          return 100;
+  useEffect(() => {
+    async function initExplorer() {
+      try {
+        const myIpRes = await fetch("/api/network/diagnostics?action=my-ip");
+        const myIpData = await myIpRes.json();
+        if (myIpData.subnet) {
+          setSubnet(myIpData.subnet);
         }
-        return prev + 15;
-      });
-    }, 180);
+
+        const scanRes = await fetch("/api/network/diagnostics?action=scan");
+        const scanData = await scanRes.json();
+        if (scanData.devices && scanData.devices.length > 0) {
+          const mapped: DiscoveredHost[] = scanData.devices.map((d: any) => ({
+            ip: d.ip,
+            hostname: d.hostname,
+            mac: d.mac,
+            vendor: d.vendor,
+            latency: d.latencyMs,
+            openPorts: d.openPorts || [80],
+            category:
+              d.deviceType === "camera"
+                ? "cctv"
+                : d.deviceType === "router"
+                ? "router"
+                : d.deviceType === "server"
+                ? "server"
+                : "workstation",
+            hops: 1,
+            osGuess:
+              d.deviceType === "router"
+                ? "Router Firmware / Linux"
+                : d.deviceType === "workstation"
+                ? "Windows 11 / Workstation"
+                : "Embedded Network OS"
+          }));
+          setHosts(mapped);
+        }
+      } catch (e) {
+        console.error("Network explorer init error:", e);
+      }
+    }
+    initExplorer();
+  }, []);
+
+  const runScan = async () => {
+    setIsScanning(true);
+    setScanProgress(25);
+    setHosts([]);
+
+    try {
+      const scanRes = await fetch("/api/network/diagnostics?action=scan");
+      const scanData = await scanRes.json();
+      setScanProgress(75);
+
+      if (scanData.devices && scanData.devices.length > 0) {
+        const mapped: DiscoveredHost[] = scanData.devices.map((d: any) => ({
+          ip: d.ip,
+          hostname: d.hostname,
+          mac: d.mac,
+          vendor: d.vendor,
+          latency: d.latencyMs,
+          openPorts: d.openPorts || [80],
+          category:
+            d.deviceType === "camera"
+              ? "cctv"
+              : d.deviceType === "router"
+              ? "router"
+              : d.deviceType === "server"
+              ? "server"
+              : "workstation",
+          hops: 1,
+          osGuess:
+            d.deviceType === "router"
+              ? "Router Firmware / Linux"
+              : d.deviceType === "workstation"
+              ? "Windows 11 / Workstation"
+              : "Embedded Network OS"
+        }));
+        setHosts(mapped);
+      }
+    } catch {
+      // fallback
+    } finally {
+      setScanProgress(100);
+      setIsScanning(false);
+    }
   };
 
   const filteredHosts = useMemo(() => {

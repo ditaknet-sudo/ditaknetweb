@@ -98,154 +98,58 @@ const defaultPeers: PeerDevice[] = [
   },
   {
     id: "gateway-1",
-    ip: "192.168.1.1",
+    ip: "192.168.11.254",
     port: 5834,
-    name: "Gateway Router & Firewall",
-    role: "Core Mikrotik CCR / OPNsense",
-    status: "online",
-    latencyMs: 0.8,
-    lastSeen: "1 min ago",
-    deviceType: "router",
-    vendor: "MikroTik RouterOS",
-    mac: "E4:8D:8C:33:44:01",
-    openPorts: [80, 443, 8291, 53]
-  },
-  {
-    id: "core-switch",
-    ip: "192.168.1.2",
-    port: 5834,
-    name: "Core PoE Switch (24-Port)",
-    role: "Cisco Catalyst Managed Switch",
-    status: "online",
-    latencyMs: 0.9,
-    lastSeen: "Just now",
-    deviceType: "switch",
-    vendor: "Cisco Systems",
-    mac: "00:1A:2B:77:88:99",
-    openPorts: [22, 80, 161]
-  },
-  {
-    id: "storage-node",
-    ip: "192.168.1.50",
-    port: 5834,
-    name: "TrueNAS Storage Server",
-    role: "ZFS Pool & Backup Daemon",
+    name: "Default Gateway Router",
+    role: "ZTE GPON Optical Fiber Router",
     status: "online",
     latencyMs: 1.1,
     lastSeen: "Just now",
-    deviceType: "server",
-    vendor: "Intel / Supermicro",
-    mac: "D8:3A:DD:12:44:88",
-    openPorts: [80, 443, 445, 2049, 5834]
+    deviceType: "router",
+    vendor: "ZTE Corporation",
+    mac: "90:03:2E:48:65:F0",
+    openPorts: [80, 443, 22]
   },
   {
-    id: "cctv-nvr",
-    ip: "192.168.1.55",
+    id: "this-pc",
+    ip: "192.168.11.66",
     port: 5834,
-    name: "Security CCTV NVR (32-Ch)",
-    role: "Dahua 4K Video Surveillance",
-    status: "online",
-    latencyMs: 1.8,
-    lastSeen: "1 min ago",
-    deviceType: "camera",
-    vendor: "Dahua Technology",
-    mac: "BC:5F:F4:99:11:22",
-    openPorts: [80, 554, 37777]
-  },
-  {
-    id: "cam-front",
-    ip: "192.168.1.56",
-    port: 5834,
-    name: "CAM 01 - Front Gate 4K",
-    role: "Hikvision Turret Camera",
-    status: "online",
-    latencyMs: 2.1,
-    lastSeen: "Just now",
-    deviceType: "camera",
-    vendor: "Hikvision Digital",
-    mac: "C4:2F:90:33:55:77",
-    openPorts: [80, 554, 8000]
-  },
-  {
-    id: "it-lab",
-    ip: "192.168.1.88",
-    port: 5834,
-    name: "IT Lab Workstation",
-    role: "Technician Laptop (Win11 Pro)",
-    status: "online",
-    latencyMs: 1.4,
-    lastSeen: "3 mins ago",
-    deviceType: "workstation",
-    vendor: "Apple MacBook / Win11",
-    mac: "48:8F:5A:66:33:22",
-    openPorts: [22, 5834]
-  },
-  {
-    id: "wifi-ap",
-    ip: "192.168.1.102",
-    port: 5834,
-    name: "Floor 2 Wi-Fi 6 Access Point",
-    role: "TP-Link Omada Gigabit AP",
-    status: "online",
-    latencyMs: 1.5,
-    lastSeen: "Just now",
-    deviceType: "wifi",
-    vendor: "TP-Link Technologies",
-    mac: "50:C7:BF:11:77:44",
-    openPorts: [80, 443]
-  },
-  {
-    id: "synology-backup",
-    ip: "192.168.1.110",
-    port: 5834,
-    name: "Synology DiskStation",
-    role: "Secondary Offsite Backup",
-    status: "online",
-    latencyMs: 1.3,
-    lastSeen: "Just now",
-    deviceType: "server",
-    vendor: "Synology Inc.",
-    mac: "00:11:32:44:88:12",
-    openPorts: [5000, 5001, 445]
-  },
-  {
-    id: "localhost-test",
-    ip: "127.0.0.1",
-    port: 5834,
-    name: "Loopback (Self-Test PC)",
-    role: "Localhost Diagnostics",
+    name: "This Workstation (Arm-0199)",
+    role: "Local PC Node / Wi-Fi Adapter",
     status: "online",
     latencyMs: 0.1,
     lastSeen: "Just now",
     deviceType: "workstation",
-    vendor: "Local Machine",
+    vendor: "Wi-Fi Interface",
+    mac: "02:E1:42:64:C3:E3",
     openPorts: [3000, 5834]
+  },
+  {
+    id: "peer-host",
+    ip: "192.168.11.51",
+    port: 5834,
+    name: "Connected Smart Device",
+    role: "Xiaomi Communications Host",
+    status: "online",
+    latencyMs: 1.5,
+    lastSeen: "Just now",
+    deviceType: "workstation",
+    vendor: "Xiaomi Communications",
+    mac: "64:E7:D8:5B:5C:BE",
+    openPorts: [80]
   }
 ];
 
 const initialHistory: Record<string, ChatMessage[]> = {
-  "192.168.1.1": [
+  "192.168.11.254": [
     {
       id: "m-gw-1",
-      senderIp: "192.168.1.1",
-      senderName: "Gateway Router",
-      recipientIp: "192.168.1.150",
-      content: "DitakNet LAN Messenger daemon active on port 5834. DHCP lease table healthy (38 leases active).",
+      senderIp: "192.168.11.254",
+      senderName: "Default Gateway Router",
+      recipientIp: "192.168.11.66",
+      content: "DitakNet LAN Messenger daemon active on port 5834. Local gateway reachable at 192.168.11.254.",
       snippetType: "text",
       timestamp: Date.now() - 3600000,
-      isSelf: false,
-      status: "read"
-    }
-  ],
-  "192.168.1.50": [
-    {
-      id: "m-nas-1",
-      senderIp: "192.168.1.50",
-      senderName: "TrueNAS Storage Server",
-      recipientIp: "192.168.1.150",
-      content: "Daily snapshot complete: pool0 scrubbed clean, 0 checksum errors.",
-      snippetType: "alert",
-      timestamp: Date.now() - 1800000,
       isSelf: false,
       status: "read"
     }
@@ -253,10 +157,10 @@ const initialHistory: Record<string, ChatMessage[]> = {
   "255.255.255.255": [
     {
       id: "m-bc-1",
-      senderIp: "192.168.1.1",
-      senderName: "Core Gateway",
+      senderIp: "192.168.11.254",
+      senderName: "Gateway Router",
       recipientIp: "255.255.255.255",
-      content: "📢 System notice: Local IP Messenger and Subnet Scanner operational across 192.168.1.0/24.",
+      content: "📢 System notice: Local IP Messenger and Subnet Scanner operational across local subnet.",
       snippetType: "text",
       timestamp: Date.now() - 7200000,
       isSelf: false,
@@ -268,7 +172,7 @@ const initialHistory: Record<string, ChatMessage[]> = {
 const commonPorts = [
   { port: 80, name: "HTTP Web", proto: "TCP", service: "Web Server / Dashboard" },
   { port: 443, name: "HTTPS SSL", proto: "TCP", service: "Encrypted Web Portal" },
-  { port: 22, name: "SSH", proto: "TCP", service: "Secure Shell Terminal" },
+  { port: 22, name: "SSH", proto: "TCP", service: "Encrypted Secure Shell" },
   { port: 3389, name: "RDP", proto: "TCP", service: "Windows Remote Desktop" },
   { port: 554, name: "RTSP", proto: "TCP/UDP", service: "CCTV Video Streaming" },
   { port: 445, name: "SMB", proto: "TCP", service: "Windows Network File Share" },
@@ -286,32 +190,32 @@ export function IpMessengerClient({ locale }: { locale: Locale }) {
 
   // Chat & Peer State
   const [peers, setPeers] = useState<PeerDevice[]>(defaultPeers);
-  const [selectedIp, setSelectedIp] = useState<string>("192.168.1.1");
+  const [selectedIp, setSelectedIp] = useState<string>("192.168.11.254");
   const [messagesByPeer, setMessagesByPeer] = useState<Record<string, ChatMessage[]>>(initialHistory);
   const [inputText, setInputText] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [soundEnabled, setSoundEnabled] = useState(true);
 
   // My Device Network Information
-  const [myIp, setMyIp] = useState<string>("192.168.1.150");
-  const [myName, setMyName] = useState<string>("Admin Workstation");
-  const [gatewayIp, setGatewayIp] = useState<string>("192.168.1.1");
+  const [myIp, setMyIp] = useState<string>("192.168.11.66");
+  const [myName, setMyName] = useState<string>("Admin Workstation (Arm-0199)");
+  const [gatewayIp, setGatewayIp] = useState<string>("192.168.11.254");
   const [subnetMask, setSubnetMask] = useState<string>("255.255.255.0");
-  const [myMac, setMyMac] = useState<string>("B4:2E:99:A1:7B:44");
-  const [adapterName, setAdapterName] = useState<string>("Realtek PCIe 2.5GbE Family Controller");
-  const [dnsServers, setDnsServers] = useState<string[]>(["1.1.1.1", "8.8.8.8", "192.168.1.1"]);
-  const [hostname, setHostname] = useState<string>("Workstation-PC");
+  const [myMac, setMyMac] = useState<string>("02:E1:42:64:C3:E3");
+  const [adapterName, setAdapterName] = useState<string>("Wi-Fi Network Adapter");
+  const [dnsServers, setDnsServers] = useState<string[]>(["192.168.11.254", "1.1.1.1", "8.8.8.8"]);
+  const [hostname, setHostname] = useState<string>("Arm-0199");
   const [gatewayPingResult, setGatewayPingResult] = useState<string | null>(null);
 
   // Scanner State
-  const [scanSubnet, setScanSubnet] = useState<string>("192.168.1.0/24");
+  const [scanSubnet, setScanSubnet] = useState<string>("192.168.11.0/24");
   const [isScanning, setIsScanning] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
   const [scannedDevices, setScannedDevices] = useState<PeerDevice[]>(defaultPeers);
   const [scanFilter, setScanFilter] = useState<string>("all");
 
   // Port Audit State
-  const [portTargetIp, setPortTargetIp] = useState<string>("192.168.1.1");
+  const [portTargetIp, setPortTargetIp] = useState<string>("192.168.11.254");
   const [isPortScanning, setIsPortScanning] = useState(false);
   const [portAuditResults, setPortAuditResults] = useState<
     Array<{ port: number; name: string; service: string; status: "open" | "filtered" | "closed"; latency: number }>

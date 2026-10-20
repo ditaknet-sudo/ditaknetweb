@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import os from "os";
 import cp from "child_process";
+import net from "net";
 
 export type NetworkDeviceInfo = {
   ip: string;
@@ -170,6 +171,32 @@ function pingTarget(ip: string): { alive: boolean; latencyMs: number } {
   }
 }
 
+function probeTcpPort(host: string, port: number, timeoutMs = 800): Promise<{ port: number; open: boolean; latencyMs: number }> {
+  return new Promise((resolve) => {
+    const start = performance.now();
+    const socket = new net.Socket();
+    socket.setTimeout(timeoutMs);
+
+    socket.once("connect", () => {
+      const latency = Math.round(performance.now() - start);
+      socket.destroy();
+      resolve({ port, open: true, latencyMs: Math.max(latency, 1) });
+    });
+
+    socket.once("timeout", () => {
+      socket.destroy();
+      resolve({ port, open: false, latencyMs: 0 });
+    });
+
+    socket.once("error", () => {
+      socket.destroy();
+      resolve({ port, open: false, latencyMs: 0 });
+    });
+
+    socket.connect(port, host);
+  });
+}
+
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
   const action = url.searchParams.get("action") || "my-ip";
@@ -179,6 +206,46 @@ export async function GET(request: NextRequest) {
   const gatewayIp = detectDefaultGateway(primary.ip);
   const ipParts = primary.ip.split(".");
   const subnetBase = ipParts.length === 4 ? `${ipParts[0]}.${ipParts[1]}.${ipParts[2]}` : "192.168.1";
+
+  // Action: Live Port Audit on Target IP
+  if (action === "port-audit") {
+    const auditTarget = target || gatewayIp;
+    const commonAuditPorts = [
+      { port: 80, service: "HTTP Web Server", category: "Web", risk: "Low", recommendation: "Standard web GUI; ensure redirection to HTTPS (port 443)." },
+      { port: 443, service: "HTTPS Secure Web", category: "Web", risk: "Low", recommendation: "Encrypted web service; check SSL/TLS certificate validity." },
+      { port: 22, service: "SSH Secure Shell", category: "Admin", risk: "Medium", recommendation: "Use key-based authentication; disable password login if exposed." },
+      { port: 53, service: "DNS Name Resolution", category: "Admin", risk: "Low", recommendation: "Local DNS resolver service." },
+      { port: 445, service: "SMB Windows File Share", category: "Storage", risk: "High", recommendation: "Restrict SMB to local subnet; never expose port 445 to internet." },
+      { port: 554, service: "RTSP Video Stream", category: "CCTV", risk: "Medium", recommendation: "Verify camera authentication credentials (avoid default admin/admin)." },
+      { port: 3389, service: "Remote Desktop (RDP)", category: "Admin", risk: "High", recommendation: "Protected / Closed. Never expose RDP directly to public WAN." },
+      { port: 5000, service: "Synology / NAS DSM", category: "Storage", risk: "Medium", recommendation: "NAS management portal; use strong 2FA." },
+      { port: 5834, service: "DitakNet LAN Messenger", category: "Admin", risk: "Low", recommendation: "DitakNet local peer discovery and messaging port." },
+      { port: 8080, service: "HTTP Alternate / Proxy", category: "Web", risk: "Medium", recommendation: "Alternate web service or proxy port." },
+      { port: 8291, service: "MikroTik WinBox", category: "Admin", risk: "Medium", recommendation: "Restrict to management VLAN or trusted admin IPs." },
+      { port: 3000, service: "Next.js Web Service", category: "Web", risk: "Low", recommendation: "Local web application server port." }
+    ];
+
+    const probeResults = await Promise.all(
+      commonAuditPorts.map(async (item) => {
+        const probed = await probeTcpPort(auditTarget, item.port);
+        return {
+          port: item.port,
+          service: item.service,
+          category: item.category,
+          status: probed.open ? ("OPEN" as const) : ("CLOSED" as const),
+          latency: probed.latencyMs,
+          risk: item.risk,
+          recommendation: item.recommendation
+        };
+      })
+    );
+
+    return NextResponse.json({
+      target: auditTarget,
+      isRealData: true,
+      ports: probeResults
+    });
+  }
 
   // Action: Live Ping Check
   if (action === "ping" && target) {
