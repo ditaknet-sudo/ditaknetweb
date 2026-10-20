@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import {
   Activity,
@@ -151,13 +151,55 @@ const initialDevices: DiscoveredDevice[] = [
 ];
 
 export function LanScanClient({ locale }: { locale: Locale }) {
-  const [subnet, setSubnet] = useState("192.168.1");
+  const [subnet, setSubnet] = useState("192.168.11");
   const [isScanning, setIsScanning] = useState(false);
   const [progress, setProgress] = useState(100);
-  const [devices, setDevices] = useState<DiscoveredDevice[]>(initialDevices);
+  const [devices, setDevices] = useState<DiscoveredDevice[]>([]);
   const [categoryFilter, setCategoryFilter] = useState<DeviceCategory>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [copiedIp, setCopiedIp] = useState<string | null>(null);
+
+  // Load real devices and active subnet on mount
+  useEffect(() => {
+    async function loadRealData() {
+      try {
+        const myIpRes = await fetch("/api/network/diagnostics?action=my-ip");
+        const myIpData = await myIpRes.json();
+        if (myIpData.subnet) {
+          const parts = myIpData.myIp.split(".");
+          if (parts.length === 4) {
+            setSubnet(`${parts[0]}.${parts[1]}.${parts[2]}`);
+          }
+        }
+
+        const scanRes = await fetch("/api/network/diagnostics?action=scan");
+        const scanData = await scanRes.json();
+        if (scanData.devices && scanData.devices.length > 0) {
+          const mapped: DiscoveredDevice[] = scanData.devices.map((d: any) => ({
+            ip: d.ip,
+            hostname: d.hostname,
+            mac: d.mac,
+            vendor: d.vendor,
+            latency: d.latencyMs,
+            openPorts: d.openPorts || [80],
+            category:
+              d.deviceType === "camera"
+                ? "cctv"
+                : d.deviceType === "router"
+                ? "router"
+                : d.deviceType === "server"
+                ? "server"
+                : "workstation"
+          }));
+          setDevices(mapped);
+        }
+      } catch (err) {
+        console.error("LAN scan load error:", err);
+      }
+    }
+
+    loadRealData();
+  }, []);
 
   // Translations dictionary
   const text = {
@@ -283,41 +325,42 @@ export function LanScanClient({ locale }: { locale: Locale }) {
     }
   }[locale];
 
-  // Start simulated live scan
-  const handleStartScan = () => {
+  // Start real live scan via backend engine
+  const handleStartScan = async () => {
     setIsScanning(true);
-    setProgress(0);
+    setProgress(25);
     setDevices([]);
 
-    let current = 0;
-    const interval = setInterval(() => {
-      current += 15;
-      if (current >= 100) {
-        clearInterval(interval);
-        setProgress(100);
-        setIsScanning(false);
-        // Map to active subnet
-        const remapped = initialDevices.map((d) => {
-          const lastOctet = d.ip.split(".").pop();
-          return {
-            ...d,
-            ip: `${subnet}.${lastOctet}`
-          };
-        });
-        setDevices(remapped);
-      } else {
-        setProgress(current);
-        const count = Math.floor((current / 100) * initialDevices.length);
-        const currentSlice = initialDevices.slice(0, count).map((d) => {
-          const lastOctet = d.ip.split(".").pop();
-          return {
-            ...d,
-            ip: `${subnet}.${lastOctet}`
-          };
-        });
-        setDevices(currentSlice);
+    try {
+      const scanRes = await fetch("/api/network/diagnostics?action=scan");
+      const scanData = await scanRes.json();
+      setProgress(75);
+
+      if (scanData.devices && scanData.devices.length > 0) {
+        const mapped: DiscoveredDevice[] = scanData.devices.map((d: any) => ({
+          ip: d.ip,
+          hostname: d.hostname,
+          mac: d.mac,
+          vendor: d.vendor,
+          latency: d.latencyMs,
+          openPorts: d.openPorts || [80],
+          category:
+            d.deviceType === "camera"
+              ? "cctv"
+              : d.deviceType === "router"
+              ? "router"
+              : d.deviceType === "server"
+              ? "server"
+              : "workstation"
+        }));
+        setDevices(mapped);
       }
-    }, 200);
+    } catch {
+      // fallback
+    } finally {
+      setProgress(100);
+      setIsScanning(false);
+    }
   };
 
   const handleCopyIp = (ip: string) => {
