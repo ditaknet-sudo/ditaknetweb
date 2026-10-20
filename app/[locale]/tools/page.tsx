@@ -6,19 +6,19 @@ import { localizedPageMetadata } from "@/lib/seo";
 
 const metadata = {
   en: {
-    title: "DitakNet IT Tools | LAN Scan, VLAN Scan and Private Cloud",
+    title: "DitakNet IT Tools | Patch Panel, Network Explorer, LAN Scan & Suite",
     description:
-      "Self-hosted tools for LAN discovery, VLAN visibility, service monitoring, and private team data storage."
+      "Interactive patch panel manager, deep network exploration, LAN/VLAN discovery, service monitoring, and private cloud storage."
   },
   hy: {
-    title: "DitakNet IT Tools | LAN Scan, VLAN Scan և Private Cloud",
+    title: "DitakNet ՏՏ Գործիքներ | Պաչ Պանել, Ցանցի Ուսումնասիրություն և LAN/VLAN Scan",
     description:
-      "Self-hosted գործիքներ՝ LAN discovery-ի, VLAN visibility-ի, service monitoring-ի և թիմային տվյալների մասնավոր պահպանման համար։"
+      "Հեղինակային ինտերակտիվ պաչ պանել, ցանցի խորքային ուսումնասիրություն, LAN discovery, VLAN mapping և մասնավոր պահոց ՏՏ մասնագետների համար։"
   },
   ru: {
-    title: "DitakNet IT Tools | LAN Scan, VLAN Scan и Private Cloud",
+    title: "DitakNet IT Инструменты | Патч-Панель, Исследование Сети, LAN/VLAN Скан",
     description:
-      "Self-hosted инструменты для LAN discovery, VLAN visibility, мониторинга сервисов и приватного хранения данных команды."
+      "Интерактивная патч-панель, глубокое исследование сети, LAN discovery, VLAN mapping и мониторинг сервисов для IT-специалистов."
   }
 } satisfies Record<Locale, { title: string; description: string }>;
 

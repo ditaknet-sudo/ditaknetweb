@@ -55,13 +55,35 @@ export function ButtonLink({
   size,
   className,
   children,
+  download,
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
   variant?: Variant;
   size?: Size;
   children: ReactNode;
+  download?: boolean | string;
 }) {
+  const isDownload =
+    Boolean(download) ||
+    href.startsWith("/downloads/") ||
+    href.startsWith("/api/downloads/") ||
+    href.endsWith(".zip");
+  const isExternal = href.startsWith("http://") || href.startsWith("https://");
+
+  if (isDownload || isExternal) {
+    return (
+      <a
+        href={href}
+        download={download === true ? "" : download || undefined}
+        className={buttonClassName({ variant, size, className })}
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link href={href} className={buttonClassName({ variant, size, className })} {...props}>
       {children}

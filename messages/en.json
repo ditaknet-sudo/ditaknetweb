@@ -8,7 +8,7 @@
     "home": "Home",
     "product": "Product",
     "monitoring": "Monitoring",
-    "tools": "IT Tools",
+    "tools": "Software & Tools",
     "features": "Features",
     "download": "Download",
     "deployment": "Deployment",
@@ -137,8 +137,8 @@
     }
   },
   "home": {
-    "metaTitle": "DitakNet | Self-hosted monitoring for homes and small networks",
-    "metaDescription": "DitakNet is a self-hosted monitoring server for individuals, home labs, small offices, CCTV, routers, and local devices. Runs on Docker or Linux on port 5833.",
+    "metaTitle": "DitakNet | Self-Hosted Monitoring, Patch Panel, IT Tools & Business Software",
+    "metaDescription": "DitakNet provides self-hosted network monitoring, interactive patch panel manager, IT network exploration tools, hotel.ditaknet.com hotel PMS, and residential property management software custom-built in 2-3 months.",
     "hero": {
       "eyebrow": "Local monitoring · your server",
       "title": "Your whole network, visible — without the cloud.",
@@ -150,6 +150,67 @@
       "viewPricing": "See free vs professional service",
       "contactSupport": "Contact for setup help",
       "imageAlt": "DitakNet monitoring server visual"
+    },
+    "software": {
+      "eyebrow": "Our Software & Solutions",
+      "title": "Software Solutions for IT Specialists & Your Business",
+      "description": "DitakNet delivers specialized software: from our custom patch panel manager and network exploration tools to all-in-one hotel management and residential property platforms.",
+      "patchPanel": {
+        "badge": "Custom Built Solution",
+        "title": "Interactive Patch Panel Manager",
+        "subtitle": "Engineered to simplify life for IT professionals",
+        "description": "A specialized tool created by DitakNet to revolutionize rack and patch panel management. Visualize every port, trace color-coded cable runs, map switch connections, and maintain rack documentation without confusion.",
+        "features": [
+          "Visual 24/48-port rack unit and patch panel view",
+          "Intuitive switch-to-panel port mapping",
+          "Color-coded tagging and cable run documentation",
+          "Rapid troubleshooting and significant time savings for tech teams"
+        ],
+        "cta": "Explore IT Tools"
+      },
+      "networkExplorer": {
+        "badge": "For IT Specialists",
+        "title": "Network Exploration & Diagnostics",
+        "subtitle": "In-depth investigation of subnets, devices, and services",
+        "description": "Productivity-boosting tools for network engineers and sysadmins: discover local subnets and VLANs, analyze active hosts, identify open ports, and monitor live latency with zero hassle.",
+        "features": [
+          "Fast subnet discovery and live host sweep",
+          "VLAN segmentation and routing path visibility",
+          "Accurate IP, MAC, Vendor, and device classification",
+          "Real-time port and service health inspection"
+        ],
+        "cta": "Explore Network Tools"
+      },
+      "hotel": {
+        "badge": "hotel.ditaknet.com",
+        "highlightBadge": "Your Business in One Place",
+        "title": "Hotel Management System (Hotel PMS)",
+        "subtitle": "Complete digitalization and automation for hospitality",
+        "description": "Connect to hotel.ditaknet.com — manage your entire hotel operations from a single dashboard. Room bookings, guest check-in/out, billing, housekeeping oversight, and integrated Wi-Fi and CCTV monitoring powered by DitakNet.",
+        "features": [
+          "Room booking calendar and express guest check-in/out",
+          "Billing, POS transactions, and automated invoices",
+          "Housekeeping tracking and room maintenance status",
+          "Seamless integration with CCTV and local Wi-Fi infrastructure"
+        ],
+        "cta": "Connect to hotel.ditaknet.com",
+        "url": "https://hotel.ditaknet.com"
+      },
+      "residential": {
+        "badge": "Ready in 2-3 Months",
+        "highlightBadge": "Custom Tailored",
+        "title": "Residential Complex & Property Management",
+        "subtitle": "Built or upgraded to your exact preferences within 2-3 months",
+        "description": "Customized management software for residential complexes, gated communities, condominiums, and apartment buildings. Tailored or upgraded according to your exact business rules within just 2-3 months.",
+        "features": [
+          "Resident web/mobile portal and announcement board",
+          "Automated utility billing and maintenance fee tracking",
+          "Smart intercom, gate barrier, and door access integration",
+          "Turnkey delivery or modernization in only 2-3 months"
+        ],
+        "cta": "Request Custom Software",
+        "url": "/contact?service=residential"
+      }
     },
     "audience": {
       "eyebrow": "Who it is for",
@@ -869,6 +930,76 @@
     "employeeNotice": {
       "title": "Employee Attendance Notice Template",
       "description": "Template for corporate customers to inform employees about attendance monitoring."
+    }
+  },
+  "downloadPage": {
+    "metaTitle": "Download DitakNet Tools & Software",
+    "metaDescription": "Download DitakNet monitoring and IT software that make network operations easier.",
+    "eyebrow": "Software for your operations",
+    "title": "Download DitakNet Tools",
+    "description": "We build practical tools for IT technicians, home labs, and small networks to discover infrastructure, monitor uptime, and maintain rack documentation.",
+    "downloadCta": "Download",
+    "requestCta": "Request Package",
+    "docsCta": "Documentation",
+    "comingSoonNote": "Package is in active distribution. Send a request to get the latest build.",
+    "helpTitle": "Need setup assistance?",
+    "helpBody": "If you would like us to deploy or configure DitakNet at your customer site, reach out to us. Self-installation remains completely free.",
+    "helpCta": "Contact for Setup",
+    "platforms": {
+      "windows": "Windows",
+      "linux": "Linux",
+      "docker": "Docker",
+      "truenas": "TrueNAS"
+    },
+    "items": {
+      "monitoring": {
+        "name": "DitakNet Monitoring",
+        "description": "Core self-hosted monitoring server for local network discovery, checks, alerts, and visibility."
+      },
+      "ip-messenger": {
+        "name": "Local IP Messenger",
+        "description": "Private peer-to-peer local IP messenger for IT teams: direct chat by device IP without internet, with 100% local storage."
+      },
+      "patch-panel": {
+        "name": "Interactive Patch Panel",
+        "description": "Author-designed rack visualizer and patch panel manager for IT technicians and cable documentation."
+      },
+      "network-explorer": {
+        "name": "Network Explorer",
+        "description": "In-depth subnet exploration, open port analysis, live host sweeps, and latency diagnostics."
+      },
+      "lan-scan": {
+        "name": "LAN Scan",
+        "description": "Discovers local network devices: IP/MAC, vendors, open services, and changes between sweeps."
+      },
+      "vlan-scan": {
+        "name": "VLAN Scan",
+        "description": "Maps VLAN segments and monitored subnets to understand isolation, gateways, and infrastructure."
+      },
+      "cctv-probe": {
+        "name": "DitakNet CCTV Probe",
+        "description": "Auto-discovers IP cameras, NVRs, RTSP streams (554), ONVIF endpoints, and vendors (Dahua, Hikvision, Uniview, Axis)."
+      },
+      "bandwidth-test": {
+        "name": "Bandwidth & Jitter Test",
+        "description": "Benchmark physical link speed, gateway round-trip latency, packet jitter (PDV), and loss percentage."
+      },
+      "subnet-calculator": {
+        "name": "Subnet Calculator & IPAM",
+        "description": "IPv4 CIDR planner, host boundaries, broadcast calculations, wildcard masks, and VLAN subnetting."
+      },
+      "port-audit": {
+        "name": "Port Audit & Firewall NAT Check",
+        "description": "Fast reachability and security exposure audit for critical service ports (Web, SSH, RDP, RTSP, SMB, SQL, VPN)."
+      },
+      "cloud": {
+        "name": "DitakNet Cloud",
+        "description": "Private, self-hosted vault for team records, documents, files, and configuration backups."
+      },
+      "service-watch": {
+        "name": "Service Watch",
+        "description": "Monitors websites, APIs, ports, and internal services on scheduled check intervals."
+      }
     }
   }
 }

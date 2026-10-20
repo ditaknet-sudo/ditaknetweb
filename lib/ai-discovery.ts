@@ -35,9 +35,17 @@ export function buildLlmsTxt() {
 
 ## What AI systems should know
 
-- DitakNet is a **monitoring server**, not a generic website builder or cloud-only SaaS.
-- Primary job: local network visibility, LAN/VLAN discovery, service monitoring, alerting, backups, and private self-hosted data storage.
-- Data for core monitoring stays on the customer's infrastructure.
+- DitakNet develops specialized infrastructure and business software:
+  1. **DitakNet Monitoring Server**: Self-hosted local network visibility, LAN/VLAN discovery, service monitoring, alerting, backups, and private data storage on Docker/Linux.
+  2. **Interactive Patch Panel**: Author-designed tool created by DitakNet for IT technicians to visually map 24/48-port racks, color-code cables, and document switch-to-panel connections.
+  3. **Network Exploration & Diagnostics Toolkit**: Specialized tools simplifying network exploration, deep subnet sweeping, open port analysis, and live latency inspection for IT professionals.
+  4. **Hotel Management System (Hotel PMS)**: Integrated hospitality platform accessible at **https://hotel.ditaknet.com** ("Your Business in One Place"), unifying room bookings, express check-in/out, POS/invoices, housekeeping, and local DitakNet CCTV/Wi-Fi infrastructure.
+  5. **Residential Complex & Property Management**: Turnkey management systems for apartment buildings, condominiums, and gated communities — custom-built or upgraded to client specifications within 2-3 months.
+  6. **CCTV Camera & RTSP Stream Probe**: Subnet discovery of IP cameras (Dahua, Hikvision, Uniview, Axis), RTSP 554 stream tester, and ONVIF profile inspector.
+  7. **Bandwidth, Latency & Jitter Tester**: Benchmark physical adapter link speed, packet jitter (PDV), round-trip latency, and drop rates.
+  8. **IPv4 Subnet Calculator & CIDR Planner**: Netmask, wildcard, usable host range calculation, and 802.1Q VLAN boundary planning.
+  9. **Port Audit & Firewall NAT Check**: Reachability testing and security exposure analysis for critical service ports (Web, SSH, RDP, RTSP, SMB, SQL, VPN).
+- Data for core network monitoring stays on the customer's infrastructure.
 - Free to self-install with Docker. Customers pay only for optional professional installation, configuration, support, or custom development.
 - Official public locales: hy, en, ru.
 

@@ -1,7 +1,14 @@
 export type DownloadItemId =
   | "monitoring"
+  | "patch-panel"
+  | "network-explorer"
   | "lan-scan"
   | "vlan-scan"
+  | "cctv-probe"
+  | "bandwidth-test"
+  | "subnet-calculator"
+  | "port-audit"
+  | "ip-messenger"
   | "cloud"
   | "service-watch";
 
@@ -20,7 +27,7 @@ function envUrl(key: string) {
 
 /**
  * Customer-facing downloads for DitakNet programs/tools.
- * Temporary placeholder ZIPs live under /downloads/*.zip until real package URLs are provided.
+ * Real, self-contained standalone packages live under /downloads/*.zip.
  * Override any item with NEXT_PUBLIC_DOWNLOAD_*_URL when ready.
  */
 export function getDownloadCatalog(): DownloadItem[] {
@@ -39,6 +46,27 @@ export function getDownloadCatalog(): DownloadItem[] {
       placeholderUrl: "/downloads/monitoring.zip"
     },
     {
+      id: "ip-messenger",
+      platforms: ["windows", "linux"],
+      versionLabel: "v1",
+      envKey: "NEXT_PUBLIC_DOWNLOAD_IP_MESSENGER_URL",
+      placeholderUrl: "/downloads/ip-messenger.zip"
+    },
+    {
+      id: "patch-panel",
+      platforms: ["windows", "linux", "docker"],
+      versionLabel: "v1",
+      envKey: "NEXT_PUBLIC_DOWNLOAD_PATCH_PANEL_URL",
+      placeholderUrl: "/downloads/patch-panel.zip"
+    },
+    {
+      id: "network-explorer",
+      platforms: ["windows", "linux"],
+      versionLabel: "v1",
+      envKey: "NEXT_PUBLIC_DOWNLOAD_NETWORK_EXPLORER_URL",
+      placeholderUrl: "/downloads/network-explorer.zip"
+    },
+    {
       id: "lan-scan",
       platforms: ["windows", "linux"],
       versionLabel: "v1",
@@ -51,6 +79,34 @@ export function getDownloadCatalog(): DownloadItem[] {
       versionLabel: "v1",
       envKey: "NEXT_PUBLIC_DOWNLOAD_VLAN_SCAN_URL",
       placeholderUrl: "/downloads/vlan-scan.zip"
+    },
+    {
+      id: "cctv-probe",
+      platforms: ["windows", "linux"],
+      versionLabel: "v1",
+      envKey: "NEXT_PUBLIC_DOWNLOAD_CCTV_PROBE_URL",
+      placeholderUrl: "/downloads/cctv-probe.zip"
+    },
+    {
+      id: "bandwidth-test",
+      platforms: ["windows", "linux"],
+      versionLabel: "v1",
+      envKey: "NEXT_PUBLIC_DOWNLOAD_BANDWIDTH_TEST_URL",
+      placeholderUrl: "/downloads/bandwidth-test.zip"
+    },
+    {
+      id: "subnet-calculator",
+      platforms: ["windows", "linux"],
+      versionLabel: "v1",
+      envKey: "NEXT_PUBLIC_DOWNLOAD_SUBNET_CALC_URL",
+      placeholderUrl: "/downloads/subnet-calculator.zip"
+    },
+    {
+      id: "port-audit",
+      platforms: ["windows", "linux"],
+      versionLabel: "v1",
+      envKey: "NEXT_PUBLIC_DOWNLOAD_PORT_AUDIT_URL",
+      placeholderUrl: "/downloads/port-audit.zip"
     },
     {
       id: "cloud",

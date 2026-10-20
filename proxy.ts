@@ -11,6 +11,7 @@ export function proxy(request: NextRequest) {
     pathname.startsWith("/api") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/images") ||
+    pathname.startsWith("/downloads") ||
     pathname === "/llms.txt" ||
     pathname === "/ai.txt" ||
     pathname === "/robots.txt" ||

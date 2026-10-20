@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  ditaknet-monitoring:
+    image: ditaknet/monitoring-server:latest
+    container_name: ditaknet-server
+    restart: unless-stopped
+    network_mode: host
+    ports:
+      - "5833:5833"
+    environment:
+      - PORT=5833
+      - APP_ENV=production
+      - DITAKNET_DISCOVERY_ENABLED=true
+    volumes:
+      - ditaknet-data:/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+volumes:
+  ditaknet-data:
+    driver: local

@@ -10,8 +10,19 @@ import { Locale, locales, normalizeLocale } from "@/lib/i18n-core";
 import { buildLocalizedMetadata, messageText } from "@/lib/seo";
 import {
   buildAiProductJsonLd,
+  buildBandwidthTestJsonLd,
+  buildCctvProbeJsonLd,
+  buildHotelSoftwareJsonLd,
+  buildLanScanJsonLd,
+  buildNetworkExplorerJsonLd,
   buildOrganizationJsonLd,
+  buildPatchPanelJsonLd,
+  buildPortAuditJsonLd,
+  buildResidentialSoftwareJsonLd,
+  buildServiceWatchJsonLd,
   buildSoftwareApplicationJsonLd,
+  buildSubnetCalculatorJsonLd,
+  buildVlanScanJsonLd,
   buildWebSiteJsonLd
 } from "@/lib/seo-structured-data";
 
@@ -61,7 +72,18 @@ export default async function LocaleLayout({
           buildOrganizationJsonLd(),
           buildSoftwareApplicationJsonLd(locale),
           buildWebSiteJsonLd(locale),
-          buildAiProductJsonLd(locale)
+          buildAiProductJsonLd(locale),
+          buildHotelSoftwareJsonLd(),
+          buildPatchPanelJsonLd(locale),
+          buildResidentialSoftwareJsonLd(locale),
+          buildLanScanJsonLd(locale),
+          buildVlanScanJsonLd(locale),
+          buildNetworkExplorerJsonLd(locale),
+          buildServiceWatchJsonLd(locale),
+          buildCctvProbeJsonLd(locale),
+          buildBandwidthTestJsonLd(locale),
+          buildSubnetCalculatorJsonLd(locale),
+          buildPortAuditJsonLd(locale)
         ]}
       />
       <SiteHeader locale={locale} messages={messages} />

@@ -18,6 +18,7 @@ import {
 import { DashboardPreview } from "@/components/marketing/dashboard-preview";
 import { HeroShowcase } from "@/components/marketing/hero-showcase";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { SoftwareSolutionsSection } from "@/components/marketing/software-solutions";
 import { PricingTable } from "@/components/pricing/pricing-table";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { ButtonLink } from "@/components/ui/button";
@@ -99,6 +100,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           />
         </div>
       </section>
+
+      <SoftwareSolutionsSection locale={locale} messages={messages} />
 
       <section className="py-14">
         <div className="container-page">
