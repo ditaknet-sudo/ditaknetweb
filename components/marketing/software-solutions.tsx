@@ -19,7 +19,7 @@ import {
 
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
+import { Locale, Messages, createTranslator, getMessageList } from "@/lib/i18n-core";
 
 type SoftwareSolutionsProps = {
   locale: Locale;
@@ -57,6 +57,11 @@ const patchPanelPorts = [
 export function SoftwareSolutionsSection({ locale, messages }: SoftwareSolutionsProps) {
   const t = createTranslator(messages);
   const [selectedPort, setSelectedPort] = useState<number>(3);
+
+  const patchPanelFeatures = getMessageList(messages, "home.software.patchPanel.features");
+  const networkExplorerFeatures = getMessageList(messages, "home.software.networkExplorer.features");
+  const hotelFeatures = getMessageList(messages, "home.software.hotel.features");
+  const residentialFeatures = getMessageList(messages, "home.software.residential.features");
 
   const activePort = patchPanelPorts.find((p) => p.id === selectedPort) || patchPanelPorts[0];
 
@@ -163,7 +168,7 @@ export function SoftwareSolutionsSection({ locale, messages }: SoftwareSolutions
 
             {/* Feature bullets */}
             <ul className="mb-6 space-y-2 text-sm text-[var(--foreground)]">
-              {(t("home.software.patchPanel.features") as unknown as string[]).map((feature, i) => (
+              {patchPanelFeatures.map((feature, i) => (
                 <li key={i} className="flex items-center gap-2 text-xs md:text-sm">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--accent)]" />
                   <span>{feature}</span>
@@ -238,7 +243,7 @@ export function SoftwareSolutionsSection({ locale, messages }: SoftwareSolutions
 
             {/* Feature bullets */}
             <ul className="mb-6 space-y-2 text-sm text-[var(--foreground)]">
-              {(t("home.software.networkExplorer.features") as unknown as string[]).map((feature, i) => (
+              {networkExplorerFeatures.map((feature, i) => (
                 <li key={i} className="flex items-center gap-2 text-xs md:text-sm">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--accent)]" />
                   <span>{feature}</span>
@@ -322,7 +327,7 @@ export function SoftwareSolutionsSection({ locale, messages }: SoftwareSolutions
 
             {/* Feature bullets */}
             <ul className="mb-6 space-y-2 text-sm text-[var(--foreground)]">
-              {(t("home.software.hotel.features") as unknown as string[]).map((feature, i) => (
+              {hotelFeatures.map((feature, i) => (
                 <li key={i} className="flex items-center gap-2 text-xs md:text-sm">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--brand)]" />
                   <span>{feature}</span>
@@ -409,7 +414,7 @@ export function SoftwareSolutionsSection({ locale, messages }: SoftwareSolutions
 
             {/* Feature bullets */}
             <ul className="mb-6 space-y-2 text-sm text-[var(--foreground)]">
-              {(t("home.software.residential.features") as unknown as string[]).map((feature, i) => (
+              {residentialFeatures.map((feature, i) => (
                 <li key={i} className="flex items-center gap-2 text-xs md:text-sm">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--accent)]" />
                   <span>{feature}</span>
