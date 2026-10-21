@@ -4,7 +4,9 @@ import {
   BookOpen,
   Calculator,
   Camera,
+  CheckCircle2,
   Cloud,
+  Cpu,
   Download,
   ExternalLink,
   Gauge,
@@ -15,9 +17,11 @@ import {
   Radar,
   Server,
   ServerCog,
-  ShieldAlert
+  ShieldAlert,
+  Zap
 } from "lucide-react";
 
+import { PwaInstallButton } from "@/components/pwa/pwa-install-banner";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getDownloadCatalog, type DownloadItemId } from "@/lib/downloads";
@@ -100,27 +104,70 @@ export default async function DownloadPage({ params }: { params: Promise<{ local
         <p className="mt-4 text-base leading-7 text-[var(--muted)] md:text-lg">{t("downloadPage.description")}</p>
       </section>
 
-      <section className="mb-8 rounded-2xl border border-[var(--brand)]/30 bg-[var(--brand)]/5 p-6 md:p-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div>
-            <h2 className="text-xl font-bold text-[var(--foreground)]">
+      {/* Unified Flagship Tool: DitakNet Fast LAN & Multi-Mask Scanner v2.0 */}
+      <section className="mb-10 overflow-hidden rounded-3xl border border-[var(--brand)]/40 bg-gradient-to-br from-[var(--panel)] via-[var(--panel-soft)] to-[var(--brand)]/10 p-6 shadow-xl md:p-8">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div className="max-w-3xl">
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 text-xs font-bold text-emerald-400">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                {locale === "hy" ? "Մեկ Միասնական Գործիք" : locale === "ru" ? "Один Универсальный Инструмент" : "One Unified Tool"}
+              </span>
+              <span className="rounded-full bg-[var(--brand)]/15 border border-[var(--brand)]/30 px-3 py-1 text-xs font-bold text-[var(--brand)]">
+                v2.0 Standalone Engine
+              </span>
+              <span className="rounded-full bg-cyan-500/15 border border-cyan-500/30 px-3 py-1 text-xs font-bold text-cyan-400">
+                {locale === "hy" ? "Առանց ZIP Արխիվի" : locale === "ru" ? "Прямой запуск без ZIP" : "Direct Run - No ZIP"}
+              </span>
+            </div>
+
+            <h2 className="text-2xl md:text-3xl font-black tracking-tight text-[var(--foreground)]">
               {locale === "hy"
-                ? "📦 Պատրաստի Standalone Փաթեթներ Windows-ի և Docker-ի համար"
+                ? "⚡ DitakNet Fast LAN & Multi-Mask Scanner"
                 : locale === "ru"
-                ? "📦 Готовые Standalone пакеты для Windows и Docker"
-                : "📦 Standalone Ready-to-Run Packages for Windows & Docker"}
+                ? "⚡ DitakNet Fast LAN & Multi-Mask Scanner"
+                : "⚡ DitakNet Fast LAN & Multi-Mask Scanner"}
             </h2>
-            <p className="mt-2 text-sm text-[var(--muted)] max-w-2xl">
+
+            <p className="mt-3 text-sm leading-relaxed text-[var(--muted)] md:text-base">
               {locale === "hy"
-                ? "Բոլոր ծրագրերը ներբեռնվում են որպես ZIP արխիվներ, որոնք ներառում են Windows-ի համար պատրաստի `.bat` գործարկիչներ և PowerShell սկրիպտներ։ Տեղադրելուց հետո պարզապես բացեք արխիվը և 2x սեղմեք .bat ֆայլի վրա:"
+                ? "Լրիվ ավտոմատ ցանցային զննիչ Windows-ի համար՝ 0 հարց, 0 սպասում։ Ավտոմատ որոշում է համակարգչի բոլոր ցանցային քարտերը (Wi-Fi, Ethernet, Hyper-V, VLAN) և բոլոր մասկերը (/24, /20, /16): Զուգահեռ բազմահոսքային (multi-threaded) ARP + ICMP ստուգում, ZTE, Xiaomi, Apple, Samsung, MikroTik, Cisco, Dahua, Hikvision սարքերի ճանաչում և ավտոմատ HTML/CSV հաշվետվություն:"
                 : locale === "ru"
-                ? "Все программы скачиваются как ZIP-архивы, содержащие готовые лаунчеры `.bat` и PowerShell скрипты. Распакуйте архив и запустите двойным кликом .bat файл:"
-                : "All programs download as standalone ZIP archives containing ready-to-run `.bat` launchers and native PowerShell scripts. Unpack and double-click to start immediately."}
+                ? "Полностью автоматический сканер сети для Windows: 0 вопросов, 0 задержек. Автоматически определяет все сетевые адаптеры (Wi-Fi, Ethernet, Hyper-V, VLAN) и любые маски подсетей (/24, /20, /16). Многопоточный ARP + ICMP опрос, распознавание брендов ZTE, Xiaomi, Apple, Samsung, MikroTik, Cisco и авто-генерация HTML/CSV отчетов:"
+                : "Fully automated Windows network scanner: zero prompts, zero waiting. Automatically discovers all network adapters (Wi-Fi, Ethernet, Hyper-V, VLAN) and all subnet masks (/24, /20, /16). Parallel multi-threaded ARP + ICMP sweep, vendor detection (ZTE, Xiaomi, Apple, Samsung, MikroTik, Cisco), and instant HTML/CSV reporting."}
             </p>
+
+            <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-[var(--muted)]">
+              <span className="rounded-lg bg-[var(--panel)] border border-[var(--line)] px-2.5 py-1">✓ /24, /20, /16 Auto Masks</span>
+              <span className="rounded-lg bg-[var(--panel)] border border-[var(--line)] px-2.5 py-1">✓ Win32 SendARP &lt;1ms</span>
+              <span className="rounded-lg bg-[var(--panel)] border border-[var(--line)] px-2.5 py-1">✓ 80, 443, 22, 554, 8291, 3389</span>
+              <span className="rounded-lg bg-[var(--panel)] border border-[var(--line)] px-2.5 py-1">✓ No Admin / No Installation</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-xs font-semibold px-3 py-2 rounded-lg bg-[var(--panel)] border border-[var(--line)] text-[var(--foreground)]">
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>11 {locale === "hy" ? "Պատրաստի Փաթեթ" : locale === "ru" ? "Готовых Пакетов" : "Ready Packages"}</span>
+
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
+            {/* Direct .EXE Download */}
+            <a
+              href="/downloads/DitakNet-Scanner.exe"
+              download="DitakNet-Scanner.exe"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg hover:brightness-110 active:scale-95 transition-all"
+            >
+              <Download className="h-4 w-4" />
+              <span>{locale === "hy" ? "Ներբեռնել .EXE (Windows Executable)" : locale === "ru" ? "Скачать .EXE (Windows)" : "Download .EXE (Windows)"}</span>
+            </a>
+
+            {/* Direct .PS1 Download */}
+            <a
+              href="/downloads/DitakNet-Scanner.ps1"
+              download="DitakNet-Scanner.ps1"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--line)] bg-[var(--panel)] px-5 py-3 text-sm font-bold text-[var(--foreground)] hover:border-[var(--brand)] hover:text-[var(--brand)] active:scale-95 transition-all shadow-sm"
+            >
+              <Cpu className="h-4 w-4 text-[var(--brand)]" />
+              <span>{locale === "hy" ? "Ներբեռնել .PS1 (PowerShell Script)" : locale === "ru" ? "Скачать .PS1 (PowerShell)" : "Download .PS1 (PowerShell)"}</span>
+            </a>
+
+            {/* PWA Windows App Install */}
+            <PwaInstallButton locale={locale} />
           </div>
         </div>
       </section>
@@ -175,8 +222,29 @@ export default async function DownloadPage({ params }: { params: Promise<{ local
                   </ButtonLink>
                 )}
 
-                {/* 2. Download ZIP button (forces real file download) */}
-                {item.available ? (
+                {/* 2. Download buttons (EXE/PS1 direct for Windows tools, or ZIP for others) */}
+                {item.id === "lan-scan" || item.id === "network-explorer" ? (
+                  <>
+                    <ButtonLink
+                      href="/downloads/DitakNet-Scanner.exe"
+                      download="DitakNet-Scanner.exe"
+                      variant="primary"
+                      size="md"
+                    >
+                      <Download className="h-4 w-4" />
+                      <span>.EXE (Windows)</span>
+                    </ButtonLink>
+                    <ButtonLink
+                      href="/downloads/DitakNet-Scanner.ps1"
+                      download="DitakNet-Scanner.ps1"
+                      variant="secondary"
+                      size="md"
+                    >
+                      <Cpu className="h-4 w-4" />
+                      <span>.PS1</span>
+                    </ButtonLink>
+                  </>
+                ) : item.available ? (
                   <ButtonLink
                     href={downloadUrl}
                     download={`ditaknet-${item.id}.zip`}
@@ -184,7 +252,7 @@ export default async function DownloadPage({ params }: { params: Promise<{ local
                     size="md"
                   >
                     <Download className="h-4 w-4" />
-                    <span>{t("downloadPage.downloadCta")} (.ZIP)</span>
+                    <span>{t("downloadPage.downloadCta")}</span>
                   </ButtonLink>
                 ) : (
                   <ButtonLink href={`/${locale}/contact`} variant="secondary" size="md">
@@ -208,62 +276,62 @@ export default async function DownloadPage({ params }: { params: Promise<{ local
       <section className="mt-12 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-6 md:p-8">
         <h2 className="text-xl font-bold text-[var(--foreground)]">
           {locale === "hy"
-            ? "🚀 Ինչպե՞ս գործարկել ներբեռնված ծրագրերը Windows-ում"
+            ? "🚀 Ինչպե՞ս գործարկել DitakNet-ը Windows-ում (Առանց ZIP / PWA)"
             : locale === "ru"
-            ? "🚀 Как запустить скачанные программы на Windows"
-            : "🚀 How to run downloaded tools on Windows"}
+            ? "🚀 Как запустить DitakNet на Windows (Без ZIP / PWA)"
+            : "🚀 How to run DitakNet on Windows (Direct / PWA)"}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-4">
           <div className="rounded-xl border border-[var(--line)] bg-[var(--panel-soft)] p-4">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand)] text-[var(--button-text)] text-sm font-bold">1</span>
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand)] text-white text-sm font-bold">1</span>
             <h3 className="mt-3 text-sm font-bold text-[var(--foreground)]">
-              {locale === "hy" ? "Ներբեռնել" : locale === "ru" ? "Скачать" : "Download"}
+              {locale === "hy" ? "Ընտրեք Տարբերակը" : locale === "ru" ? "Выберите Формат" : "Choose Format"}
             </h3>
             <p className="mt-1 text-xs text-[var(--muted)]">
               {locale === "hy"
-                ? "Սեղմեք «Ներբեռնել (.ZIP)» կոճակը ցանկալի ծրագրի քարտի վրա:"
+                ? "Ներբեռնեք .EXE (միանգամից աշխատող), .PS1 (PowerShell) կամ տեղադրեք PWA Desktop ծրագիրը:"
                 : locale === "ru"
-                ? "Нажмите «Скачать (.ZIP)» на карточке нужной программы."
-                : "Click the 'Download (.ZIP)' button on any program card."}
+                ? "Скачайте .EXE (готов к запуску), .PS1 (PowerShell) или установите PWA Desktop:"
+                : "Download .EXE (direct runner), .PS1 (PowerShell) or install PWA Desktop app."}
+            </p>
+          </div>
+          <div className="rounded-xl border border-[var(--brand)]/30 bg-[var(--brand)]/10 p-4">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand)] text-white text-sm font-bold">2</span>
+            <h3 className="mt-3 text-sm font-bold text-[var(--foreground)]">
+              {locale === "hy" ? "Անմիջական Գործարկում" : locale === "ru" ? "Прямой Запуск" : "Instant Launch"}
+            </h3>
+            <p className="mt-1 text-xs text-[var(--muted)]">
+              {locale === "hy"
+                ? "Ոչ մի ZIP արխիվ բացել պետք չէ։ 2x Click արեք .exe ֆայլի վրա և այն անմիջապես կաշխատի:"
+                : locale === "ru"
+                ? "Никаких ZIP архивов распаковывать не нужно. 2x Клик по .exe и сканер сразу работает:"
+                : "No ZIP unzipping needed. Double-click the .exe file to run immediately."}
             </p>
           </div>
           <div className="rounded-xl border border-[var(--line)] bg-[var(--panel-soft)] p-4">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand)] text-[var(--button-text)] text-sm font-bold">2</span>
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand)] text-white text-sm font-bold">3</span>
             <h3 className="mt-3 text-sm font-bold text-[var(--foreground)]">
-              {locale === "hy" ? "Բացել արխիվը (Extract)" : locale === "ru" ? "Распаковать" : "Extract Archive"}
+              {locale === "hy" ? "0 Հարց — Ավտոմատ Զննում" : locale === "ru" ? "0 Вопросов — Автоскан" : "0 Prompts Auto-Scan"}
             </h3>
             <p className="mt-1 text-xs text-[var(--muted)]">
               {locale === "hy"
-                ? "Աջ քլիք արեք ZIP ֆայլի վրա և ընտրեք «Extract All» (Распаковать всё):"
+                ? "Սքաները ինքնուրույն գտնում է բոլոր ցանցային քարտերը և բոլոր մասկերը (/24, /20, /16):"
                 : locale === "ru"
-                ? "Кликните правой кнопкой на ZIP и выберите «Извлечь все»:"
-                : "Right click the ZIP file and select 'Extract All'."}
-            </p>
-          </div>
-          <div className="rounded-xl border border-[var(--line)] bg-[var(--brand)]/10 border-[var(--brand)]/30 p-4">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand)] text-[var(--button-text)] text-sm font-bold">3</span>
-            <h3 className="mt-3 text-sm font-bold text-[var(--foreground)]">
-              {locale === "hy" ? "2x Click .BAT ֆայլին" : locale === "ru" ? "2x Клик по .BAT" : "Double-click .BAT"}
-            </h3>
-            <p className="mt-1 text-xs text-[var(--muted)]">
-              {locale === "hy"
-                ? "Գործարկեք DitakNet-*.bat ֆայլը։ Ոչ մի հավելյալ ծրագիր տեղադրել պետք չէ։"
-                : locale === "ru"
-                ? "Запустите DitakNet-*.bat. Дополнительное ПО устанавливать не требуется."
-                : "Run DitakNet-*.bat. No extra runtimes or installations required."}
+                ? "Сканер сам определяет все сетевые карты и любые маски подсетей (/24, /20, /16):"
+                : "Scanner automatically inspects all network cards and masks (/24, /20, /16)."}
             </p>
           </div>
           <div className="rounded-xl border border-[var(--line)] bg-[var(--panel-soft)] p-4">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand)] text-[var(--button-text)] text-sm font-bold">4</span>
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--brand)] text-white text-sm font-bold">4</span>
             <h3 className="mt-3 text-sm font-bold text-[var(--foreground)]">
-              {locale === "hy" ? "Արդյունքներ և Export" : locale === "ru" ? "Результаты и Export" : "Results & Export"}
+              {locale === "hy" ? "HTML & CSV Հաշվետվություն" : locale === "ru" ? "Отчеты HTML и CSV" : "HTML & CSV Reports"}
             </h3>
             <p className="mt-1 text-xs text-[var(--muted)]">
               {locale === "hy"
-                ? "Ծրագիրը կկատարի սքանավորումը և արդյունքները կպահպանի JSON կամ CSV ֆայլում:"
+                ? "Ավտոմատ բացում է ժամանակակից Dark-mode HTML Dashboard և ստեղծում CSV ֆայլ:"
                 : locale === "ru"
-                ? "Программа выполнит сканирование и сохранит результат в JSON или CSV."
-                : "The tool scans your network and saves results to clean JSON or CSV."}
+                ? "Автоматически открывает современный Dark-mode HTML Dashboard и сохраняет CSV:"
+                : "Automatically generates interactive Dark-mode HTML Dashboard and CSV export."}
             </p>
           </div>
         </div>

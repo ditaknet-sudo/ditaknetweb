@@ -5,18 +5,33 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "DitakNet Network & IT Tools",
     short_name: "DitakNet",
     description:
-      "Self-hosted network monitoring, LAN/VLAN scanner, interactive patch panel manager, and IT toolkit.",
+      "Self-hosted network monitoring, LAN/VLAN scanner, interactive patch panel manager, and IT toolkit for Windows and Linux.",
     start_url: "/",
+    scope: "/",
+    id: "/",
     display: "standalone",
     orientation: "any",
     background_color: "#0f1419",
     theme_color: "#1769aa",
+    categories: ["utilities", "productivity", "business"],
     icons: [
+      {
+        src: "/favicon.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any"
+      },
       {
         src: "/favicon.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "any"
+      },
+      {
+        src: "/favicon.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable"
       }
     ]
   };

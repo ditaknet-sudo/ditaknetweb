@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { HtmlLang } from "@/components/layout/html-lang";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { PwaClient } from "@/components/pwa/pwa-client";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, locales, normalizeLocale } from "@/lib/i18n-core";
@@ -89,6 +90,7 @@ export default async function LocaleLayout({
       <SiteHeader locale={locale} messages={messages} />
       {children}
       <SiteFooter locale={locale} messages={messages} />
+      <PwaClient locale={locale} />
     </>
   );
 }

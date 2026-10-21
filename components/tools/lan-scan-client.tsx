@@ -428,14 +428,22 @@ export function LanScanClient({ locale }: { locale: Locale }) {
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--muted)]">{text.subtitle}</p>
         </div>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex flex-wrap shrink-0 items-center gap-2">
           <a
-            href="/downloads/lan-scan.zip"
-            download
-            className="focus-ring inline-flex h-11 items-center gap-2 rounded-md bg-[var(--brand)] px-5 text-sm font-bold text-white shadow-sm transition hover:bg-[var(--brand-dark)]"
+            href="/downloads/DitakNet-Scanner.exe"
+            download="DitakNet-Scanner.exe"
+            className="focus-ring inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 text-sm font-bold text-white shadow-md transition hover:brightness-110 active:scale-95"
           >
             <Download className="h-4 w-4" />
-            <span>{text.downloadWin}</span>
+            <span>{locale === "hy" ? "Ներբեռնել .EXE" : locale === "ru" ? "Скачать .EXE" : "Download .EXE"}</span>
+          </a>
+          <a
+            href="/downloads/DitakNet-Scanner.ps1"
+            download="DitakNet-Scanner.ps1"
+            className="focus-ring inline-flex h-11 items-center gap-2 rounded-xl border border-[var(--line)] bg-[var(--panel)] px-4 text-sm font-bold text-[var(--foreground)] shadow-sm transition hover:border-[var(--brand)] hover:text-[var(--brand)] active:scale-95"
+          >
+            <Download className="h-4 w-4" />
+            <span>.PS1</span>
           </a>
         </div>
       </div>
